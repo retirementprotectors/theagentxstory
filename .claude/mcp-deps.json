@@ -1,0 +1,22 @@
+{
+  "last_updated": "2026-03-14T23:44:31Z",
+  "dependencies": {
+    "rpi-comms": {
+      "tools": [
+        "comms_send_sms",
+        "comms_get_sms_status"
+      ],
+      "last_used": "2026-03-14T23:00:26Z"
+    },
+    "plugin_playwright_playwright": {
+      "tools": [
+        "browser_navigate",
+        "browser_snapshot",
+        "browser_click",
+        "browser_take_screenshot",
+        "browser_type"
+      ],
+      "last_used": "2026-03-14T23:44:31Z"
+    }
+  }
+}
