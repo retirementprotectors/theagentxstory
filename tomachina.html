@@ -974,8 +974,8 @@
         <span class="i">Ignite</span>
       </div>
       <p class="statement">
-        DAVID forges the deals. toMachina <em>arms the team</em>.<br>
-        RPI ignites our Enterprise Value.
+        DAVID <strong style="color: var(--money); font-weight: 900;">forges</strong> the deals. toMachina <strong style="color: var(--machine); font-weight: 900;">arms</strong> the team.<br>
+        RPI <strong style="color: var(--rpi); font-weight: 900;">ignites</strong> our Enterprise Value.
       </p>
     </div>
   </div>
@@ -1496,9 +1496,9 @@
 <section style="padding: 60px 40px; text-align: center; border-top: 1px solid var(--border);">
   <div class="container">
     <p style="font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); line-height: 1.5; max-width: 780px; margin: 0 auto;">
-      <strong style="color: var(--money);">DAVID</strong> <strong style="color: var(--money); font-weight: 900;">forges</strong> the deals.
-      <strong style="color: var(--machine);">toMachina</strong> <strong style="color: var(--machine); font-weight: 900;">arms</strong> the team.
-      <strong style="color: var(--rpi);">RPI</strong> <strong style="color: var(--rpi); font-weight: 900;">ignites</strong> our Enterprise Value.
+      DAVID <strong style="color: var(--money); font-weight: 900;">forges</strong> the deals.
+      toMachina <strong style="color: var(--machine); font-weight: 900;">arms</strong> the team.
+      RPI <strong style="color: var(--rpi); font-weight: 900;">ignites</strong> our Enterprise Value.
     </p>
   </div>
 </section>
@@ -1591,6 +1591,8 @@ function switchTab(tab) {
       <input type="text" id="cxb-name" name="name" required autocomplete="name">
       <label for="cxb-email">Email</label>
       <input type="email" id="cxb-email" name="email" required autocomplete="email">
+      <label for="cxb-phone">Phone (optional)</label>
+      <input type="tel" id="cxb-phone" name="phone" autocomplete="tel" placeholder="(optional but speeds things up)">
       <label for="cxb-company">Company (optional)</label>
       <input type="text" id="cxb-company" name="company" autocomplete="organization">
       <label for="cxb-msg">What brings you here?</label>
@@ -1626,6 +1628,7 @@ function switchTab(tab) {
     var body = encodeURIComponent(
       'Name: ' + f.name.value + '\n' +
       'Email: ' + f.email.value + '\n' +
+      'Phone: ' + (f.phone.value || '-') + '\n' +
       'Company: ' + (f.company.value || '-') + '\n' +
       'Audience: ' + audience + '\n' +
       'Source URL: ' + location.href + '\n\n' +

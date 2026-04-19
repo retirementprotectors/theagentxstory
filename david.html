@@ -716,6 +716,8 @@ function switchSub(sub) {
       <input type="text" id="cxb-name" name="name" required autocomplete="name">
       <label for="cxb-email">Email</label>
       <input type="email" id="cxb-email" name="email" required autocomplete="email">
+      <label for="cxb-phone">Phone (optional)</label>
+      <input type="tel" id="cxb-phone" name="phone" autocomplete="tel" placeholder="(optional but speeds things up)">
       <label for="cxb-company">Company (optional)</label>
       <input type="text" id="cxb-company" name="company" autocomplete="organization">
       <label for="cxb-msg">What brings you here?</label>
@@ -751,6 +753,7 @@ function switchSub(sub) {
     var body = encodeURIComponent(
       'Name: ' + f.name.value + '\n' +
       'Email: ' + f.email.value + '\n' +
+      'Phone: ' + (f.phone.value || '-') + '\n' +
       'Company: ' + (f.company.value || '-') + '\n' +
       'Audience: ' + audience + '\n' +
       'Source URL: ' + location.href + '\n\n' +
