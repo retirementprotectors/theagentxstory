@@ -169,9 +169,12 @@
     font-size: 17px;
     color: var(--text-muted);
     margin-bottom: 48px;
-    max-width: 660px;
+    max-width: 760px;
     line-height: 1.8;
+    text-wrap: pretty;
   }
+  p { text-wrap: pretty; }
+  h2, h3 { text-wrap: balance; }
 
   /* ── QUESTION BLOCK ── */
   .question-block {
@@ -883,6 +886,9 @@
   /* agentX wordmark — locked spec per JDM 2026-04-19 */
   .x-tri { background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
   .x-tri-exp { font-size: 0.95em; vertical-align: 0.35em; font-weight: 900; background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  /* agentX wordmark component — per JDM item 9 */
+  .agentx-wm { font-weight: 900; }
+  .agentx-wm .x-sup { font-size: 0.78em; vertical-align: 0.4em; font-weight: 900; background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   /* ── MOBILE — U4 per JDM 2026-04-19 ── */
   @media (max-width: 768px) {
@@ -920,9 +926,9 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="hero" style="padding: 120px 40px 60px;">
   <h1 style="font-size: 88px; font-weight: 900; letter-spacing: -4px; line-height: 0.95; margin-bottom: 24px;">Our <span class="accent">Mission</span></h1>
-  <p style="font-size: 26px; font-weight: 400; color: var(--text); max-width: 840px; margin: 0 auto 32px; line-height: 1.5;">Tearing the <strong style="color: var(--money);">Health</strong>, <strong style="color: var(--machine);">Wealth</strong>, and <strong style="color: var(--magic);">Legacy</strong> industries to the ground &mdash; and rebuilding around the client experience.</p>
+  <p style="font-size: 26px; font-weight: 400; color: var(--text); max-width: 840px; margin: 0 auto 32px; line-height: 1.5;">Tear the <strong style="color: var(--money);">Health</strong>, <strong style="color: var(--machine);">Wealth</strong>, and <strong style="color: var(--magic);">Legacy</strong> industry to the ground &mdash; and <strong class="tri" style="font-weight: 900;">R</strong>ebuild it <strong class="tri" style="font-weight: 900;">A</strong>round the <strong class="tri" style="font-weight: 900;">C</strong>lient <strong class="tri" style="font-weight: 900;">E</strong>xperience.</p>
   <div style="text-align: center; margin-bottom: 36px;">
-    <div style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 40px; border-radius: 100px; background: var(--electric-glow); border: 1px solid var(--electric-border); color: var(--electric); font-size: 24px; font-weight: 900; letter-spacing: 1px; white-space: nowrap;">#RunningOurOwnRACE</div>
+    <div style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 40px; border-radius: 100px; background: var(--electric-glow); border: 1px solid var(--electric-border); color: var(--electric); font-size: 24px; font-weight: 900; letter-spacing: 1px; white-space: nowrap;">#RunningOurOwn<span class="tri">R</span><span class="tri">A</span><span class="tri">C</span><span class="tri">E</span></div>
   </div>
 </div>
 
@@ -944,25 +950,12 @@
 <section>
   <div class="container">
     <h2>Our <span class="accent">Vision</span></h2>
-    <p class="section-sub">If something was best-in &mdash; not just their Market, or their Industry &mdash; but in BUSINESS &mdash; what would that be? AgentX is the answer.</p>
+    <p class="section-sub">If something was best-in &mdash; not just their Market, or their Industry &mdash; but in BUSINESS &mdash; what would that be? <span class="agentx-wm">agent<span class="x-sup">X</span></span> is the answer.</p>
 
     <div class="question-block" style="text-align: left;">
       <p style="font-size: 18px; line-height: 1.7; color: var(--text); margin: 0;">
-        AgentX is the meta-level enterprise that proves what an industry looks like when one person rebuilds it from the ground up. <strong style="color: var(--money);">DAVID</strong> forges the deals. <strong style="color: var(--machine);">toMachina</strong> arms the team. <strong style="color: var(--magic);">RPI</strong> ignites the mission. Three companies. One enterprise. The system that removes the human bottleneck.
+        <span class="agentx-wm">agent<span class="x-sup">X</span></span> is the meta-level enterprise that proves what an industry looks like when it gets rebuilt from the ground up. <strong style="color: var(--money);">DAVID</strong> forges the deals. <strong style="color: var(--machine);">toMachina</strong> arms the team. <strong style="color: var(--magic);">RPI</strong> ignites the mission. Three companies. One enterprise. The system that removes the human bottlenecks.
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- OUR MISSION -->
-<section>
-  <div class="container">
-    <h2>Our <span class="accent">Mission</span></h2>
-    <p class="section-sub">Tearing the Health, Wealth, and Legacy industries to the ground &mdash; and rebuilding around the client experience.</p>
-
-    <div class="identity-block" style="background: var(--electric-glow); border-color: var(--electric-border);">
-      <h3 style="font-size: 28px; color: var(--electric); margin-bottom: 12px;">#RunningOurOwnRACE</h3>
-      <p style="font-size: 22px; font-weight: 600; color: var(--text); max-width: 680px; margin: 0 auto 16px; line-height: 1.6;"><strong style="color: var(--electric); font-weight: 900; text-transform: uppercase; text-shadow: 0 0 8px rgba(197, 212, 227, 0.45);">R</strong>ebuilding <strong style="color: var(--electric); font-weight: 900; text-transform: uppercase; text-shadow: 0 0 8px rgba(197, 212, 227, 0.45);">A</strong>round the <strong style="color: var(--electric); font-weight: 900; text-transform: uppercase; text-shadow: 0 0 8px rgba(197, 212, 227, 0.45);">C</strong>lient <strong style="color: var(--electric); font-weight: 900; text-transform: uppercase; text-shadow: 0 0 8px rgba(197, 212, 227, 0.45);">E</strong>xperience.</p><p style="font-size: 15px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7;">Not riding the industry's wave &mdash; building our own.</p>
     </div>
   </div>
 </section>
@@ -1068,7 +1061,7 @@
 
     <div style="margin-top: 28px; padding: 24px 32px; background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; text-align: center;">
       <div style="font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--electric); margin-bottom: 8px;">The Result</div>
-      <p style="font-size: 18px; color: var(--text); line-height: 1.6; max-width: 780px; margin: 0 auto; font-weight: 500;">RPI operates across <em>every layer</em> &mdash; producing <strong class="tri">Wholesale Volume with a Retail Footprint</strong> in Life / Annuity / Medicare. A market that has never been consolidated this way.</p>
+      <p style="font-size: 18px; color: var(--text); line-height: 1.6; max-width: 780px; margin: 0 auto; font-weight: 500;">RPI operates across <em>every layer</em> &mdash; producing <strong class="tri">Wholesale Volume with a Retail Footprint</strong> in Life / Annuity / Medicare. This type of <strong class="tri">Scaled Retail Consolidation</strong> has yet to be seen in the market.</p>
     </div>
   </div>
 </section>
@@ -1096,32 +1089,32 @@
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2026</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--text);">$50M</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Activate</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">Activate</div>
       </div>
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2027</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--text);">$400M</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Ramp</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">Ramp</div>
       </div>
       <div style="background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--electric); margin-bottom: 4px;">2028</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--electric);">$1.2B</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">National Scale</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">National Scale</div>
       </div>
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2029</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--text);">$3B</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">ESOP Year 1</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">ESOP Year 1</div>
       </div>
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2030</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--text);">$7.5B</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">ESOP Year 2</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">ESOP Year 2</div>
       </div>
       <div style="background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; padding: 20px; text-align: center;">
         <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--electric); margin-bottom: 4px;">2031</div>
         <div style="font-size: 22px; font-weight: 900; color: var(--electric);">$16B</div>
-        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">6-Year Target</div>
+        <div class="tri" style="font-size: 12px; font-weight: 900; margin-top: 4px;">6-Year Target</div>
       </div>
     </div>
   </div>
@@ -1130,13 +1123,8 @@
 <!-- THE ESOP -->
 <section>
   <div class="container">
-    <h2>The <span class="accent">ESOP</span></h2>
+    <h2>The $4.8BB <span class="accent">ESOP</span></h2>
     <p class="section-sub">The team that built it owns a piece of it. $1B+ valuation triggers ESOP launch in 2029. 30% employee ownership by 2031.</p>
-
-    <div class="identity-block" style="background: var(--electric-glow); border-color: var(--electric-border);">
-      <h3 class="tri" style="font-size: 56px; margin: 0 0 12px; letter-spacing: -2px;">$4.8B</h3>
-      <p style="font-size: 15px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7;">Employee equity value by 2031. That's how you retain the people who run The Machine at national scale.</p>
-    </div>
   </div>
 </section>
 
@@ -1182,7 +1170,7 @@
 <section>
   <div class="container">
     <h2>Three Companies. <span class="accent">One Enterprise.</span></h2>
-    <p class="section-sub">AgentX is the meta-level. Its companies are the three forces that &mdash; together &mdash; create a compounding advantage that cannot be replicated, purchased, or competed against.</p>
+    <p class="section-sub"><span class="agentx-wm">agent<span class="x-sup">X</span></span> is the meta-level. Its companies are the three forces that &mdash; together &mdash; create a compounding advantage that cannot be replicated, purchased, or competed against.</p>
 
     <div class="companies">
       <div class="company money">
@@ -1400,7 +1388,7 @@
       <div class="door a">
         <div class="door-label">Door A</div>
         <h3>Join Us</h3>
-        <p>Become an Associate by Merging. A New Retiree with your Executed Succession Plan. A Partner with a New Revenue Stream. Your clients. Your lifestyle. Wins for all. <strong style="color: var(--money);">#WeAreAllAgentX</strong></p>
+        <p>Become an Associate by Merging. A New Retiree with your Executed Succession Plan. A Partner with a New Revenue Stream. Your clients. Your lifestyle. Wins for all. <strong style="color: var(--money);">#WeAreAllAgent<span class="tri">X</span></strong></p>
       </div>
       <div class="door b">
         <div class="door-label">Door B</div>
@@ -1650,11 +1638,9 @@
 <div class="moat-section">
   <div class="container">
     <div class="moat-quote">
-      The flywheel can't be bought off the shelf. It can't be assembled by committee. It can't be replicated by competitors. Because the <em>knowledge inside it</em> doesn't exist anywhere else.
+      The flywheel can't be bought off the shelf. It can't be assembled by committee. It can't be replicated by competitors. Because the <strong class="tri">knowledge inside it</strong> doesn't exist anywhere else.
     </div>
-    <p class="moat-sub">
-      The Money generates the deals. The Machine structures the data. The Mission protects the clients. The clients feed the Machine. The Machine arms the people. The people grow the Money. It never stops. It never slows down. And every revolution makes the next one faster.
-    </p>
+    <p class="moat-sub"><strong style="color: var(--money);">The Money</strong> generates the deals. <strong style="color: var(--machine);">The Machine</strong> structures the data. <strong style="color: var(--magic);">The Mission</strong> protects the clients. The clients feed <strong style="color: var(--machine);">the Machine</strong>. <strong style="color: var(--machine);">The Machine</strong> arms the people. The people grow <strong style="color: var(--money);">the Money</strong>. It never stops. It never slows down. And every revolution makes the next one faster.</p>
   </div>
 </div>
 
@@ -1674,14 +1660,14 @@
   </div>
   <h2>agent<span class="x-tri-exp">X</span></h2>
   <div class="trinity">The Money &middot; The Machine &middot; The Mission</div>
-  <div class="hashtag" style="line-height: 2.2;">#IAmAgentX &nbsp;&middot;&nbsp; #WeAreAgentX &nbsp;&middot;&nbsp; #AreYouAgentX<br>#AgentXGoneGiveItToYa</div>
+  <div class="hashtag" style="line-height: 2.2;">#IAmAgent<span class="tri">X</span> &nbsp;&middot;&nbsp; #WeAreAgent<span class="tri">X</span> &nbsp;&middot;&nbsp; #AreYouAgent<span class="tri">X</span><br>#Agent<span class="tri">X</span>GoneGiveItToYa</div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- FOOTER                                                          -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="footer">
-  <div class="sig">AgentX &mdash; Retirement Protectors, Inc.</div>
+  <div class="sig"><span class="agentx-wm">agent<span class="x-sup">X</span></span> &mdash; Retirement Protectors, Inc.</div>
   <div class="sub">Confidential &middot; April 2026 &middot; #RunningOurOwnRACE</div>
 </div>
 

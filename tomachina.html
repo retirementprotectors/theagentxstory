@@ -183,9 +183,12 @@
     font-size: 16px;
     color: var(--text-muted);
     margin-bottom: 48px;
-    max-width: 680px;
+    max-width: 760px;
     line-height: 1.75;
+    text-wrap: pretty;
   }
+  p { text-wrap: pretty; }
+  h2, h3 { text-wrap: balance; }
 
   /* ── PORTALS ── */
   .portal-cards {
@@ -826,6 +829,9 @@
 
   /* agentX wordmark X — tri-gradient per JDM 2026-04-19 lock */
   .x-tri { background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+  /* agentX wordmark component — per JDM item 9 */
+  .agentx-wm { font-weight: 900; }
+  .agentx-wm .x-sup { font-size: 0.78em; vertical-align: 0.4em; font-weight: 900; background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   /* ── MOBILE — U4 per JDM 2026-04-19 ── */
   @media (max-width: 768px) {
@@ -1504,7 +1510,7 @@
 </section>
 
 <div class="footer">
-  <div class="sig">Agent<span style="color: var(--electric);">X</span> &mdash; toMachina + The Dojo &mdash; #WeAreAgentX</div>
+  <div class="sig"><span class="agentx-wm">agent<span class="x-sup">X</span></span> &mdash; toMachina + The Dojo &mdash; #WeAreAgentX</div>
   <div class="sub">Confidential &middot; April 2026 &middot; #RunningOurOwnRACE</div>
 </div>
 

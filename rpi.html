@@ -36,6 +36,9 @@
 
   /* agentX wordmark X — tri-gradient per JDM 2026-04-19 lock */
   .x-tri { background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+  /* agentX wordmark component — per JDM item 9 */
+  .agentx-wm { font-weight: 900; }
+  .agentx-wm .x-sup { font-size: 0.78em; vertical-align: 0.4em; font-weight: 900; background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   /* Hero */
   .hero { padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
@@ -50,7 +53,9 @@
   /* Sections */
   section { padding: 80px 0; } section + section { border-top: 1px solid var(--border); }
   h2 { font-size: 36px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; } h2 .accent { color: var(--rpi); }
-  .section-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 48px; max-width: 660px; line-height: 1.8; }
+  .section-sub { font-size: 17px; color: var(--text-muted); margin-bottom: 48px; max-width: 760px; line-height: 1.8; text-wrap: pretty; }
+  p { text-wrap: pretty; }
+  h2, h3 { text-wrap: balance; }
 
   /* Mission block */
   .mission-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 48px; text-align: center; position: relative; overflow: hidden; }
@@ -143,7 +148,7 @@
 
 <div class="hero">
   <div class="container">
-    <img src="rpi-logo-v2-white.png" alt="RPI" style="max-width: 260px; width: 100%; height: auto; margin: 0 auto 24px; display: block;">
+    <img src="rpi-logo-v2-white.png" alt="RPI" style="max-width: 480px; width: 100%; height: auto; margin: 0 auto 32px; display: block; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
   </div>
 </div>
 
@@ -272,16 +277,11 @@
     <h2>The <span class="accent">Ignition</span></h2>
     <p class="section-sub">RPI is the reason everything else exists. David forges the deals. toMachina arms the team. RPI ignites the client experience &mdash; and the flywheel never stops.</p>
 
-    <div class="flywheel-card">
-      <div class="verbs">Forge &middot; Arm &middot; Ignite</div>
-      <h3>The Mission Is the Fuel.</h3>
-      <p>Every client interaction generates data. Every data point sharpens The Machine. Every improvement to The Machine makes the next client experience better. More clients = more data = smarter Machine = better protection. RPI is both the mission and the ignition.</p>
-    </div>
   </div>
 </section>
 
 <div class="footer">
-  <div class="sig">Agent<span style="color: var(--electric);">X</span> &mdash; RPI (The Mission) &mdash; #WeAreYourPeople</div>
+  <div class="sig"><span class="agentx-wm">agent<span class="x-sup">X</span></span> &mdash; RPI (The Mission) &mdash; #WeAreYourPeople</div>
   <div class="sub">Confidential &middot; April 2026 &middot; #RunningOurOwnRACE</div>
 </div>
 
