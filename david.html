@@ -8,15 +8,15 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
   :root {
-    --bg: #060b08;
-    --bg-card: #0c140e;
+    --bg: #080a09;
+    --bg-card: #0e1410;
     --bg-card-hover: #142018;
-    --bg-accent: #101c12;
-    --border: #1a2e1e;
+    --bg-accent: #121a14;
+    --border: #1c2620;
     --border-accent: #253a28;
-    --text: #e4f2e8;
-    --text-muted: #80a888;
-    --text-dim: #446850;
+    --text: #e8f0ea;
+    --text-muted: #9ab09f;
+    --text-dim: #5a6e60;
     --money: #4ade80;
     --money-bright: #86efac;
     --money-dim: #16a34a;
@@ -121,7 +121,7 @@
   .sub-tabs {
     display: flex; justify-content: center; gap: 4px;
     padding: 14px 40px;
-    position: sticky; top: 100px; z-index: 90;
+    position: sticky; top: 40px; z-index: 90;
     background: var(--bg); border-bottom: 1px solid var(--border);
   }
   .sub-tab {
@@ -179,7 +179,7 @@
   }
   .story-card .impact-label {
     font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 12px;
+    color: var(--electric); margin-bottom: 12px;
   }
   .story-card .impact-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
@@ -265,7 +265,7 @@
   }
   .math-block .comment { color: var(--text-dim); }
   .math-block .keyword { color: var(--money); font-weight: 700; }
-  .math-block .value { color: var(--amber); }
+  .math-block .value { color: var(--electric); }
   .math-block .result { color: var(--money-bright); font-weight: 700; }
 
   .punchline {
@@ -312,7 +312,8 @@
     .val-grid { grid-template-columns: 1fr; }
     .funnel { flex-direction: column; }
     .funnel-arrow { transform: rotate(90deg); }
-    .sub-tabs { flex-wrap: wrap; }
+    .sub-tabs { flex-wrap: nowrap !important; gap: 4px !important; padding: 10px 12px !important; }
+    .sub-tab { font-size: 11px !important; padding: 8px 10px !important; flex-shrink: 1; min-width: 0; white-space: nowrap; }
     .tab-btn { padding: 8px 16px; font-size: 12px; }
   }
 
@@ -433,7 +434,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num">50%</div><div class="imp-label">Time Spent Prospecting</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">0%</div><div class="imp-label">Prospecting w/ Machine</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">2x</div><div class="imp-label">Selling Capacity</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">2x</div><div class="imp-label">Selling Capacity</div></div>
           </div>
           <div class="impact-note">C3 runs 60 campaigns automatically. Pipeline Studio tracks every lead. MDJ Ai handles follow-up. The agent's only job is the appointment.</div>
         </div>
@@ -451,7 +452,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num">$200K</div><div class="imp-label">Current Income</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">$350K+</div><div class="imp-label">Year 1 w/ Machine</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">$500K+</div><div class="imp-label">Year 3 Trajectory</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">$500K+</div><div class="imp-label">Year 3 Trajectory</div></div>
           </div>
           <div class="impact-note">Not a builder? Don't need to be. The Machine was built FOR you. Service team handles renewals. Compliance runs itself. You sell. You earn. You grow. The ceiling disappears because you're no longer carrying the weight alone.</div>
         </div>
@@ -469,7 +470,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num">$100K</div><div class="imp-label">Annual Recurring</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">$225K</div><div class="imp-label">Acquisition Value (2.25x)</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">500</div><div class="imp-label">Clients Protected</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">500</div><div class="imp-label">Clients Protected</div></div>
           </div>
           <div class="impact-note">Clean exit at market rate. 500 clients onboarded into toMachina same week. MDJ handles service continuity. Retention actually improves because service gets better, not worse.</div>
         </div>
@@ -508,7 +509,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num" style="color:var(--red)">-15%/yr</div><div class="imp-label">Current Agent Attrition</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">~0%</div><div class="imp-label">Attrition w/ Machine</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">200</div><div class="imp-label">Agents Now Armed</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">200</div><div class="imp-label">Agents Now Armed</div></div>
           </div>
           <div class="impact-note">Agents stop leaving because there's nowhere with better tech. The platform becomes the retention strategy. The IMO keeps their override, we keep the distribution. Bleed stops. Growth starts.</div>
         </div>
@@ -526,7 +527,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num">Tens of K</div><div class="imp-label">Clients &mdash; Current</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">5x</div><div class="imp-label">Service Capacity (w/ Machine)</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">Profitable</div><div class="imp-label">LOB Status (w/ Machine)</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">Profitable</div><div class="imp-label">LOB Status (w/ Machine)</div></div>
           </div>
           <div class="impact-note">Big call centers have scale but their cost-per-client is killing them. The Machine's per-client cost approaches zero at our scale. Same scale, drastically different economics.</div>
         </div>
@@ -553,7 +554,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">5</div><div class="imp-label">Sales Pressures Solved</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">0%</div><div class="imp-label">Channel Conflict</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">1</div><div class="imp-label">Distribution Partner That's Built for This</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">1</div><div class="imp-label">Distribution Partner That's Built for This</div></div>
           </div>
           <div class="impact-note">Banks won't take your product. Your own agency is too expensive to build. Direct distribution risks brand cannibalization. DAVID is the fourth door &mdash; and the only one that doesn't require you to risk what you've already built.</div>
         </div>
@@ -577,7 +578,7 @@
           <div class="impact-grid">
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">5</div><div class="imp-label">Cost Drivers Eliminated</div></div>
             <div class="impact-stat"><div class="imp-num" style="color:var(--money)">0</div><div class="imp-label">Offshore Calls</div></div>
-            <div class="impact-stat"><div class="imp-num" style="color:var(--amber)">+%</div><div class="imp-label">In-Force Profitability</div></div>
+            <div class="impact-stat"><div class="imp-num" style="color:var(--electric)">+%</div><div class="imp-label">In-Force Profitability</div></div>
           </div>
           <div class="impact-note">The choice isn't "expensive in-house" vs "cheap-and-bad offshore." DAVID is in-house quality at outsourced cost &mdash; because The Machine carries the load no human team could ever afford to.</div>
         </div>
@@ -636,6 +637,15 @@ function switchSub(sub) {
   document.querySelectorAll('.sub-tab').forEach(el => el.classList.remove('active'));
   document.getElementById('sub-' + sub).classList.add('active');
   document.querySelector('.sub-tab[onclick*="' + sub + '"]').classList.add('active');
+  // Scroll the new sub-content to just below the sticky sub-tabs
+  const subTabs = document.querySelector('.sub-tabs');
+  const target = document.getElementById('sub-' + sub);
+  if (target && subTabs) {
+    const subTabsBottom = subTabs.getBoundingClientRect().bottom;
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    const offset = targetTop - subTabsBottom - 20;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  }
 }
 </script>
 
@@ -644,14 +654,14 @@ function switchSub(sub) {
   .cxb-btn {
     position: fixed; bottom: 24px; right: 24px; z-index: 9999;
     padding: 14px 28px; border-radius: 100px;
-    background: linear-gradient(135deg, #e5eef7 0%, #c5d4e3 60%, #94a8c0 100%);
+    background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%);
     color: #08080c; border: none;
     font-family: Inter, -apple-system, sans-serif;
     font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
     cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.55), 0 0 0 1px rgba(197,212,227,0.4);
     transition: transform 0.15s, box-shadow 0.15s;
   }
-  .cxb-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 28px rgba(0,0,0,0.65), 0 0 0 1px rgba(229,238,247,0.6); }
+  .cxb-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 28px rgba(0,0,0,0.65), 0 0 0 1px rgba(197,212,227,0.6); }
   .cxb-overlay {
     display: none; position: fixed; inset: 0; z-index: 10000;
     background: rgba(0,0,0,0.78); backdrop-filter: blur(4px);
