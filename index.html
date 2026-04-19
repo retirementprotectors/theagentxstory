@@ -20,20 +20,34 @@
     --gold: #d4a44c;
     --gold-bright: #f0c060;
     --gold-dim: #a07830;
-    --gold-glow: rgba(212, 164, 76, 0.12);
-    --gold-border: rgba(212, 164, 76, 0.28);
+    --gold-glow: rgba(197, 212, 227, 0.18);
+    --gold-border: rgba(197, 212, 227, 0.35);
     --money: #4ade80;
     --money-glow: rgba(74, 222, 128, 0.10);
     --money-border: rgba(74, 222, 128, 0.25);
-    --machine: #60a5fa;
-    --machine-glow: rgba(96, 165, 250, 0.10);
-    --machine-border: rgba(96, 165, 250, 0.25);
-    --magic: #c084fc;
-    --magic-glow: rgba(192, 132, 252, 0.10);
-    --magic-border: rgba(192, 132, 252, 0.25);
+    --machine: #a78bfa;
+    --machine-glow: rgba(167, 139, 250, 0.10);
+    --machine-border: rgba(167, 139, 250, 0.25);
+    --magic: #3b82f6;
+    --magic-glow: rgba(59, 130, 246, 0.10);
+    --magic-border: rgba(59, 130, 246, 0.25);
+    /* --magic now means RPI Electric Cobalt (was TAIKO purple #c084fc). For TAIKO content, use --taiko. */
+    --taiko: #c084fc;
+    --taiko-glow: rgba(192, 132, 252, 0.10);
+    --taiko-border: rgba(192, 132, 252, 0.25);
     --fire: #f97316;
     --fire-glow: rgba(249, 115, 22, 0.10);
     --red: #f87171;
+    /* RPI Electric Cobalt — per JDM 2026-04-19 */
+    --rpi: #3b82f6;
+    --rpi-bright: #60a5fa;
+    --rpi-dim: #1d4ed8;
+    --rpi-glow: rgba(59, 130, 246, 0.10);
+    --rpi-border: rgba(59, 130, 246, 0.25);
+    /* Electric grey — replaces gold accents site-wide per JDM 2026-04-19 */
+    --electric: #c5d4e3;
+    --electric-glow: rgba(197, 212, 227, 0.18);
+    --electric-border: rgba(197, 212, 227, 0.35);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,8 +79,8 @@
     width: 800px;
     height: 800px;
     background: radial-gradient(circle,
-      rgba(212, 164, 76, 0.08) 0%,
-      rgba(212, 164, 76, 0.03) 40%,
+      rgba(197, 212, 227, 0.08) 0%,
+      rgba(197, 212, 227, 0.03) 40%,
       transparent 70%
     );
     pointer-events: none;
@@ -75,9 +89,9 @@
     display: inline-block;
     padding: 6px 18px;
     border-radius: 100px;
-    background: var(--gold-glow);
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
+    background: var(--electric-glow);
+    border: 1px solid var(--electric-border);
+    color: var(--electric);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2.5px;
@@ -136,7 +150,7 @@
     letter-spacing: -1.5px;
     margin-bottom: 16px;
   }
-  h2 .accent { color: var(--gold); }
+  h2 .accent { color: var(--electric); text-shadow: 0 0 12px rgba(197, 212, 227, 0.45); }
 
   .section-sub {
     font-size: 17px;
@@ -201,8 +215,8 @@
   .scale-row:last-child { border-radius: 0 0 14px 14px; }
   .scale-row + .scale-row { border-top: none; }
   .scale-row.active {
-    background: var(--gold-glow);
-    border-color: var(--gold-border);
+    background: var(--electric-glow);
+    border-color: var(--electric-border);
   }
   .scale-label {
     font-size: 13px;
@@ -211,7 +225,7 @@
     text-transform: uppercase;
     color: var(--text-dim);
   }
-  .scale-row.active .scale-label { color: var(--gold); }
+  .scale-row.active .scale-label { color: var(--electric); }
   .scale-desc {
     font-size: 15px;
     color: var(--text-muted);
@@ -391,7 +405,7 @@
     text-align: left;
     padding: 14px 20px;
     border-bottom: 2px solid var(--border-accent);
-    color: var(--gold);
+    color: var(--electric);
     font-weight: 700;
     font-size: 11px;
     text-transform: uppercase;
@@ -407,7 +421,7 @@
   .ev-table .audience {
     font-weight: 700;
     white-space: nowrap;
-    color: var(--gold);
+    color: var(--electric);
   }
   .ev-table .hears {
     color: var(--text-muted);
@@ -448,7 +462,7 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--electric);
     margin-bottom: 6px;
   }
   .identity-item .what {
@@ -561,7 +575,7 @@
   .closing .hashtag {
     font-size: 18px;
     font-weight: 800;
-    color: var(--gold);
+    color: var(--electric);
     letter-spacing: 0.5px;
   }
 
@@ -608,7 +622,7 @@
     font-family: inherit;
   }
   .tab-btn:hover { background: var(--bg-accent); color: var(--text-muted); }
-  .tab-btn.active { background: var(--gold-glow); border-color: var(--gold-border); color: var(--gold); }
+  .tab-btn.active { background: var(--electric-glow); border-color: var(--electric-border); color: var(--electric); }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
@@ -620,11 +634,11 @@
     width: 160px; height: 160px; border-radius: 50%;
     background: var(--bg); border: 2px solid var(--border-accent);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    z-index: 10; box-shadow: 0 0 60px rgba(212, 164, 76, 0.08);
+    z-index: 10; box-shadow: 0 0 60px rgba(197, 212, 227, 0.08);
   }
   .flywheel-center .fc-label {
     font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 4px;
+    color: var(--electric); margin-bottom: 4px;
   }
   .flywheel-center .fc-name { font-size: 20px; font-weight: 900; color: var(--text); }
   .orbit-ring {
@@ -705,7 +719,7 @@
   }
   .proof-stat .number {
     font-size: 36px; font-weight: 900; letter-spacing: -1px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--machine) 100%);
+    background: linear-gradient(135deg, var(--electric) 0%, var(--machine) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .proof-stat .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; font-weight: 500; }
@@ -718,7 +732,7 @@
   .not-three .versus { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
   .not-three .vs-item { padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 700; }
   .not-three .vs-item.old { background: var(--bg-accent); border: 1px solid var(--border); color: var(--text-dim); text-decoration: line-through; }
-  .not-three .vs-item.new { background: var(--gold-glow); border: 1px solid var(--gold-border); color: var(--gold); font-size: 18px; }
+  .not-three .vs-item.new { background: var(--electric-glow); border: 1px solid var(--electric-border); color: var(--electric); font-size: 18px; }
   .not-three .vs-plus { font-size: 20px; color: var(--text-dim); }
   .not-three p { font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.75; }
 
@@ -728,7 +742,7 @@
     font-size: 28px; font-weight: 800; letter-spacing: -1px; max-width: 700px;
     margin: 0 auto 24px; line-height: 1.4; color: var(--text);
   }
-  .moat-quote em { font-style: normal; color: var(--gold); }
+  .moat-quote em { font-style: normal; color: var(--electric); }
   .moat-sub { font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.75; }
 
   /* ── RESPONSIVE ── */
@@ -763,13 +777,13 @@
   .jdm-era::before {
     content: ''; position: absolute; left: -28px; top: 8px;
     width: 14px; height: 14px; border-radius: 50%;
-    border: 3px solid var(--gold); background: var(--bg);
+    border: 3px solid var(--electric); background: var(--bg);
   }
-  .jdm-era.peak::before { background: var(--gold); }
+  .jdm-era.peak::before { background: var(--electric); }
   .jdm-era.crash::before { border-color: var(--red); background: var(--red); }
   .jdm-era.rise::before { border-color: #4ade80; background: #4ade80; }
   .jdm-era .era-date {
-    font-size: 12px; font-weight: 700; color: var(--gold);
+    font-size: 12px; font-weight: 700; color: var(--electric);
     letter-spacing: 1px; margin-bottom: 4px;
   }
   .jdm-era.crash .era-date { color: var(--red); }
@@ -779,7 +793,7 @@
 
   .jdm-quote {
     background: var(--bg-card); border: 1px solid var(--border);
-    border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0;
+    border-left: 4px solid var(--electric); border-radius: 0 12px 12px 0;
     padding: 28px 32px; margin-top: 40px;
     font-size: 16px; font-style: italic; color: var(--text-muted); line-height: 1.75;
   }
@@ -793,11 +807,11 @@
   .ladder-rung:first-child { border-radius: 14px 14px 0 0; }
   .ladder-rung:last-child { border-radius: 0 0 14px 14px; }
   .ladder-rung + .ladder-rung { border-top: none; }
-  .ladder-rung.current { background: var(--gold-glow); border-color: var(--gold-border); }
+  .ladder-rung.current { background: var(--electric-glow); border-color: var(--electric-border); }
   .ladder-rung .rung-title {
     font-size: 14px; font-weight: 800; color: var(--text-dim);
   }
-  .ladder-rung.current .rung-title { color: var(--gold); }
+  .ladder-rung.current .rung-title { color: var(--electric); }
   .ladder-rung .rung-entity {
     font-size: 13px; font-weight: 600; color: var(--text-muted); font-style: italic;
   }
@@ -815,7 +829,7 @@
     padding: 10px 40px;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
     position: sticky;
@@ -830,56 +844,280 @@
     background: transparent;
     transition: background 0.2s;
   }
-  .cross-nav a.nav-gold { color: #d4a44c; }
-  .cross-nav a.nav-green { color: #4ade80; }
-  .cross-nav a.nav-blue { color: #60a5fa; }
-  .cross-nav a.nav-purple { color: #c084fc; }
-  .cross-nav a.nav-gold:hover { background: rgba(212, 164, 76, 0.08); }
+  .cross-nav a.nav-gold { color: var(--text); font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-green { color: #4ade80; font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-blue { color: #a78bfa; font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-purple { color: #c084fc; font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-rpi { color: #3b82f6; font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-rpi:hover { background: rgba(59, 130, 246, 0.08); }
+  .cross-nav a.nav-gold:hover { background: var(--electric-glow); }
   .cross-nav a.nav-green:hover { background: rgba(74, 222, 128, 0.08); }
-  .cross-nav a.nav-blue:hover { background: rgba(96, 165, 250, 0.08); }
+  .cross-nav a.nav-blue:hover { background: rgba(167, 139, 250, 0.08); }
   .cross-nav a.nav-purple:hover { background: rgba(192, 132, 252, 0.08); }
-  .cross-nav a.active { background: rgba(212, 164, 76, 0.12); border-color: rgba(212, 164, 76, 0.25); }
+  .cross-nav a.active { background: var(--electric-glow); border-color: var(--electric-border); }
+  /* AgentX wordmark — white "agent" + tri-X, bigger per JDM 2026-04-19 */
+  .cross-nav a.nav-gold { color: var(--text); font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+
+  /* agentX wordmark — locked spec per JDM 2026-04-19 */
+  .x-tri { background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+  .x-tri-exp { font-size: 0.95em; vertical-align: 0.35em; font-weight: 900; background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* ── MOBILE — U4 per JDM 2026-04-19 ── */
+  @media (max-width: 768px) {
+    .cross-nav { padding: 8px 12px; gap: 4px; flex-wrap: wrap; font-size: 13px; }
+    .cross-nav a { padding: 4px 10px; font-size: 13px !important; }
+    .hero { padding: 60px 20px 40px !important; }
+    .hero h1 { font-size: 48px !important; letter-spacing: -2px !important; }
+    h2 { font-size: 26px !important; }
+    .container { padding: 0 20px !important; }
+    section { padding: 50px 0 !important; }
+    [style*="grid-template-columns: repeat(4"], [style*="grid-template-columns: repeat(3"], [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+    .tab-bar, .sub-tabs { flex-wrap: wrap !important; }
+    .tab-btn, .sub-tab { font-size: 13px !important; padding: 10px 14px !important; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 36px !important; }
+    .hero-tagline { font-size: 14px !important; letter-spacing: 3px !important; }
+    h2 { font-size: 22px !important; }
+    .cxb-btn { bottom: 16px !important; right: 16px !important; padding: 10px 18px !important; font-size: 11px !important; }
+  }
 </style>
 </head>
 <body>
 
 <!-- CROSS-NAV -->
 <div class="cross-nav">
-  <a href="index.html" class="nav-gold active">AgentX</a>
-  <a href="david.html" class="nav-green">DAVID.</a>
+  <a href="index.html" class="nav-gold active">agent<span class="x-tri">X</span></a>
+  <a href="david.html" class="nav-green">David.</a>
   <a href="tomachina.html" class="nav-blue">toMachina</a>
-  <a href="mdj.html" class="nav-purple">MDJ Ai</a>
+  <a href="rpi.html" class="nav-rpi">RPI</a>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- HERO                                                            -->
+<!-- HERO — Mission + #RunningOurOwnRACE is the main hero (per JDM)  -->
 <!-- ════════════════════════════════════════════════════════════════ -->
-<div class="hero">
-  <div class="hero-badge">Brand Framework &middot; Confidential</div>
-  <h1>Agent<span class="x">X</span></h1>
-  <div class="hero-tagline">The Money &middot; The Machine &middot; The Magic</div>
-  <div class="hero-trinity">
-    <span class="pillar-label money">Forge</span>
-    <span class="divider">&middot;</span>
-    <span class="pillar-label machine">Arm</span>
-    <span class="divider">&middot;</span>
-    <span class="pillar-label magic">Ignite</span>
-  </div>
+<div class="hero" style="padding: 120px 40px 60px;">
+  <h1 style="font-size: 88px; font-weight: 900; letter-spacing: -4px; line-height: 0.95; margin-bottom: 24px;">Our <span class="accent" style="color: var(--electric);">Mission</span></h1>
+  <p style="font-size: 26px; font-weight: 400; color: var(--text); max-width: 840px; margin: 0 auto 32px; line-height: 1.5;">Tearing the <strong style="color: var(--money);">Health</strong>, <strong style="color: var(--machine);">Wealth</strong>, and <strong style="color: var(--magic);">Legacy</strong> industries to the ground &mdash; and rebuilding around the client experience.</p>
+  <div style="display: inline-block; padding: 14px 32px; border-radius: 100px; background: var(--electric-glow); border: 1px solid var(--electric-border); color: var(--electric); font-size: 24px; font-weight: 900; letter-spacing: 1px; margin-bottom: 36px;">#RunningOurOwnRACE</div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- TABS                                                            -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="tab-bar">
-  <div class="tab-btn active" onclick="switchTab('strategic')">Strategic</div>
+  <div class="tab-btn active" onclick="switchTab('vision')">Vision</div>
+  <div class="tab-btn" onclick="switchTab('strategic')">Strategic</div>
   <div class="tab-btn" onclick="switchTab('tactical')">Tactical</div>
-  <div class="tab-btn" onclick="switchTab('jdm')">JDM</div>
 </div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- VISION TAB (FIRST — default active)                              -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div id="tab-vision" class="tab-content active">
+
+<!-- OUR VISION -->
+<section>
+  <div class="container">
+    <h2>Our <span class="accent">Vision</span></h2>
+    <p class="section-sub">If something was best-in &mdash; not just their Market, or their Industry &mdash; but in BUSINESS &mdash; what would that be? AgentX is the answer.</p>
+
+    <div class="question-block" style="text-align: left;">
+      <p style="font-size: 18px; line-height: 1.7; color: var(--text); margin: 0;">
+        AgentX is the meta-level enterprise that proves what an industry looks like when one person rebuilds it from the ground up. <strong style="color: var(--money);">DAVID</strong> forges the deals. <strong style="color: var(--machine);">toMachina</strong> arms the team. <strong style="color: var(--magic);">RPI</strong> ignites the mission. Three companies. One enterprise. The system that removes the human bottleneck.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OUR MISSION -->
+<section>
+  <div class="container">
+    <h2>Our <span class="accent">Mission</span></h2>
+    <p class="section-sub">Tearing the Health, Wealth, and Legacy industries to the ground &mdash; and rebuilding around the client experience.</p>
+
+    <div class="identity-block" style="background: var(--electric-glow); border-color: var(--electric-border);">
+      <h3 style="font-size: 28px; color: var(--electric); margin-bottom: 12px;">#RunningOurOwnRACE</h3>
+      <p style="font-size: 22px; font-weight: 700; color: var(--text); max-width: 680px; margin: 0 auto 16px; line-height: 1.6;"><strong style="color: var(--electric);">R</strong>ebuilding <strong style="color: var(--electric);">A</strong>round the <strong style="color: var(--electric);">C</strong>lient <strong style="color: var(--electric);">E</strong>xperience.</p><p style="font-size: 15px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7;">Not riding the industry's wave &mdash; building our own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE MARKET — per JDM 2026-04-18 CNX Vision framework -->
+<section>
+  <div class="container">
+    <h2>The <span class="accent">Market</span></h2>
+    <p class="section-sub" style="max-width: 780px;">Wholesale Distribution has been <strong style="color: var(--text);">commoditized and consolidated.</strong> The Retail Market has been <em>left behind</em> &mdash; and that's exactly where the <strong style="color: var(--electric);">REAL VALUE</strong> lives in the Client &gt; Carrier Transaction. <strong style="color: var(--text);">600,000 Independent Advisors</strong> in the Health + Wealth + Legacy Market nationwide. Here's the Play:</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; border-top: 3px solid var(--money);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--money); margin-bottom: 6px;">B2A</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 10px;">Agency</div>
+        <div style="font-size: 32px; font-weight: 900; color: var(--text); letter-spacing: -1px; margin-bottom: 4px;">60K</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">$100K+ Revenue Producers<br><span style="color: var(--money); font-weight: 700;">$141K avg</span></div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; border-top: 3px solid var(--money);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--money); margin-bottom: 6px;">B2B</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 10px;">Business</div>
+        <div style="font-size: 32px; font-weight: 900; color: var(--text); letter-spacing: -1px; margin-bottom: 4px;">24K</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">$200K+ Revenue Producers<br><span style="color: var(--money); font-weight: 700;">$317K avg</span></div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; border-top: 3px solid var(--machine);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--machine); margin-bottom: 6px;">B2E</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 10px;">Enterprise</div>
+        <div style="font-size: 32px; font-weight: 900; color: var(--text); letter-spacing: -1px; margin-bottom: 4px;">2,400</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">$1MM+ Revenue Producers<br><span style="color: var(--machine); font-weight: 700;">$2.7MM avg</span></div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; border-top: 3px solid var(--magic);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--magic); margin-bottom: 6px;">B2I</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 10px;">Institution</div>
+        <div style="font-size: 32px; font-weight: 900; color: var(--text); letter-spacing: -1px; margin-bottom: 4px;">200</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Carriers in need of an<br><span style="color: var(--magic); font-weight: 700;">Alt Sales + Service Channel</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 28px 32px; background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 14px; text-align: center;">
+      <div style="font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--electric); margin-bottom: 8px;">Independent Distribution Model Compensation</div>
+      <div style="font-size: 52px; font-weight: 900; color: var(--text); letter-spacing: -2px; line-height: 1;">$20<span style="color: var(--electric);">BB</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE INDUSTRY LAYERS — CNX VISION framework, JDM's $180K consulting deal -->
+<section>
+  <div class="container">
+    <h2>The Industry <span class="accent">Layers</span></h2>
+    <p class="section-sub">Today RPI <strong style="color: var(--electric);">Lives Throughout This Grid</strong> &mdash; producing <strong style="color: var(--text);">Wholesale Volume with a Retail Footprint</strong> in Life / Annuity / Medicare.</p>
+
+    <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 10px; border-left: 4px solid var(--electric);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--electric);">CARRIERS</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Underwriting Risk + Investments &middot; the source of every product</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--electric); text-align: right;">&mdash;</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--red);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--red);">AGGREGATORS</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Corporate Aggregation Entity &middot; Integrity</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--red); text-align: right;">Soft $</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--money);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--money);">NMO</div>
+        <div style="font-size: 14px; color: var(--text-muted);">National Marketing Org &middot; Wholesale &middot; 100+ staff</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--money); text-align: right;">30%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--money);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--money);">IMO</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Independent Marketing Org &middot; Wholesale &middot; 30&ndash;60 staff</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--money); text-align: right;">29%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--money);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--money);">FMO</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Field Marketing Org &middot; Wholesale &middot; &lt;30 staff</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--money); text-align: right;">28%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--machine);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--machine);">BGA</div>
+        <div style="font-size: 14px; color: var(--text);">Brokerage General Agency &middot; Retail &middot; 6+ staff &middot; <strong style="color: var(--machine);">Millang Financial Group</strong></div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--machine); text-align: right;">27%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--machine);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--machine);">MGA</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Managing General Agency &middot; Retail &middot; 1&ndash;6 staff</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--machine); text-align: right;">26%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--machine);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--machine);">GA</div>
+        <div style="font-size: 14px; color: var(--text-muted);">General Agency &middot; Retail &middot; 0 staff</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--machine); text-align: right;">25%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr 80px; gap: 16px; align-items: center; padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; border-left: 4px solid var(--text-dim);">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--text-muted);">STREET</div>
+        <div style="font-size: 14px; color: var(--text-muted);">Independent Producer &middot; <strong style="color: var(--text);">600,000</strong> producers at street level (LOA or Direct)</div>
+        <div style="font-size: 16px; font-weight: 800; color: var(--text-muted); text-align: right;">22%</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; padding: 24px 32px; background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; text-align: center;">
+      <div style="font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--electric); margin-bottom: 8px;">The Result</div>
+      <p style="font-size: 18px; color: var(--text); line-height: 1.6; max-width: 780px; margin: 0 auto; font-weight: 500;">Every layer consolidated under one roof. The override stack collapses into one P&amp;L. RPI operates across <em>all of it</em> &mdash; Wholesale Volume with a Retail Footprint &mdash; in a market that has never been consolidated this way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE THESIS -->
+<section>
+  <div class="container">
+    <h2>The <span class="accent">Thesis</span></h2>
+    <p class="section-sub">It doesn't matter where the clients come from. Two big partnerships, five small acquisitions, a national distribution deal &mdash; every client hits the same Machine the same way.</p>
+
+    <div class="identity-block">
+      <h3 style="font-size: 28px; margin-bottom: 16px;">Acquire <span style="color: var(--electric);">&rarr;</span> Activate <span style="color: var(--electric);">&rarr;</span> Compound</h3>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 640px; margin: 0 auto; line-height: 1.7;">Book ingested in days. CLIENT360 reveals gaps. C3 fires campaigns. Pipeline fills. Cross-sell Medicare to Life to Annuity to AUM. Renewals stack. Revenue funds the next deal. Repeat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE ENTERPRISE VALUE TRAJECTORY -->
+<section>
+  <div class="container">
+    <h2>The Enterprise Value <span class="accent">Trajectory</span></h2>
+    <p class="section-sub">Activate. Ramp. National Scale. ESOP. The math compounds because every acquisition feeds the same Machine, and every client feeds the next acquisition.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: 32px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2026</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--text);">$50M</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Activate</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2027</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--text);">$400M</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">Ramp</div>
+      </div>
+      <div style="background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--electric); margin-bottom: 4px;">2028</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--electric);">$1.2B</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">National Scale</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2029</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--text);">$3B</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">ESOP Year 1</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;">2030</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--text);">$7.5B</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">ESOP Year 2</div>
+      </div>
+      <div style="background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 12px; padding: 20px; text-align: center;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--electric); margin-bottom: 4px;">2031</div>
+        <div style="font-size: 22px; font-weight: 900; color: var(--electric);">$16B</div>
+        <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">6-Year Target</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ESOP -->
+<section>
+  <div class="container">
+    <h2>The <span class="accent">ESOP</span></h2>
+    <p class="section-sub">The team that built it owns a piece of it. $1B+ valuation triggers ESOP launch in 2029. 30% employee ownership by 2031.</p>
+
+    <div class="identity-block" style="background: var(--electric-glow); border-color: var(--electric-border);">
+      <h3 style="font-size: 56px; color: var(--electric); margin: 0 0 12px; letter-spacing: -2px;">$4.8B</h3>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7;">Employee equity value by 2031. That's how you retain the people who run The Machine at national scale.</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /tab-vision -->
+
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- STRATEGIC TAB                                                   -->
 <!-- ════════════════════════════════════════════════════════════════ -->
-<div id="tab-strategic" class="tab-content active">
+<div id="tab-strategic" class="tab-content">
 
 <!-- THE QUESTION -->
 <section>
@@ -920,11 +1158,14 @@
     <div class="companies">
       <div class="company money">
         <div class="company-header">
-          <span class="company-name">DAVID</span>
-          <span class="company-epithet">The Money</span>
+          <span class="company-name">David.</span>
+          <!-- pill removed per JDM -->
         </div>
         <p class="company-statement">
           <strong>D</strong>isruptive and <strong>V</strong>ertically <strong>I</strong>ntegrated <strong>D</strong>istribution &mdash; which <strong>forges</strong> Mergers, Acquisitions, and Partnerships across the Health, Wealth, and Legacy Markets.
+        </p>
+        <p class="company-statement" style="font-size:14px; margin-top:12px; color:var(--text-muted);">
+          <strong>B2B</strong> &mdash; Agent &amp; Agency Acquisitions&nbsp;&nbsp;|&nbsp;&nbsp;<strong>B2E</strong> &mdash; Carrier Blocks &amp; Books of Business&nbsp;&nbsp;|&nbsp;&nbsp;<strong>B2I</strong> &mdash; Product Creation &amp; Distribution
         </p>
         <div class="company-verb">Forge</div>
       </div>
@@ -932,21 +1173,27 @@
       <div class="company machine">
         <div class="company-header">
           <span class="company-name">toMachina</span>
-          <span class="company-epithet">The Machine</span>
+          <!-- pill removed per JDM -->
         </div>
         <p class="company-statement">
-          A <strong>Transcendent</strong> Tech Platform &mdash; which <strong>arms</strong> our Industry-Leading Team in providing <strong>Unrivaled</strong> Service.
+          A <strong>Transcendent</strong> Tech &amp; AI Platform &mdash; which <strong>arms</strong> our ELITE Team in providing <strong>Unrivaled</strong> Service &mdash; giving a shit, at scale. Home of <strong>The Dojo</strong> &mdash; 7 AI Warriors running CTO, CIO, CMO, CSO, Comms, Guardian, and Builder operations 24/7.
+        </p>
+        <p class="company-statement" style="font-size:14px; margin-top:12px; color:var(--text-muted);">
+          <strong>ProDashX</strong> (B2C)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>RIIMO</strong> (B2E)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>SENTINEL</strong> (B2B)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>The Dojo</strong> (AI Division)
         </p>
         <div class="company-verb">Arm</div>
       </div>
 
       <div class="company magic">
         <div class="company-header">
-          <span class="company-name">MDJ Ai</span>
-          <span class="company-epithet">The Magic</span>
+          <span class="company-name">RPI</span>
+          <!-- pill removed per JDM -->
         </div>
         <p class="company-statement">
-          Which <strong>ignites</strong> our Enterprise Value.
+          <strong>Retirement Protectors, Inc.</strong> &mdash; which <strong>ignites</strong> the ultimate sales and service experience for senior-market clients and their retiring agents. <em>We're Your People&trade;.</em>
+        </p>
+        <p class="company-statement" style="font-size:14px; margin-top:12px; color:var(--text-muted);">
+          <strong>Health</strong> (Medicare Division)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Wealth</strong> (Annuity, Life)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Legacy</strong> (Estate, LTC, Wealth Transfer)
         </p>
         <div class="company-verb">Ignite</div>
       </div>
@@ -965,7 +1212,7 @@
       <div class="verb-divider">/</div>
       <div class="verb-item magic">
         <div class="verb-word">Ignite.</div>
-        <div class="verb-sub">The Magic</div>
+        <div class="verb-sub">The Mission</div>
       </div>
     </div>
   </div>
@@ -1009,17 +1256,17 @@
       </div>
 
       <div class="word-card magic">
-        <h3>What The Magic Does</h3>
+        <h3>What RPI Does</h3>
         <div class="rejected">Not "compounds." Not "catalyzes." Not "unleashes."</div>
         <div class="winner">Ignites</div>
-        <p>The money is fuel. The machine is the engine. The magic is the ignition. Without it, everything just sits there. With it, the flywheel starts burning &mdash; and it never stops.</p>
+        <p>The money is fuel. The machine is the engine. The mission is the ignition. Without RPI, everything just sits there &mdash; deals, portals, Warriors. With it, the flywheel starts burning and never stops. RPI ignites the enterprise value.</p>
       </div>
 
       <div class="word-card gold">
         <h3>The Hidden Pattern</h3>
         <div class="rejected">&nbsp;</div>
         <div class="winner">Forge &rarr; Arm &rarr; Ignite</div>
-        <p>A war sequence. The blacksmith forges the weapons. The armorer arms the warriors. The mage ignites the battlefield. And the two AI verbs &mdash; Arms + Ignites &mdash; sit together. Subtle, but not an accident.</p>
+        <p>A war sequence. The blacksmith forges the alliance. The armorer arms the warriors. The mission ignites the battlefield. DAVID opens the door. toMachina makes you dangerous. RPI makes it unstoppable.</p>
       </div>
     </div>
   </div>
@@ -1071,7 +1318,7 @@
     </table>
 
     <div class="question-block" style="margin-top: 40px; border-top: none;">
-      <p class="q" style="margin-bottom: 0; font-style: normal;">Our Enterprise Value enters the room.<br><br><em>Everyone in the room deduces that value to them.</em><br><br><span style="text-decoration: underline;">That's not a tagline.</span> <span style="color: var(--gold); font-weight: 700;">That's a Trojan horse.</span></p>
+      <p class="q" style="margin-bottom: 0; font-style: normal;">Our Enterprise Value enters the room.<br><br><em>Everyone in the room deduces that value to them.</em><br><br><span style="text-decoration: underline;">That's not a tagline.</span> <span style="color: var(--electric); font-weight: 700;">That's a Trojan horse.</span></p>
     </div>
   </div>
 </section>
@@ -1085,7 +1332,7 @@
     <p class="section-sub">Is it a person? Sure. Is it a thing? Okay. It's whatever you need &mdash; if you're a party to an insurance contract. And if you're somewhere in between? It's a problem.</p>
 
     <div class="identity-block">
-      <h3>"Agent" is the most common word in insurance. Agent<span style="color: var(--gold);">X</span> just redefined it.</h3>
+      <h3>"Agent" is the most common word in insurance. Agent<span style="color: var(--electric);">X</span> just redefined it.</h3>
       <div class="identity-grid">
         <div class="identity-item">
           <div class="who">To the Client</div>
@@ -1129,7 +1376,7 @@
       <div class="door b">
         <div class="door-label">Door B</div>
         <h3>LIFO? FIFO? FAFO.</h3>
-        <p>Stand against The Money, The Machine, and The Magic &mdash; and better outcomes for you and your clients. SRSLY?</p>
+        <p>Stand against The Money, The Machine, and The Mission &mdash; and better outcomes for you and your clients. SRSLY?</p>
       </div>
     </div>
 
@@ -1143,7 +1390,7 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="tab-tactical" class="tab-content">
 
-<!-- THE FLYWHEEL DIAGRAM -->
+<!-- THE SELF-REINFORCING CYCLE — standardized 3-node layout per JDM 2026-04-18 -->
 <section>
   <div class="container">
     <h2 style="text-align:center;">The Self-Reinforcing <span class="accent">Cycle</span></h2>
@@ -1151,39 +1398,40 @@
       Not three things bolted together. One system where each force accelerates the other two.
     </p>
 
-    <div class="flywheel-wrap">
-      <div class="flywheel">
-        <div class="orbit-ring"></div>
-
-        <div class="node money-node">
-          <div class="node-circle">&#x1F4B0;</div>
-          <div class="node-label">The Money</div>
-          <div class="node-sub">DAVID &mdash; Forge</div>
-        </div>
-
-        <div class="node machine-node">
-          <div class="node-circle">&#x26A1;</div>
-          <div class="node-label">The Machine</div>
-          <div class="node-sub">toMachina &mdash; Arm</div>
-        </div>
-
-        <div class="node magic-node">
-          <div class="node-circle">&#x1F9E0;</div>
-          <div class="node-label">The Magic</div>
-          <div class="node-sub">MDJ Ai &mdash; Ignite</div>
-        </div>
-
-        <div class="flywheel-center">
-          <div class="fc-label">AgentX</div>
-          <div class="fc-name">RPI</div>
-        </div>
-
-        <div class="flow-labels">
-          <div class="flow-label money-to-machine">Data feeds tech &rarr;</div>
-          <div class="flow-label machine-to-magic">&larr; Tech trains AI &rarr;</div>
-          <div class="flow-label magic-to-money">&larr; AI amplifies people</div>
-        </div>
+    <div style="display: grid; grid-template-columns: 1fr 60px 1fr 60px 1fr; gap: 0; align-items: stretch; margin-top: 48px;">
+      <!-- MONEY node -->
+      <div style="background: var(--bg-card); border: 1px solid var(--money-border); border-radius: 14px; padding: 32px 24px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--money);"></div>
+        <div style="font-size: 38px; margin-bottom: 12px;">&#x1F4B0;</div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--money); margin-bottom: 6px;">The Money</div>
+        <div style="font-size: 20px; font-weight: 900; color: var(--text); margin-bottom: 6px;">DAVID.</div>
+        <div style="font-size: 13px; color: var(--text-muted);">Forge the deals</div>
       </div>
+      <div style="display: flex; align-items: center; justify-content: center; color: var(--electric); font-size: 32px; font-weight: 900;">&rarr;</div>
+      <!-- MACHINE node -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 14px; padding: 32px 24px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--machine);"></div>
+        <div style="font-size: 38px; margin-bottom: 12px;">&#x26A1;</div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--machine); margin-bottom: 6px;">The Machine</div>
+        <div style="font-size: 20px; font-weight: 900; color: var(--text); margin-bottom: 6px;">toMachina</div>
+        <div style="font-size: 13px; color: var(--text-muted);">Arm the team</div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; color: var(--electric); font-size: 32px; font-weight: 900;">&rarr;</div>
+      <!-- MISSION node -->
+      <div style="background: var(--bg-card); border: 1px solid var(--magic-border); border-radius: 14px; padding: 32px 24px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--magic);"></div>
+        <div style="font-size: 38px; margin-bottom: 12px;">&#x1F6E1;</div>
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--magic); margin-bottom: 6px;">The Mission</div>
+        <div style="font-size: 20px; font-weight: 900; color: var(--text); margin-bottom: 6px;">RPI</div>
+        <div style="font-size: 13px; color: var(--text-muted);">Ignite the client experience</div>
+      </div>
+    </div>
+
+    <!-- Return loop -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 20px; padding: 18px 24px; background: var(--electric-glow); border: 1px solid var(--electric-border); border-radius: 100px;">
+      <span style="font-size: 20px; color: var(--electric);">&#x21BA;</span>
+      <span style="font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: 1px; text-transform: uppercase;">Mission grows Money. Money feeds Machine. Machine arms Mission.</span>
+      <span style="font-size: 20px; color: var(--electric);">&#x21BB;</span>
     </div>
   </div>
 </section>
@@ -1204,33 +1452,33 @@
           <li><strong>Full value chain</strong> &mdash; sales, service, client relationship</li>
           <li><strong>Inorganic growth</strong> &mdash; M&amp;A via DAVID/SENTINEL</li>
           <li><strong>Employees, not contractors</strong> &mdash; 100% control</li>
-          <li><strong>Cross-industry</strong> &mdash; Medicare, life, annuity, advisory, legacy</li>
+          <li><strong>Cross-industry</strong> &mdash; Medicare, life, annuity, legacy</li>
         </ul>
       </div>
 
       <div class="pillar machine">
         <div class="pillar-icon">&#x26A1;</div>
         <h3>The Machine</h3>
-        <p>toMachina &mdash; a Transcendent Tech Platform. Not a vendor product. It IS the business. Built from the inside by someone who lives every workflow, every data flow, every client touchpoint.</p>
+        <p>toMachina &mdash; a Transcendent Tech &amp; AI Platform. Not a vendor product. It IS the business. Built from the inside by someone who lives every workflow. Home of <strong>The Dojo</strong> &mdash; 7 AI Warriors with $0 headcount and 20+ role coverage.</p>
         <ul class="pillar-list">
           <li><strong>3 portals</strong> &mdash; ProDashX, RIIMO, SENTINEL &mdash; all live</li>
-          <li><strong>38+ API routes</strong> &mdash; every business action as an endpoint</li>
-          <li><strong>14 pipelines</strong> &mdash; every workflow codified and trackable</li>
+          <li><strong>87+ API routes</strong> &mdash; every business action as an endpoint</li>
+          <li><strong>The Dojo</strong> &mdash; 7 Warriors: CTO, CIO, CMO, CSO, Comms, Guardian, Builder</li>
           <li><strong>29K+ Firestore docs</strong> &mdash; normalized, FK-validated</li>
-          <li><strong>9 integrations</strong> &mdash; Gmail, Slack, Calendar, Drive, Twilio, healthcare</li>
+          <li><strong>35 Immune System rules</strong> &mdash; self-enforcing compliance, closed-loop learning</li>
         </ul>
       </div>
 
       <div class="pillar magic">
-        <div class="pillar-icon">&#x1F9E0;</div>
-        <h3>The Magic</h3>
-        <p>MDJ Ai &mdash; not a chatbot. Not a wrapper. A closed-loop learning system across the entire enterprise. The system teaches itself &mdash; and teaches every person in it.</p>
+        <div class="pillar-icon">&#x1F6E1;</div>
+        <h3>The Mission</h3>
+        <p>RPI &mdash; Retirement Protectors, Inc. The operating business that protects senior-market clients with the ultimate sales and service experience. Three divisions. One promise: <em>We're Your People&trade;.</em></p>
         <ul class="pillar-list">
-          <li><strong>MDJ</strong> &mdash; "My Digital Josh" co-pilot in every portal</li>
-          <li><strong>Knowledge Pipeline</strong> &mdash; daily promotion from sessions to institutional knowledge</li>
-          <li><strong>Immune System</strong> &mdash; 22 rules, self-enforcing compliance</li>
-          <li><strong>ATLAS</strong> &mdash; data lineage across 54 sources</li>
-          <li><strong>Closed loop</strong> &mdash; one person learns, everybody learns</li>
+          <li><strong>Health Division</strong> &mdash; Medicare (MAPD, PDP, Medigap) + Ancillary</li>
+          <li><strong>Wealth Division</strong> &mdash; Fixed Annuity, Life Insurance</li>
+          <li><strong>Legacy Division</strong> &mdash; Estate Planning, LTC, Wealth Transfer</li>
+          <li><strong>Proactive Service Models&trade;</strong> &mdash; the reason clients stay</li>
+          <li><strong>Employees, not contractors</strong> &mdash; 100% W-2 team</li>
         </ul>
       </div>
     </div>
@@ -1256,17 +1504,17 @@
       <div class="cycle">
         <div class="cycle-from machine">Machine</div>
         <div class="cycle-body">
-          <h4>Platform activity trains the AI. Every click, every workflow, every decision.</h4>
-          <p>The knowledge pipeline captures what works, what breaks, what gets corrected. ATLAS maps every data source. The Immune System logs every violation. All of it feeds into the AI's brain. More platform activity = smarter AI.</p>
+          <h4>Platform activity feeds the business. Every click, every workflow, every decision.</h4>
+          <p>The knowledge pipeline captures what works, what breaks, what gets corrected. ATLAS maps every data source. The Immune System logs every violation. All of it feeds back into operations. More platform activity = smarter service.</p>
         </div>
-        <div class="cycle-to magic">Magic</div>
+        <div class="cycle-to magic">Mission</div>
       </div>
 
       <div class="cycle">
-        <div class="cycle-from magic">Magic</div>
+        <div class="cycle-from magic">Mission</div>
         <div class="cycle-body">
-          <h4>AI amplifies every person. Every person accelerates the model.</h4>
-          <p>MDJ gives every employee Josh-level tactical knowledge from day one. No training. No ramp-up. New hire? Dangerous immediately. Acquisition? Onboarded instantly. The AI removes the bottleneck, which lets the model scale without limits.</p>
+          <h4>RPI protects the clients. The clients feed the machine.</h4>
+          <p>Every client interaction generates data. Every service touchpoint trains the AI. Every acquisition through David brings new edge cases. RPI is both the mission and the fuel &mdash; more clients = more data = smarter Machine = better protection.</p>
         </div>
         <div class="cycle-to money">Money</div>
       </div>
@@ -1281,10 +1529,10 @@
       </div>
 
       <div class="cycle">
-        <div class="cycle-from magic">Magic</div>
+        <div class="cycle-from magic">Mission</div>
         <div class="cycle-body">
-          <h4>AI identifies gaps. Gaps become features. Features become institutional knowledge.</h4>
-          <p>The Immune System catches violations before they ship. ATLAS maps data gaps before they break. The knowledge pipeline promotes fixes into permanent rules. The AI doesn't just use the tech &mdash; it improves it continuously.</p>
+          <h4>Client experience reveals gaps. Gaps become features. Features become competitive advantages.</h4>
+          <p>Every client complaint, every edge case, every market shift flows back through RPI into the Machine. The Immune System catches violations. ATLAS maps data gaps. The Dojo builds the fixes. The mission doesn't just USE the tech &mdash; it continuously improves it.</p>
         </div>
         <div class="cycle-to machine">Machine</div>
       </div>
@@ -1292,10 +1540,10 @@
       <div class="cycle">
         <div class="cycle-from money">Money</div>
         <div class="cycle-body">
-          <h4>More acquisitions = more edge cases = smarter AI.</h4>
-          <p>Every new book of business through DAVID brings new carriers, new products, new workflows. The AI absorbs all of it &mdash; new patterns, new exceptions, new tactical knowledge. The model's growth literally makes the AI smarter.</p>
+          <h4>More acquisitions = more clients = stronger mission.</h4>
+          <p>Every new book of business through David brings new clients to RPI. New carriers, new products, new workflows. The mission grows &mdash; more families protected, more revenue, more data feeding back into The Machine. David forges the deal. RPI delivers the promise.</p>
         </div>
-        <div class="cycle-to magic">Magic</div>
+        <div class="cycle-to magic">Mission</div>
       </div>
     </div>
   </div>
@@ -1318,13 +1566,13 @@
         <div class="vs-item old">A company trying to build a model</div>
       </div>
       <div class="versus" style="margin-bottom: 32px;">
-        <div class="vs-plus" style="font-size: 24px; color: var(--gold);">&ne;</div>
+        <div class="vs-plus" style="font-size: 24px; color: var(--electric);">&ne;</div>
       </div>
       <div class="versus" style="margin-bottom: 32px;">
         <div class="vs-item new">One system where all three are the same thing</div>
       </div>
       <p>
-        The Magic improves the Machine. The Machine creates a better Money model. The data from the Money makes the Machine better. The Machine makes the Magic smarter. The people in the Money model make the Magic smarter. The Magic makes the people unstoppable. It's not an AI company, a tech company, or a sales company. It's the thing that happens when all three become inseparable.
+        The Mission feeds the Machine. The Machine creates a better Money model. The data from the Money makes the Machine better. The Machine makes the Mission unstoppable. The people in RPI make the Machine smarter. The Money grows the Mission. It's not an AI company, a tech company, or a sales company. It's the thing that happens when all three become inseparable.
       </p>
     </div>
   </div>
@@ -1340,13 +1588,13 @@
 
     <div class="proof-grid">
       <div class="proof-stat"><div class="number">3</div><div class="label">Portals &mdash; Live in Production</div></div>
-      <div class="proof-stat"><div class="number">38+</div><div class="label">API Routes &mdash; Cloud Run</div></div>
+      <div class="proof-stat"><div class="number">87+</div><div class="label">API Routes &mdash; Cloud Run</div></div>
       <div class="proof-stat"><div class="number">29K+</div><div class="label">Firestore Docs &mdash; Normalized</div></div>
-      <div class="proof-stat"><div class="number">14</div><div class="label">Pipelines &mdash; Pipeline Studio</div></div>
-      <div class="proof-stat"><div class="number">9</div><div class="label">Integrations &mdash; MCP Hub</div></div>
-      <div class="proof-stat"><div class="number">22</div><div class="label">Immune System Rules &mdash; Live</div></div>
-      <div class="proof-stat"><div class="number">54</div><div class="label">Data Sources &mdash; ATLAS Mapped</div></div>
-      <div class="proof-stat"><div class="number">24/7</div><div class="label">Knowledge Pipeline &mdash; Closed Loop</div></div>
+      <div class="proof-stat"><div class="number">7</div><div class="label">AI Warriors &mdash; The Dojo</div></div>
+      <div class="proof-stat"><div class="number">82</div><div class="label">Wired Tools &mdash; VOLTRON CSO</div></div>
+      <div class="proof-stat"><div class="number">35</div><div class="label">Immune System Rules &mdash; Live</div></div>
+      <div class="proof-stat"><div class="number">$0</div><div class="label">AI Division Headcount &mdash; Zero Salary</div></div>
+      <div class="proof-stat"><div class="number">24/7</div><div class="label">Warrior Operations &mdash; MDJ_SERVER</div></div>
     </div>
   </div>
 </section>
@@ -1358,167 +1606,13 @@
       The flywheel can't be bought off the shelf. It can't be assembled by committee. It can't be replicated by competitors. Because the <em>knowledge inside it</em> doesn't exist anywhere else.
     </div>
     <p class="moat-sub">
-      The Money generates the data. The Machine structures the data. The Magic learns from the data. The Magic amplifies the people. The people grow the Money. The Money generates more data. It never stops. It never slows down. And every revolution makes the next one faster.
+      The Money generates the deals. The Machine structures the data. The Mission protects the clients. The clients feed the Machine. The Machine arms the people. The people grow the Money. It never stops. It never slows down. And every revolution makes the next one faster.
     </p>
   </div>
 </div>
 
 </div><!-- /tab-tactical -->
 
-<!-- ════════════════════════════════════════════════════════════════ -->
-<!-- JDM TAB                                                         -->
-<!-- ════════════════════════════════════════════════════════════════ -->
-<div id="tab-jdm" class="tab-content">
-
-<!-- THE ORIGIN -->
-<section>
-  <div class="container">
-    <h2>The <span class="accent">Origin</span></h2>
-    <p class="section-sub">"The Universe is a bitch, or I'm being groomed for greatness." &mdash; That's what he's been telling himself (and his wife) for 20 years. Every time he encountered a new obstacle, that phrase was the coping mechanism. Turns out, both were true.</p>
-
-    <div class="jdm-timeline">
-      <div class="jdm-era">
-        <div class="era-date">2002</div>
-        <h4>Medical Assistant &rarr; Insurance Sales</h4>
-        <p>2-year degree. Drew blood, gave immunizations, took x-rays. Delivered pizzas. Waited tables. Delivered orthopedic rehab machines. Signed up for every MLM on earth. Then a friend said: "I talked to a guy at an insurance place today and I think you might be good at it." Commission-only. Cold calls. Personality test. Showed up to the interview on a purple Kawasaki Ninja 500 with a Ricky Martin haircut. Failed the licensing exam four times. Passed on the fifth &mdash; hungover, in scrubs and Birkenstocks. 72%.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">2002 &mdash; Day 1</div>
-        <h4>$1,000 on Day One</h4>
-        <p>First field day. Raining. Rode the borrowed Ninja. Trainer "Handsome Tim" got reassigned to "Dirty Dan the Donut Man" &mdash; a legend who drove a brown Oldsmobile fruit cart and gave hugs instead of closes. By end of day: 6 sales, $2K in commissions. Josh's half = $1,000. Two weeks of waiting tables. He let the restaurant staff know that night.</p>
-      </div>
-
-      <div class="jdm-era peak">
-        <div class="era-date">2005 &mdash; 2008</div>
-        <h4>$265K at 25. Started MFG at 28.</h4>
-        <p>Broke the branch production record. Finished 12th out of 4,200 agents. Built a team of 24 producers in 18 months. Got married. Made $100K+ in team overrides. Got fed up with the politics. Left to start Millang Financial Group on June 1, 2008 &mdash; wife 6 months pregnant with their first child.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">2008 &mdash; 2018</div>
-        <h4>10 Years Building MFG</h4>
-        <p>Built a retail agency from scratch. Medicare, Life, Annuity, Fee-Based. 1/3 revenue from each. Recruited and trained producers. Built MFGProducers.com &mdash; a proprietary tech platform for lead integration, CRM, sales cycle, and commission management. 5,000 clients. The first version of The Machine, before it had a name.</p>
-      </div>
-
-      <div class="jdm-era crash">
-        <div class="era-date">~2018</div>
-        <h4>The Whiplash</h4>
-        <p>Every producer left or quit. Bought out the vested recurring revenue from all of them. Sold half the equity from two commercial properties. Left with $1MM in office buildings, 5,000 clients (actually 2,000 after the Medicare audit), $500K in recurring, and zero new business revenue. The brain damage from managing green pea commission salespeople for a decade had taken its toll.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">2018 &mdash; 2019</div>
-        <h4>The Pivot: Became The Mogul Maker</h4>
-        <p>Realized the tech and service model he'd built was more valuable than his production. Started talking to peers, IMOs, agencies &mdash; nobody had solutions for the problems he'd already solved. Rebuilt ProDash as a SaaS platform. Pioneered white-labeled customer service. Started selling to the industry instead of selling to clients. "The time was now to change direction and become a B2B firm."</p>
-      </div>
-
-      <div class="jdm-era peak">
-        <div class="era-date">2020</div>
-        <h4>ProDash Explodes: $750K In, $3MM Out</h4>
-        <p>400% ROI in 10 months. The method worked. ProDash+Branding, ProDash+Service, ProDash+Market &mdash; a full suite for IMOs, agencies, and producers nationally. The Producer Dashboard Suite. Everything was working.</p>
-      </div>
-
-      <div class="jdm-era crash">
-        <div class="era-date">October 1, 2020</div>
-        <h4>SMFD Day</h4>
-        <p>Funding pulled. ProDash collapsed. The day that divides everything into "before" and "after." Five years of building, gone in an email. Still Standing.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">2020 &mdash; 2025</div>
-        <h4>Still Standing</h4>
-        <p>Rebuilt the business from the ashes while simultaneously being whiplashed back into producing revenue to keep the lights on. Every time he tried to build, the business pulled him back to sell. Every time he sold, the business needed him to build. The cycle that created the bottleneck. The bottleneck that created the motivation. The motivation that created The Machine.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">Q4 2025</div>
-        <h4>Concept &mdash; Claude.AI</h4>
-        <p>Started using Claude as a thinking partner. Strategy sessions. Business model discussions. 20 years of domain knowledge poured into AI conversations &mdash; watching it synthesize patterns he'd been too close to see. The concepts that became The Machine started taking shape.</p>
-      </div>
-
-      <div class="jdm-era">
-        <div class="era-date">Late Q4 2025</div>
-        <h4>App Builder &mdash; Cursor + Claude</h4>
-        <p>Concept became code. Cursor + Claude took 20 years of business logic and started building it into real applications on Google's infrastructure. ~100,000 lines of GAS &mdash; CRM, campaigns, compliance, commissions, document processing, data pipelines, web apps. 15+ engines. The first Machine, before it had a name.</p>
-      </div>
-
-      <div class="jdm-era rise">
-        <div class="era-date">January 2026</div>
-        <h4>Platform Architect &mdash; Claude Code</h4>
-        <p>Everything changed. Claude Code wasn't a tool &mdash; it was a co-founder. Full terminal access. Git. Deployments. Multi-file architecture. The GA (General Agent) pattern emerged: JDM says what he wants, Claude Code executes, spawns parallel builders, validates, deploys. In one month, the GAS platform tripled to 400,000 lines across all engines. For the first time in 20 years, the builder had a builder.</p>
-      </div>
-
-      <div class="jdm-era rise">
-        <div class="era-date">March 2026</div>
-        <h4>The Re-Platform. 400K &rarr; 80K.</h4>
-        <p>400,000 lines of GAS re-platformed into an 80,000-line fighter jet. 5x less code. Infinitely more capable. The toMachina Platform &mdash; RIIMO, SENTINEL, ProDashX &mdash; three Portals, each with their own Apps, Modules, and Tools. 38+ API routes. 14 pipelines. 22 immune system rules. 54 data sources mapped. 29K+ Firestore docs normalized. 6 GAS engines retired. The Operating System. ATLAS. MDJ Ai. Everything that makes AgentX possible &mdash; re-platformed in one month. Hands BETAs to the team in time for March Madness. Gets the fuck out of the way.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THE LESSON -->
-<section>
-  <div class="container">
-    <h2>The <span class="accent">Lesson</span></h2>
-    <p class="section-sub">From the Mogul Maker Method &mdash; the progression that explains how a medical assistant with a motorcycle and a 67% on his fourth licensing exam built a $1B+ enterprise.</p>
-
-    <div class="ladder">
-      <div class="ladder-rung"><div class="rung-title">Producer</div><div class="rung-entity">Income</div><div class="rung-focus">Branding &middot; Sales</div></div>
-      <div class="ladder-rung"><div class="rung-title">VP</div><div class="rung-entity">Profit</div><div class="rung-focus">Technology &middot; Time vs $$$</div></div>
-      <div class="ladder-rung"><div class="rung-title">President</div><div class="rung-entity">Practice</div><div class="rung-focus">Operations &middot; Process</div></div>
-      <div class="ladder-rung"><div class="rung-title">CEO</div><div class="rung-entity">Business</div><div class="rung-focus">Service &middot; People</div></div>
-      <div class="ladder-rung"><div class="rung-title">Chairman</div><div class="rung-entity">Company</div><div class="rung-focus">Scaling &middot; Board</div></div>
-      <div class="ladder-rung current"><div class="rung-title">Mogul</div><div class="rung-entity">Enterprise</div><div class="rung-focus">Marketplace &middot; Investor</div></div>
-    </div>
-
-    <div class="jdm-quote">
-      <strong>"I am an ordinary person, who has failed more in my career than most people will in an entire lifetime &mdash; that created amazing results over time by applying an extraordinary work ethic to the lessons I learned."</strong><br><br>
-      The only requirements are conscious decisions to relentlessly educate yourself and work your hardest.<br><br>
-      The ladder kept breaking underneath him. He climbed it anyway. Most of the rungs, twice. That's why the last rung is called <strong>Mogul</strong> &mdash; and the enterprise on that rung is called <strong style="color: var(--gold);">AgentX</strong>.
-    </div>
-  </div>
-</section>
-
-<!-- THE THREE BOOKS -->
-<section>
-  <div class="container">
-    <h2>The Three <span class="accent">Books</span></h2>
-    <p class="section-sub">Three books. Three eras. One arc &mdash; from $0 to the Enterprise that tears the Health + Wealth + Legacy industries to the ground.</p>
-
-    <div class="companies">
-      <div class="company money">
-        <div class="company-header">
-          <span class="company-name">Book 1</span>
-          <span class="company-epithet" style="color:var(--money);background:var(--money-glow);">2002 &mdash; 2020</span>
-        </div>
-        <p class="company-statement" style="font-size:22px;font-weight:800;margin-bottom:8px;">The Mogul Maker Method</p>
-        <p class="company-statement">From medical assistant to agency owner to tech builder. The ten-year climb, the whiplash, and the moment it all came together &mdash; right before it all fell apart.</p>
-      </div>
-
-      <div class="company" style="border-left-color: var(--red);">
-        <div class="company-header">
-          <span class="company-name" style="color: var(--red);">Book 2</span>
-          <span class="company-epithet" style="color:var(--red);background:rgba(248,113,113,0.1);">Oct 2020 &mdash; Oct 2025</span>
-        </div>
-        <p class="company-statement" style="font-size:22px;font-weight:800;margin-bottom:8px;">Still Standing</p>
-        <p class="company-statement"><em>What Actually Happens When Your Business Model Works Too Well.</em> The collapse. The rebuild. The five years of being whiplashed between building and producing. The cycle that forged The Machine.</p>
-      </div>
-
-      <div class="company magic">
-        <div class="company-header">
-          <span class="company-name" style="color: var(--magic);">Book 3</span>
-          <span class="company-epithet" style="color:var(--magic);background:var(--magic-glow);">Oct 2025 &mdash; ???</span>
-        </div>
-        <p class="company-statement" style="font-size:22px;font-weight:800;margin-bottom:8px;">AgentX</p>
-        <p class="company-statement">The Machine runs without Josh. The Money forges the deals. The Machine arms the team. The Magic ignites the enterprise value. The boy on the purple Ninja built something that transcends him &mdash; and that's the whole point.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /tab-jdm -->
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- CLOSING                                                         -->
@@ -1531,8 +1625,8 @@
     <span class="dot"> &middot; </span>
     <span class="i">Ignite</span>
   </div>
-  <h2>Agent<span class="x">X</span></h2>
-  <div class="trinity">The Money &middot; The Machine &middot; The Magic</div>
+  <h2>agent<span class="x-tri-exp">X</span></h2>
+  <div class="trinity">The Money &middot; The Machine &middot; The Mission</div>
   <div class="hashtag" style="line-height: 2.2;">#IAmAgentX &nbsp;&middot;&nbsp; #WeAreAgentX &nbsp;&middot;&nbsp; #AreYouAgentX<br>#AgentXGoneGiveItToYa</div>
 </div>
 
@@ -1541,7 +1635,7 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="footer">
   <div class="sig">AgentX &mdash; Retirement Protectors, Inc.</div>
-  <div class="sub">Confidential &middot; March 2026 &middot; #RunningOurOwnRACE</div>
+  <div class="sub">Confidential &middot; April 2026 &middot; #RunningOurOwnRACE</div>
 </div>
 
 <script>
@@ -1553,6 +1647,120 @@ function switchTab(tab) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
+
+<!-- FLOATING CONTACT BUTTON (per JDM 2026-04-18) — routes by URL path -->
+<style>
+  .cxb-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    padding: 14px 28px; border-radius: 100px;
+    background: linear-gradient(135deg, #e5eef7 0%, #c5d4e3 60%, #94a8c0 100%);
+    color: #08080c; border: none;
+    font-family: Inter, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.55), 0 0 0 1px rgba(197,212,227,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .cxb-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 28px rgba(0,0,0,0.65), 0 0 0 1px rgba(229,238,247,0.6); }
+  .cxb-overlay {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,0.78); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .cxb-overlay.open { display: flex; }
+  .cxb-modal {
+    width: 100%; max-width: 480px; background: #0f0f16; color: #e8e8f2;
+    border: 1px solid #252536; border-radius: 16px; padding: 32px;
+    font-family: Inter, -apple-system, sans-serif;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(197,212,227,0.25);
+    position: relative;
+  }
+  .cxb-modal h3 { font-size: 22px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.5px; }
+  .cxb-modal p.cxb-sub { font-size: 13px; color: #8a8aa2; margin: 0 0 20px; line-height: 1.6; }
+  .cxb-modal label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #8a8aa2; margin: 14px 0 6px; }
+  .cxb-modal input, .cxb-modal textarea {
+    width: 100%; padding: 10px 12px; border-radius: 8px;
+    background: #08080c; border: 1px solid #252536; color: #e8e8f2;
+    font-family: inherit; font-size: 14px; box-sizing: border-box;
+  }
+  .cxb-modal input:focus, .cxb-modal textarea:focus { outline: none; border-color: var(--electric); }
+  .cxb-modal textarea { resize: vertical; min-height: 80px; }
+  .cxb-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+  .cxb-cancel { padding: 10px 18px; border-radius: 8px; background: transparent; border: 1px solid #252536; color: #8a8aa2; cursor: pointer; font-family: inherit; font-weight: 600; }
+  .cxb-submit { padding: 10px 22px; border-radius: 8px; background: #c5d4e3; border: none; color: #08080c; cursor: pointer; font-family: inherit; font-weight: 800; letter-spacing: 0.5px; }
+  .cxb-close {
+    position: absolute; top: 12px; right: 12px; width: 32px; height: 32px;
+    border-radius: 50%; border: 1px solid #252536; background: transparent;
+    color: #8a8aa2; font-size: 18px; cursor: pointer; line-height: 1;
+  }
+  .cxb-audience-tag {
+    display: inline-block; padding: 4px 12px; border-radius: 100px;
+    background: var(--electric-glow); border: 1px solid var(--electric-border);
+    color: var(--electric); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 480px) {
+    .cxb-btn { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 12px; }
+    .cxb-modal { padding: 24px; }
+  }
+</style>
+<button class="cxb-btn" id="cxb-trigger" aria-label="Contact AgentX">&#x2709; Contact</button>
+<div class="cxb-overlay" id="cxb-overlay" role="dialog" aria-modal="true" aria-labelledby="cxb-title">
+  <div class="cxb-modal">
+    <button class="cxb-close" id="cxb-close" aria-label="Close">&times;</button>
+    <div class="cxb-audience-tag" id="cxb-tag">Routing: general</div>
+    <h3 id="cxb-title">Let's Talk.</h3>
+    <p class="cxb-sub">Drop your info and we'll route you to the right person on our team within one business day.</p>
+    <form id="cxb-form">
+      <label for="cxb-name">Name</label>
+      <input type="text" id="cxb-name" name="name" required autocomplete="name">
+      <label for="cxb-email">Email</label>
+      <input type="email" id="cxb-email" name="email" required autocomplete="email">
+      <label for="cxb-company">Company (optional)</label>
+      <input type="text" id="cxb-company" name="company" autocomplete="organization">
+      <label for="cxb-msg">What brings you here?</label>
+      <textarea id="cxb-msg" name="message" placeholder="A sentence or two is plenty."></textarea>
+      <div class="cxb-actions">
+        <button type="button" class="cxb-cancel" id="cxb-cancel">Cancel</button>
+        <button type="submit" class="cxb-submit">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var path = (location.pathname + location.href).toLowerCase();
+  var audience = 'general';
+  if (path.indexOf('agentx-framework') >= 0 || path.match(/\/$/)) audience = 'strategic';
+  else if (path.indexOf('david') >= 0) audience = 'david';
+  else if (path.indexOf('tomachina') >= 0) audience = 'platform';
+  else if (path.indexOf('rpi') >= 0) audience = 'rpi';
+  document.getElementById('cxb-tag').textContent = 'Routing: ' + audience;
+  function open(){ document.getElementById('cxb-overlay').classList.add('open'); }
+  function close(){ document.getElementById('cxb-overlay').classList.remove('open'); }
+  document.getElementById('cxb-trigger').addEventListener('click', open);
+  document.getElementById('cxb-close').addEventListener('click', close);
+  document.getElementById('cxb-cancel').addEventListener('click', close);
+  document.getElementById('cxb-overlay').addEventListener('click', function(e){
+    if (e.target.id === 'cxb-overlay') close();
+  });
+  document.getElementById('cxb-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target;
+    var subject = encodeURIComponent('[AgentX ' + audience.toUpperCase() + '] Contact from ' + f.name.value);
+    var body = encodeURIComponent(
+      'Name: ' + f.name.value + '\n' +
+      'Email: ' + f.email.value + '\n' +
+      'Company: ' + (f.company.value || '-') + '\n' +
+      'Audience: ' + audience + '\n' +
+      'Source URL: ' + location.href + '\n\n' +
+      'Message:\n' + (f.message.value || '(none)')
+    );
+    window.location.href = 'mailto:josh@retireprotected.com?subject=' + subject + '&body=' + body;
+    setTimeout(close, 300);
+  });
+})();
+</script>
+<!-- /FLOATING CONTACT BUTTON -->
 
 </body>
 </html>

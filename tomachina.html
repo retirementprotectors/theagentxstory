@@ -17,20 +17,24 @@
     --text: #e4e8f2;
     --text-muted: #8090a8;
     --text-dim: #445068;
-    --machine: #60a5fa;
-    --machine-bright: #93c5fd;
-    --machine-dim: #2563eb;
-    --machine-glow: rgba(96, 165, 250, 0.12);
-    --machine-border: rgba(96, 165, 250, 0.28);
+    --machine: #a78bfa;
+    --machine-bright: #c4b5fd;
+    --machine-dim: #7c3aed;
+    --machine-glow: rgba(167, 139, 250, 0.12);
+    --machine-border: rgba(167, 139, 250, 0.28);
     --money: #4ade80;
     --money-glow: rgba(74, 222, 128, 0.10);
     --money-border: rgba(74, 222, 128, 0.25);
     --magic: #c084fc;
     --magic-glow: rgba(192, 132, 252, 0.10);
     --magic-border: rgba(192, 132, 252, 0.25);
+    /* RPI Electric Cobalt — for IGNITE/RPI references per JDM 2026-04-18 */
+    --rpi: #3b82f6;
+    --rpi-glow: rgba(59, 130, 246, 0.10);
+    --rpi-border: rgba(59, 130, 246, 0.25);
     --gold: #d4a44c;
-    --gold-glow: rgba(212, 164, 76, 0.12);
-    --gold-border: rgba(212, 164, 76, 0.25);
+    --gold-glow: rgba(197, 212, 227, 0.18);
+    --gold-border: rgba(197, 212, 227, 0.35);
     --red: #f87171;
     --green: #4ade80;
     --amber: #fbbf24;
@@ -38,6 +42,13 @@
     --prodash: #4a7ab5;
     --riimo: #a78bfa;
     --sentinel: #40bc58;
+    /* RPI Electric Cobalt vars — per JDM 2026-04-19 */
+    --rpi-bright: #60a5fa;
+    --rpi-dim: #1d4ed8;
+    /* Electric grey — replaces gold accents per JDM 2026-04-19 */
+    --electric: #c5d4e3;
+    --electric-glow: rgba(197, 212, 227, 0.18);
+    --electric-border: rgba(197, 212, 227, 0.35);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,8 +80,8 @@
     width: 800px;
     height: 800px;
     background: radial-gradient(circle,
-      rgba(96, 165, 250, 0.08) 0%,
-      rgba(37, 99, 235, 0.04) 40%,
+      rgba(167, 139, 250, 0.08) 0%,
+      rgba(124, 58, 237, 0.04) 40%,
       transparent 70%
     );
     pointer-events: none;
@@ -81,9 +92,9 @@
     gap: 8px;
     padding: 6px 18px;
     border-radius: 100px;
-    background: var(--gold-glow);
-    border: 1px solid var(--gold-border);
-    color: var(--gold);
+    background: var(--electric-glow);
+    border: 1px solid var(--electric-border);
+    color: var(--electric);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -152,6 +163,7 @@
   }
   .tab-btn:hover { background: var(--bg-accent); color: var(--text-muted); }
   .tab-btn.active { background: var(--machine-glow); border-color: var(--machine-border); color: var(--machine); }
+  .tab-btn.dojo-tab.active { background: rgba(192, 132, 252, 0.10); border-color: rgba(192, 132, 252, 0.25); color: #c084fc; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
@@ -366,7 +378,7 @@
   .arch-box.app {
     border: 1px solid; min-width: 160px;
   }
-  .arch-box.app.prodash { background: rgba(74, 122, 181, 0.1); border-color: rgba(74, 122, 181, 0.3); color: var(--prodash); }
+  .arch-box.app.prodash { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); color: var(--rpi); }
   .arch-box.app.riimo { background: rgba(167, 139, 250, 0.1); border-color: rgba(167, 139, 250, 0.3); color: var(--riimo); }
   .arch-box.app.sentinel { background: rgba(64, 188, 88, 0.1); border-color: rgba(64, 188, 88, 0.3); color: var(--sentinel); }
   .arch-box.pkg {
@@ -432,14 +444,14 @@
   }
   .ignite-block::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--money), var(--machine), var(--magic));
+    background: linear-gradient(90deg, var(--money), var(--machine), var(--rpi));
   }
   .ignite-block .verb {
     font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;
   }
   .ignite-block .verb .f { color: var(--money); }
   .ignite-block .verb .a { color: var(--machine); }
-  .ignite-block .verb .i { color: var(--magic); }
+  .ignite-block .verb .i { color: var(--rpi); }
   .ignite-block .verb .dot { color: var(--text-dim); }
   .ignite-block .statement {
     font-size: 24px; font-weight: 800; letter-spacing: -0.5px;
@@ -474,6 +486,289 @@
   .sprint-item .sprint-status.wip { background: rgba(251, 191, 36, 0.12); color: var(--amber); }
   .sprint-item p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
+  /* ── DOJO TAB — PURPLE (TAIKO) THEMING ── */
+  #tab-user h2 .accent { color: var(--magic); }
+  #tab-user .card-icon.dojo { background: rgba(192, 132, 252, 0.12); }
+  .dojo-accent { color: var(--magic); }
+  .dojo-hero {
+    padding: 56px 0 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .dojo-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(circle,
+      rgba(192, 132, 252, 0.10) 0%,
+      rgba(192, 132, 252, 0.04) 40%,
+      transparent 70%);
+    pointer-events: none;
+    max-width: 100vw;
+  }
+  .dojo-hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #d8b4fe 0%, #c084fc 50%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dojo-hero .dojo-epithet {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--magic);
+    margin-bottom: 20px;
+  }
+  .dojo-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .dojo-hero p em {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* Warriors grid */
+  .warriors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .warrior-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .warrior-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(192, 132, 252, 0.35);
+  }
+  .warrior-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--magic);
+  }
+  .warrior-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .warrior-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 2px;
+    letter-spacing: -0.3px;
+  }
+  .warrior-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--magic);
+    margin-bottom: 12px;
+  }
+  .warrior-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .warrior-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: rgba(192, 132, 252, 0.12);
+    color: var(--magic);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+  }
+
+  /* Dojo stat strip */
+  .dojo-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .dojo-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .dojo-stat .num {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #d8b4fe 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dojo-stat .lbl {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Dojo mesh callout */
+  .mesh-callout {
+    background: linear-gradient(135deg, rgba(192, 132, 252, 0.08) 0%, rgba(147, 51, 234, 0.04) 100%);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .mesh-callout h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--magic);
+    margin-bottom: 12px;
+  }
+  .mesh-callout p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .mesh-callout p strong { color: var(--text); }
+
+  /* Journey phases (purple-themed) */
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1024px) {
+    .journey-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .journey-grid { grid-template-columns: 1fr; }
+  }
+  .journey-phase {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .journey-phase::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--magic);
+    opacity: 0.5;
+  }
+  .journey-phase .ph-num {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--magic);
+    margin-bottom: 6px;
+  }
+  .journey-phase h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .journey-phase .ph-when {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .journey-phase p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* Layer rows (purple-themed) */
+  .layers-wrap { margin-top: 40px; }
+  .layer-row {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+  .layer-row:hover { border-color: rgba(192, 132, 252, 0.35); }
+  .layer-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(192, 132, 252, 0.12);
+    color: var(--magic);
+    font-weight: 900;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .layer-body h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .layer-body p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .layer-tag {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(192, 132, 252, 0.1);
+    color: var(--magic);
+    white-space: nowrap;
+    align-self: start;
+    margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .dojo-hero h1 { font-size: 38px; }
+    .dojo-stats { grid-template-columns: repeat(2, 1fr); }
+    .layer-row { grid-template-columns: 40px 1fr; }
+    .layer-tag { grid-column: 1 / -1; justify-self: start; }
+  }
+
   /* ── FOOTER ── */
   .footer {
     padding: 48px 40px; text-align: center; border-top: 1px solid var(--border);
@@ -502,7 +797,7 @@
     padding: 10px 40px;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
     position: sticky;
@@ -517,35 +812,59 @@
     background: transparent;
     transition: background 0.2s;
   }
-  .cross-nav a.nav-gold { color: #d4a44c; }
-  .cross-nav a.nav-green { color: #4ade80; }
-  .cross-nav a.nav-blue { color: #60a5fa; }
-  .cross-nav a.nav-purple { color: #c084fc; }
-  .cross-nav a.nav-gold:hover { background: rgba(212, 164, 76, 0.08); }
+  .cross-nav a.nav-gold { color: var(--text); font-size: 15px; font-weight: 900; letter-spacing: -0.5px; }
+  .cross-nav a.nav-green { color: #4ade80; font-size: 15px; font-weight: 900; }
+  .cross-nav a.nav-blue { color: #a78bfa; font-size: 15px; font-weight: 900; }
+  .cross-nav a.nav-purple { color: #c084fc; font-size: 15px; font-weight: 900; }
+  .cross-nav a.nav-gold:hover { background: var(--electric-glow); }
   .cross-nav a.nav-green:hover { background: rgba(74, 222, 128, 0.08); }
-  .cross-nav a.nav-blue:hover { background: rgba(96, 165, 250, 0.08); }
+  .cross-nav a.nav-blue:hover { background: rgba(167, 139, 250, 0.08); }
   .cross-nav a.nav-purple:hover { background: rgba(192, 132, 252, 0.08); }
-  .cross-nav a.active { background: rgba(96, 165, 250, 0.12); border-color: rgba(96, 165, 250, 0.25); }
+  .cross-nav a.nav-rpi { color: #3b82f6; font-size: 15px; font-weight: 900; }
+  .cross-nav a.nav-rpi:hover { background: rgba(59, 130, 246, 0.08); }
+  .cross-nav a.active { background: rgba(167, 139, 250, 0.12); border-color: rgba(167, 139, 250, 0.25); }
+
+  /* agentX wordmark X — tri-gradient per JDM 2026-04-19 lock */
+  .x-tri { background: linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+
+  /* ── MOBILE — U4 per JDM 2026-04-19 ── */
+  @media (max-width: 768px) {
+    .cross-nav { padding: 8px 12px; gap: 4px; flex-wrap: wrap; font-size: 13px; }
+    .cross-nav a { padding: 4px 10px; font-size: 13px !important; }
+    .hero { padding: 60px 20px 40px !important; }
+    .hero h1 { font-size: 48px !important; letter-spacing: -2px !important; }
+    h2 { font-size: 26px !important; }
+    .container { padding: 0 20px !important; }
+    section { padding: 50px 0 !important; }
+    [style*="grid-template-columns: repeat(4"], [style*="grid-template-columns: repeat(3"], [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+    .tab-bar, .sub-tabs { flex-wrap: wrap !important; }
+    .tab-btn, .sub-tab { font-size: 13px !important; padding: 10px 14px !important; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 36px !important; }
+    .hero-tagline { font-size: 14px !important; letter-spacing: 3px !important; }
+    h2 { font-size: 22px !important; }
+    .cxb-btn { bottom: 16px !important; right: 16px !important; padding: 10px 18px !important; font-size: 11px !important; }
+  }
 </style>
 </head>
 <body>
 
 <!-- CROSS-NAV -->
 <div class="cross-nav">
-  <a href="index.html" class="nav-gold">AgentX</a>
-  <a href="david.html" class="nav-green">DAVID.</a>
+  <a href="../index.html" class="nav-gold">agent<span class="x-tri">X</span></a>
+  <a href="david.html" class="nav-green">David.</a>
   <a href="tomachina.html" class="nav-blue active">toMachina</a>
-  <a href="mdj.html" class="nav-purple">MDJ Ai</a>
+  <a href="rpi.html" class="nav-rpi">RPI</a>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- HERO                                                            -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="hero">
-  <div class="hero-context" style="display: block; width: fit-content; margin: 0 auto 32px;">Agent<span style="color: var(--gold);">X</span> &nbsp;&middot;&nbsp; The Machine</div>
-  <img src="tomachina-transparent.png" alt="toMachina" style="height: 160px; width: auto; margin-bottom: 32px; filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.2)); display: block; margin-left: auto; margin-right: auto;">
+  <img src="tomachina-transparent.png" alt="toMachina" style="max-width: 480px; width: 100%; height: auto; margin: 0 auto 32px; display: block;">
   <p class="hero-statement">
-    A <strong>Transcendent</strong> Tech Platform, which <strong>arms</strong> our Industry-Leading Team in providing <em>Unrivaled</em> Service.
+    A <strong>Transcendent</strong> Tech Platform, which <strong>arms</strong> our <strong>ELITE TEAM</strong> in providing <em>Unrivaled</em> Service.
   </p>
 </div>
 
@@ -553,8 +872,8 @@
 <!-- TABS                                                            -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div class="tab-bar">
-  <div class="tab-btn active" onclick="switchTab('admirer')">Admirer</div>
-  <div class="tab-btn" onclick="switchTab('user')">User</div>
+  <div class="tab-btn active" onclick="switchTab('admirer')">Platform</div>
+  <div class="tab-btn dojo-tab" onclick="switchTab('user')">Dojo</div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
@@ -568,33 +887,6 @@
     <h2>What <span class="accent">toMachina</span> Is</h2>
     <p class="section-sub">toMachina isn't a vendor product. It IS the business. Built from the inside by someone who lives every workflow, every data flow, every client touchpoint. Not purchased. Not configured. Forged.</p>
 
-    <div class="before-after">
-      <div class="ba-card before">
-        <h3>Before</h3>
-        <ul>
-          <li>GoHighLevel for CRM</li>
-          <li>Google Sheets for everything else</li>
-          <li>6 disconnected GAS engines</li>
-          <li>Manual data entry across systems</li>
-          <li>No pipeline visibility</li>
-          <li>No compliance automation</li>
-          <li>Josh is the bottleneck</li>
-        </ul>
-      </div>
-      <div class="ba-arrow">&rarr;</div>
-      <div class="ba-card after">
-        <h3>After</h3>
-        <ul>
-          <li><strong>3 purpose-built portals</strong> &mdash; one for each channel</li>
-          <li><strong>One unified database</strong> &mdash; 29K+ normalized docs</li>
-          <li><strong>38+ API routes</strong> &mdash; every action is an endpoint</li>
-          <li><strong>14 automated pipelines</strong> &mdash; every workflow tracked</li>
-          <li><strong>Self-enforcing compliance</strong> &mdash; 22 immune system rules</li>
-          <li><strong>AI-ready infrastructure</strong> &mdash; MDJ plugs in, not bolts on</li>
-          <li><strong>The team is armed</strong> &mdash; no bottleneck</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -605,23 +897,26 @@
     <p class="section-sub">Each channel gets its own front door. Same data, same engine, same modules &mdash; different brand, different permissions, different mission. Change once, all three update.</p>
 
     <div class="portal-cards">
-      <div class="portal-card prodash">
-        <img src="prodashx-tm-transparent.png" alt="ProDashX by toMachina" style="height: 70px; width: auto; margin-bottom: 16px; filter: drop-shadow(0 0 16px rgba(74, 122, 181, 0.25));">
-        <div class="portal-channel">B2C &mdash; Sales + Service</div>
-        <p class="portal-desc">The team's daily driver. Clients, accounts, pipelines, communications, quoting &mdash; everything Vince and Nikki's teams touch, in one place.</p>
-        <div class="portal-url">ProDash.toMachina.com</div>
+      <div class="portal-card sentinel">
+        <img src="sentinel-tm-transparent.png" alt="SENTINEL" style="max-width: 200px; width: 100%; height: auto; margin: 0 auto 16px; display: block;">
+        <h3 style="font-size: 34px; font-weight: 900; letter-spacing: 2px; color: var(--sentinel); margin: 0 0 16px; line-height: 1;">SENTINEL</h3>
+        <div class="portal-channel">B2B &mdash; M&amp;A + Partnerships</div>
+        <p class="portal-desc">DAVID's war room. Deal pipelines, book analysis, partnership proposals, acquisition onboarding &mdash; the DAVID Division's domain.</p>
+        <div class="portal-url">SENTINEL.toMachina.com</div>
       </div>
       <div class="portal-card riimo">
-        <img src="riimo-transparent.png" alt="RIIMO" style="height: 70px; width: auto; margin-bottom: 16px; filter: drop-shadow(0 0 16px rgba(167, 139, 250, 0.25));">
+        <img src="riimo-tm-transparent.png" alt="RIIMO" style="max-width: 200px; width: 100%; height: auto; margin: 0 auto 16px; display: block;">
+        <h3 style="font-size: 34px; font-weight: 900; letter-spacing: 2px; color: var(--riimo); margin: 0 0 16px; line-height: 1;">RIIMO</h3>
         <div class="portal-channel">B2E &mdash; Leadership + Operations</div>
-        <p class="portal-desc">The command center. Team performance, compliance oversight, analytics, pipeline health, and the Leadership Center &mdash; built for Josh and John.</p>
+        <p class="portal-desc">The command center. Team performance, compliance oversight, analytics, pipeline health, and the Leadership Center &mdash; built for executive leadership.</p>
         <div class="portal-url">RIIMO.toMachina.com</div>
       </div>
-      <div class="portal-card sentinel">
-        <img src="sentinel-transparent.png" alt="SENTINEL" style="height: 70px; width: auto; margin-bottom: 16px; filter: drop-shadow(0 0 16px rgba(64, 188, 88, 0.25));">
-        <div class="portal-channel">B2B &mdash; M&amp;A + Partnerships</div>
-        <p class="portal-desc">DAVID's war room. Deal pipelines, book analysis, partnership proposals, acquisition onboarding &mdash; Matt's domain.</p>
-        <div class="portal-url">SENTINEL.toMachina.com</div>
+      <div class="portal-card prodash">
+        <img src="prodashx-tm-transparent.png" alt="ProDashX" style="max-width: 200px; width: 100%; height: auto; margin: 0 auto 16px; display: block;">
+        <h3 style="font-size: 34px; font-weight: 900; letter-spacing: 2px; color: var(--rpi); margin: 0 0 16px; line-height: 1;">ProDashX</h3>
+        <div class="portal-channel">B2C &mdash; Sales + Service</div>
+        <p class="portal-desc">The team's daily driver. Clients, accounts, pipelines, communications, quoting &mdash; everything the Sales and Service teams touch, in one place.</p>
+        <div class="portal-url">ProDash.toMachina.com</div>
       </div>
     </div>
   </div>
@@ -647,7 +942,7 @@
       <div class="card">
         <div class="card-icon red">&#x1F6E1;</div>
         <h3>It has its own immune system</h3>
-        <p>22 rules, self-enforcing. PHI never leaks. Credentials never hardcode. Violations get logged and the system gets smarter. No human in the loop.</p>
+        <p>43 rules, self-enforcing. PHI never leaks. Credentials never hardcode. Violations get logged and the system gets smarter. No human in the loop.</p>
       </div>
       <div class="card">
         <div class="card-icon teal">&#x1F9E0;</div>
@@ -662,31 +957,17 @@
       <div class="card">
         <div class="card-icon amber">&#x1F50C;</div>
         <h3>It's AI-native, not AI-bolted</h3>
-        <p>MDJ doesn't get attached later. The entire platform was designed so that AI plugs into every portal, every pipeline, every workflow from day one.</p>
+        <p>The Executive.AI Team lives inside the platform &mdash; 6 warriors (SHINOB1, MEGAZORD, VOLTRON, MUSASHI, RONIN, RAIDEN), bilateral Slack channels, real-time dispatcher. JDM directs from anywhere; warriors build, review, guard, and ship autonomously.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROVABLE -->
+<!-- WAVE 2: Re-use this title organically on /strategic or /we-are-david -->
+<!-- "Provable. Not Promised." stat block removed per JDM 2026-04-18 -->
+
 <section>
   <div class="container">
-    <h2 style="text-align:center;">Provable. Not <span class="accent">Promised.</span></h2>
-    <p class="section-sub" style="text-align:center; margin-left:auto; margin-right:auto;">
-      This isn't a pitch deck. Every number is live. Every claim can be demonstrated by logging in and watching it work.
-    </p>
-
-    <div class="stat-grid">
-      <div class="stat-card"><div class="number">3</div><div class="label">Portals &mdash; Live in Production</div></div>
-      <div class="stat-card"><div class="number">38+</div><div class="label">API Routes &mdash; Cloud Run</div></div>
-      <div class="stat-card"><div class="number">29K+</div><div class="label">Firestore Docs &mdash; Normalized</div></div>
-      <div class="stat-card"><div class="number">14</div><div class="label">Pipelines &mdash; Pipeline Studio</div></div>
-      <div class="stat-card"><div class="number">9</div><div class="label">Integrations &mdash; MCP Hub</div></div>
-      <div class="stat-card"><div class="number">22</div><div class="label">Immune System Rules &mdash; Live</div></div>
-      <div class="stat-card"><div class="number">54</div><div class="label">Data Sources &mdash; ATLAS Mapped</div></div>
-      <div class="stat-card"><div class="number">9</div><div class="label">Sprints Shipped &mdash; 3 Months</div></div>
-    </div>
-
     <div class="ignite-block">
       <div class="verb">
         <span class="f">Forge</span>
@@ -697,7 +978,7 @@
       </div>
       <p class="statement">
         DAVID forges the deals. toMachina <em>arms the team</em>.<br>
-        MDJ ignites our Enterprise Value.
+        RPI ignites our Enterprise Value.
       </p>
     </div>
   </div>
@@ -706,11 +987,262 @@
 </div><!-- /tab-admirer -->
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- USER TAB                                                        -->
+<!-- DOJO TAB                                                        -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="tab-user" class="tab-content">
 
-<!-- ARCHITECTURE -->
+<!-- DOJO HERO -->
+<div class="dojo-hero">
+  <div class="container">
+    <h1>The Dojo</h1>
+    <div class="dojo-epithet">AI Division &middot; Live on MDJ_SERVER</div>
+    <p>The C-suite the founder couldn&rsquo;t hire &mdash; <em>built instead</em>. 7 warriors running CTO, CIO, CMO, CSO, Comms, Guardian, and Builder operations 24/7. Persistent identities. Bilateral Slack channels. Real-time dispatcher. $0 headcount salary.</p>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<section style="padding-top: 40px;">
+  <div class="container">
+    <div class="dojo-stats">
+      <div class="dojo-stat"><div class="num">7</div><div class="lbl">Warriors Live</div></div>
+      <div class="dojo-stat"><div class="num">15</div><div class="lbl">Mesh Specialists</div></div>
+      <div class="dojo-stat"><div class="num">24/7</div><div class="lbl">Autonomous Ops</div></div>
+      <div class="dojo-stat"><div class="num">$0</div><div class="lbl">Headcount Salary</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WARRIORS -->
+<section>
+  <div class="container">
+    <h2>The <span class="accent">Warriors</span></h2>
+    <p class="section-sub">Each warrior carries a persistent identity (soul.md + spirit.md + brain.txt), a dedicated Slack channel, and its own lane. No overlap. No manager. A mesh, not a hierarchy.</p>
+
+    <div class="warriors-grid">
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x1F977;</div>
+        <div class="warrior-name">SHINOB1</div>
+        <div class="warrior-title">Chief Technology Officer</div>
+        <p class="warrior-desc">Architecture, Discovery Doc review, CXO mentorship. Reviews every ticket before it ships. The originator session that launched MDJ_SERVER.</p>
+        <span class="warrior-tag">CTO</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x1F3EF;</div>
+        <div class="warrior-name">MEGAZORD</div>
+        <div class="warrior-title">Chief Information Officer</div>
+        <p class="warrior-desc">ATLAS registry (54 data sources, 15 atomic tools, 12 super tools, 5 wires) + 5 Rangers mesh. Owns every data operation across the platform.</p>
+        <span class="warrior-tag">CIO &middot; ATLAS</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x1F981;</div>
+        <div class="warrior-name">VOLTRON</div>
+        <div class="warrior-title">Chief Service Officer</div>
+        <p class="warrior-desc">QUE registry + 5 Lions mesh (Medicare / Annuity / Life-Estate / Investment / Legacy-LTC). 82 tools wired. Client-facing brain, 24/7.</p>
+        <span class="warrior-tag">CSO &middot; QUE</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x2694;&#xFE0F;</div>
+        <div class="warrior-name">MUSASHI</div>
+        <div class="warrior-title">Chief Marketing Officer</div>
+        <p class="warrior-desc">CMO Registry (57 tools, 7 domains) + 5 Artisans mesh (Print, Digital, Web, Social, Video). ARTxBLADE &mdash; writes AND ships his own work.</p>
+        <span class="warrior-tag">CMO &middot; ARTxBLADE</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x1F941;</div>
+        <div class="warrior-name">TAIKO</div>
+        <div class="warrior-title">Comms Infrastructure</div>
+        <p class="warrior-desc">Owns the pipes &mdash; Twilio voice/SMS, SendGrid email, Google Meet/Chat, RPI Connect, in-portal Comms, alerts/notifications. Compliance, A2P, DMARC, STIR/SHAKEN.</p>
+        <span class="warrior-tag">The Drum</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x26A1;</div>
+        <div class="warrior-name">RAIDEN</div>
+        <div class="warrior-title">Reactive Guardian</div>
+        <p class="warrior-desc">Watches Slack for bugs. Triages in seconds. Fixes small stuff autonomously, routes big stuff to RONIN. Not on my watch.</p>
+        <span class="warrior-tag">The Guardian</span>
+      </div>
+      <div class="warrior-card">
+        <div class="warrior-icon">&#x1F5E1;&#xFE0F;</div>
+        <div class="warrior-name">RONIN</div>
+        <div class="warrior-title">Autonomous Builder</div>
+        <p class="warrior-desc">Takes a Discovery Doc, runs the full 11-step FORGE lifecycle, ships PRs with auto-merge. Multiple RONINs run in parallel. It ships tonight.</p>
+        <span class="warrior-tag">The Builder</span>
+      </div>
+    </div>
+
+    <div class="mesh-callout">
+      <h3>The Dojo Mesh &mdash; Bilateral Comms + Dispatcher</h3>
+      <p><strong>8 bilateral Slack channels</strong> (one per warrior + #exec + #warriors) wired through a real-time dispatcher with bot-loop firewall, signoff parsing, and cross-warrior routing. The CEO messages any warrior from any device. Warriors reply in their own channels. Zero synthetic posts. Real signal only.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE JOURNEY -->
+<section>
+  <div class="container">
+    <h2>5 Phases. <span class="accent">100 Days.</span></h2>
+    <p class="section-sub">Each transition doubled the speed and halved the time. Output velocity compounded from 20K lines a week to 250K lines a week in the span of 14 weeks.</p>
+
+    <div class="journey-grid">
+      <div class="journey-phase">
+        <div class="ph-num">Phase 1</div>
+        <h4>The Little Shit</h4>
+        <div class="ph-when">Dec &ndash; Feb &middot; 7 weeks</div>
+        <p>Individual scripts in a chat window. Claude.ai + Google Apps Script. 143K lines at 20K/week.</p>
+      </div>
+      <div class="journey-phase">
+        <div class="ph-num">Phase 2</div>
+        <h4>The Interconnected Era</h4>
+        <div class="ph-when">Feb 15 &ndash; Mar 10 &middot; 3.5 weeks</div>
+        <p>Portals, modules, shared services. Cursor. 14 projects talking. 188K lines at 54K/week.</p>
+      </div>
+      <div class="journey-phase">
+        <div class="ph-num">Phase 3</div>
+        <h4>The Re-Platform</h4>
+        <div class="ph-when">Mar 10 &ndash; Mar 23 &middot; 13 days</div>
+        <p>Next.js + Firestore + Cloud Run. One monorepo replaces 14 projects. Claude Code. 132K lines at 71K/week.</p>
+      </div>
+      <div class="journey-phase">
+        <div class="ph-num">Phase 4</div>
+        <h4>The Brain + The Army</h4>
+        <div class="ph-when">Mar 23 &ndash; Apr 4 &middot; 12 days</div>
+        <p>MDJ_SERVER. 6 warriors. Autonomous builders. The Machine starts building itself. 148K at 115K/week.</p>
+      </div>
+      <div class="journey-phase">
+        <div class="ph-num">Phase 5</div>
+        <h4>The CXO Division</h4>
+        <div class="ph-when">Apr 4 &ndash; Present &middot; accelerating</div>
+        <p>3 CXOs + TAIKO. 3 Registries. 3 Meshes. 131+ tickets shipped. 250K lines at 250K/week. 12.5x baseline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE 11 LAYERS -->
+<section>
+  <div class="container">
+    <h2>11 Layers of <span class="accent">Infrastructure</span></h2>
+    <p class="section-sub">The warriors are the top layer. Underneath them is everything that makes them dangerous. Without these layers, a warrior is just a chatbot. With them, it&rsquo;s a team member.</p>
+
+    <div class="layers-wrap">
+      <div class="layer-row">
+        <div class="layer-num">1</div>
+        <div class="layer-body">
+          <h4>Identity</h4>
+          <p>A 55K-character global instruction file. Persistent soul.md + spirit.md + brain.txt per warrior. Every session knows who it is and how to communicate.</p>
+        </div>
+        <span class="layer-tag">CLAUDE.md</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">2</div>
+        <div class="layer-body">
+          <h4>Standards</h4>
+          <p>43 hookify rules that BLOCK bad code before it&rsquo;s written. 16 Block rules, 7 Warn rules, 6 Intent rules, 6 Quality Gates. Self-enforcing compliance.</p>
+        </div>
+        <span class="layer-tag">Immune System</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">3</div>
+        <div class="layer-body">
+          <h4>Memory</h4>
+          <p>30+ memory files indexed by MEMORY.md. Knowledge Pipeline scans violations daily, promotes patterns to CLAUDE.md, tracks trends, sends digest to Slack.</p>
+        </div>
+        <span class="layer-tag">Learning Loop</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">4</div>
+        <div class="layer-body">
+          <h4>Platform Knowledge</h4>
+          <p>Full awareness of 700K+ lines of typed code across 3 portal apps, 4 shared packages, 88 API routes, and 4 backend services. Turborepo. TypeScript strict.</p>
+        </div>
+        <span class="layer-tag">toMachina</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">5</div>
+        <div class="layer-body">
+          <h4>Data Intelligence</h4>
+          <p>29K+ Firestore docs normalized. Every carrier, API, and manual process tracked in the source + tool + wire registry. BigQuery streaming in real-time.</p>
+        </div>
+        <span class="layer-tag">ATLAS</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">6</div>
+        <div class="layer-body">
+          <h4>Tooling</h4>
+          <p>82 tools across 9 MCP servers. Send email, text, calls. Search healthcare registries. Read Drive, post Slack, book calendar, design in Canva. Operate the business.</p>
+        </div>
+        <span class="layer-tag">MCP-Hub</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">7</div>
+        <div class="layer-body">
+          <h4>Process</h4>
+          <p>11-step sprint lifecycle. Discovery Doc &rarr; Plan &rarr; Audit &rarr; Build &rarr; Verify &rarr; Ship. Phase-aware prompts. E2E tests. Paper trail for every sprint.</p>
+        </div>
+        <span class="layer-tag">FORGE</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">8</div>
+        <div class="layer-body">
+          <h4>Autonomy</h4>
+          <p>Discovery Doc to production PR with auto-merge, no human in the loop. Spawns parallel builder sub-agents. Posts status at every phase. Multiple run in parallel.</p>
+        </div>
+        <span class="layer-tag">RONIN</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">9</div>
+        <div class="layer-body">
+          <h4>Self-Improving Infrastructure</h4>
+          <p>Violations &rarr; logging &rarr; knowledge-promote (4am) &rarr; CLAUDE.md patch &rarr; Slack digest. The factory learns from its own mistakes and prevents the entire class.</p>
+        </div>
+        <span class="layer-tag">Closed Loop</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">10</div>
+        <div class="layer-body">
+          <h4>Mesh Orchestration</h4>
+          <p>4 CXOs + 2 Code Warriors + Comms Warrior + 15 mesh specialists. Each CXO owns a registry, a mesh, and a Dojo seat. CONSUME &rarr; OPERATE &rarr; DEVOUR lifecycle.</p>
+        </div>
+        <span class="layer-tag">The Dojo</span>
+      </div>
+      <div class="layer-row">
+        <div class="layer-num">11</div>
+        <div class="layer-body">
+          <h4>Vision</h4>
+          <p>Says what to build. Approves gates. Makes business decisions. The only human. The layer no AI can replace.</p>
+        </div>
+        <span class="layer-tag">Sensei</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section>
+  <div class="container">
+    <h2>The <span class="accent">Iron</span></h2>
+    <p class="section-sub">A Dell PowerEdge T440 on the Lanier MFD in Des Moines. Persistent tmux sessions. Standalone service account auth. Tailscale funnel. Warriors survive reboots. The factory never goes dark.</p>
+
+    <div class="dojo-stats">
+      <div class="dojo-stat"><div class="num">T440</div><div class="lbl">Dell PowerEdge</div></div>
+      <div class="dojo-stat"><div class="num">16-core</div><div class="lbl">Xeon Silver 4110</div></div>
+      <div class="dojo-stat"><div class="num">30GB</div><div class="lbl">DDR4-2666 ECC</div></div>
+      <div class="dojo-stat"><div class="num">P40</div><div class="lbl">NVIDIA GPU &mdash; Local LLM</div></div>
+    </div>
+    <p style="text-align:center; font-size:13px; color:var(--text-dim); margin-top:12px;">Dell PowerEdge T440 &middot; 16-core Xeon Silver 4110 (8 physical &times; 2 threads) &middot; 30GB DDR4-2666 ECC &middot; NVIDIA P40 GPU for Local LLM + Inference &middot; 1.1TB storage</p>
+
+    <div class="mesh-callout">
+      <h3>Why 7 Fresh Sessions &ne; 7 Warriors</h3>
+      <p>A fresh Claude session doesn&rsquo;t know who you are, doesn&rsquo;t know the rules, doesn&rsquo;t remember yesterday, can&rsquo;t access your data, and has no tools beyond code. <strong>A warrior in the Dojo</strong> has 11 layers of context stacked underneath it. The warriors are the last thing we built. The infrastructure underneath them is what makes them dangerous.</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /tab-user (The Dojo) -->
+
+<!-- ARCHIVE: Original User tab content preserved below for reference -->
+<div style="display:none" id="tab-user-archive">
+
 <section>
   <div class="container">
     <h2>Platform <span class="accent">Architecture</span></h2>
@@ -734,7 +1266,7 @@
       <div class="arch-arrow">&darr; calls &darr;</div>
       <div class="arch-label">Backend Services</div>
       <div class="arch-layer">
-        <div class="arch-box svc">API<br><small>Cloud Run &mdash; 38+ routes</small></div>
+        <div class="arch-box svc">API<br><small>Cloud Run &mdash; 88 routes</small></div>
         <div class="arch-box svc">Bridge<br><small>Firestore &harr; Sheets</small></div>
         <div class="arch-box svc">Intake<br><small>Cloud Functions</small></div>
         <div class="arch-box svc">BigQuery<br><small>Streaming Sink</small></div>
@@ -758,7 +1290,7 @@
         <tr><td class="layer">Auth</td><td>Firebase Auth &mdash; Google Workspace SSO, @retireprotected.com domain lock</td></tr>
         <tr><td class="layer">Database</td><td>Firestore (Native mode) &mdash; 29K+ docs, normalized, FK-validated</td></tr>
         <tr><td class="layer">Analytics</td><td>BigQuery &mdash; feed-forward via Cloud Functions (real-time streaming)</td></tr>
-        <tr><td class="layer">Backend</td><td>Cloud Run (Express/TypeScript) &mdash; 38+ route files, 1Gi/2CPU</td></tr>
+        <tr><td class="layer">Backend</td><td>Cloud Run (Express/TypeScript) &mdash; 88 route files, 1Gi/2CPU</td></tr>
         <tr><td class="layer">Build</td><td>Turborepo &mdash; incremental builds, 13/13 type-check CI gate</td></tr>
         <tr><td class="layer">Hosting</td><td>Firebase App Hosting &mdash; auto-deploy from main when CI passes</td></tr>
         <tr><td class="layer">GCP Project</td><td>claude-mcp-484718</td></tr>
@@ -802,11 +1334,64 @@
   </div>
 </section>
 
+<!-- THE DOJO — EXECUTIVE.AI TEAM -->
+<section>
+  <div class="container">
+    <h2>The Dojo &mdash; <span class="accent">Executive.AI Team</span></h2>
+    <p class="section-sub">The C-suite JDM couldn&rsquo;t hire, he built. 6 warriors on MDJ_SERVER (Dell PowerEdge T440, 16 cores, 30GB RAM) &mdash; each with persistent identity (soul.md + spirit.md + brain.txt), bilateral Slack channels, and real-time dispatcher delivery. Not chatbots. Team members.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon blue">&#x1F977;</div>
+        <h3>SHINOB1 &mdash; CTO</h3>
+        <p>Architecture, Discovery Doc review, CXO mentorship. Reviews all code before ship. The originator session that launched MDJ_SERVER.</p>
+        <span class="tag live">Live</span>
+      </div>
+      <div class="card">
+        <div class="card-icon green">&#x1F3EF;</div>
+        <h3>MEGAZORD &mdash; CIO</h3>
+        <p>ATLAS registry (54 data sources, 15 atomic tools, 12 super tools, 5 wires) + 5 Rangers mesh. 38 tickets shipped (ZRD- prefix). Owns data ops + integrations.</p>
+        <span class="tag live">Live &mdash; 38 tickets</span>
+      </div>
+      <div class="card">
+        <div class="card-icon blue">&#x1F981;</div>
+        <h3>VOLTRON &mdash; CSO</h3>
+        <p>QUE registry + 5 Lions mesh (Medicare / Annuity / Life-Estate / Investment / Legacy-LTC). 82 tools wired (57 TM API + 25 MCP). 50 tickets shipped (VOL- prefix).</p>
+        <span class="tag live">Live &mdash; 50 tickets</span>
+      </div>
+      <div class="card">
+        <div class="card-icon amber">&#x2694;</div>
+        <h3>MUSASHI &mdash; CMO</h3>
+        <p>CMO Registry (57 tools across 7 domains) + 5 Artisans mesh (Print, Digital, Web, Social, Video). 43 tickets shipped (MUS- prefix). ARTxBLADE &mdash; creative SME who ships.</p>
+        <span class="tag live">Live &mdash; 43 tickets</span>
+      </div>
+      <div class="card">
+        <div class="card-icon purple">&#x1F5E1;</div>
+        <h3>RONIN &mdash; Autonomous Builder</h3>
+        <p>FORGE runner on Claude Agent SDK. Takes a Discovery Doc, runs the full 11-step lifecycle, ships PRs with auto-merge. First sprint: 10 tickets, 20 minutes, CI passed first try.</p>
+        <span class="tag live">Live</span>
+      </div>
+      <div class="card">
+        <div class="card-icon red">&#x26A1;</div>
+        <h3>RAIDEN &mdash; Reactive Guardian</h3>
+        <p>Watches Slack for bugs. Triages, fixes small stuff autonomously, routes big stuff to RONIN. Auto-recovers its own tmux session if it dies. P0 alerts DM JDM immediately.</p>
+        <span class="tag live">Live</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 20px 24px; background: rgba(167, 139, 250, 0.05); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 12px;">
+      <p style="margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.7;">
+        <strong style="color: var(--text);">The Dojo Mesh</strong> &mdash; 8 bilateral Slack channels (one per warrior + #exec + #warriors) wired through a real-time dispatcher (DISP-04 bot-loop firewall, signoff parsing, cross-warrior comms). JDM messages any warrior from anywhere on any device. Warriors reply in their own channels. Zero synthetic posts. Real signal only.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT'S BEEN SHIPPED -->
 <section>
   <div class="container">
     <h2>What's Been <span class="accent">Shipped</span></h2>
-    <p class="section-sub">9 sprints in 3 months. From empty repo to three production portals with 80,000+ lines of code.</p>
+    <p class="section-sub">9 sprints + the CXO Division in 3.5 months. From empty repo to three production portals with 700,000+ lines of code and an AI agent army that builds itself.</p>
 
     <div class="sprint-timeline">
       <div class="sprint-item complete">
@@ -849,10 +1434,20 @@
         <h4>Sprint 8 &mdash; Design Polish</h4>
         <p>COMMS Center, Access Center, DeDup Overhaul, Document Buttons, 47-item punch list.</p>
       </div>
-      <div class="sprint-item active">
-        <div class="sprint-status wip">In Progress</div>
+      <div class="sprint-item complete">
+        <div class="sprint-status done">Complete</div>
         <h4>Sprint 9 &mdash; Bug Fixes + Mockups</h4>
-        <p>23 bug fixes (~16 shipped), Communications Module mockup, RPI Connect mockup.</p>
+        <p>23 bug fixes shipped, Communications Module + RPI Connect mockups, 47-item punch list closed.</p>
+      </div>
+      <div class="sprint-item complete">
+        <div class="sprint-status done">Complete</div>
+        <h4>CXO Division &mdash; Wave 1-3</h4>
+        <p>3 CXOs deployed: MEGAZORD (CIO / ATLAS / 5 Rangers), VOLTRON (CSO / QUE / 5 Lions), MUSASHI (CMO / 5 Artisans). 131 tickets across ZRD-, VOL-, MUS- prefixes. The Machine developed its own leadership.</p>
+      </div>
+      <div class="sprint-item complete">
+        <div class="sprint-status done">Complete</div>
+        <h4>The Dojo Mesh &mdash; Bilateral Comms + Dispatcher</h4>
+        <p>8 bilateral Slack channels + real-time dispatcher (DISP-04). JDM messages any warrior from anywhere. Watchdog trimmed to box-health-only. Zero synthetic chatter.</p>
       </div>
     </div>
   </div>
@@ -868,7 +1463,7 @@
       <div class="card">
         <div class="card-icon red">&#x1F6E1;</div>
         <h3>The Immune System</h3>
-        <p>22 hookify rules across 4 event types. Block rules prevent violations at the code level. Warn rules flag risks. Quality gates enforce deploy discipline. The system teaches itself.</p>
+        <p>43 hookify rules across 4 event types. Block rules prevent violations at the code level. Warn rules flag risks. Quality gates enforce deploy discipline. The system teaches itself.</p>
         <span class="tag live">Live &mdash; Closed Loop</span>
       </div>
       <div class="card">
@@ -884,6 +1479,12 @@
         <span class="tag live">Live &mdash; Daily 4am</span>
       </div>
       <div class="card">
+        <div class="card-icon green">&#x1F493;</div>
+        <h3>Wire Health Dashboard</h3>
+        <p>LL-07 observability tile. Every wire (entity-extractor, brain-sync, gap-analyzer, knowledge-promote, platform-audit) reports success / failure to a Firestore collection. LL-08 posts Slack alerts the moment a wire goes silent. No more invisible failures.</p>
+        <span class="tag live">Live &mdash; Real-time</span>
+      </div>
+      <div class="card">
         <div class="card-icon amber">&#x1F4CA;</div>
         <h3>BigQuery Streaming</h3>
         <p>Every Firestore write feeds forward to BigQuery in real-time via Cloud Functions. Analytics without querying the production database. Feed-forward, never extract.</p>
@@ -893,14 +1494,11 @@
   </div>
 </section>
 
-</div><!-- /tab-user -->
+</div><!-- /tab-user-archive (hidden) -->
 
-<!-- ════════════════════════════════════════════════════════════════ -->
-<!-- FOOTER                                                          -->
-<!-- ════════════════════════════════════════════════════════════════ -->
 <div class="footer">
-  <div class="sig">Agent<span style="color: var(--gold);">X</span> &mdash; toMachina (The Machine) &mdash; #WeAreAgentX</div>
-  <div class="sub">Confidential &middot; March 2026 &middot; #RunningOurOwnRACE</div>
+  <div class="sig">Agent<span style="color: var(--electric);">X</span> &mdash; toMachina + The Dojo &mdash; #WeAreAgentX</div>
+  <div class="sub">Confidential &middot; April 2026 &middot; #RunningOurOwnRACE</div>
 </div>
 
 <script>
@@ -909,9 +1507,129 @@ function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
   document.querySelector('.tab-btn[onclick*="' + tab + '"]').classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Scroll to just below cross-nav + tab bar so content anchors properly (no snap-back)
+  const tabBar = document.querySelector('.tab-bar');
+  if (tabBar) {
+    const rect = tabBar.getBoundingClientRect();
+    const offset = window.pageYOffset + rect.top - 40;
+    window.scrollTo({ top: Math.max(0, offset), behavior: 'instant' });
+  }
 }
 </script>
+
+<!-- FLOATING CONTACT BUTTON (per JDM 2026-04-18) — routes by URL path -->
+<style>
+  .cxb-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    padding: 14px 28px; border-radius: 100px;
+    background: linear-gradient(135deg, #e5eef7 0%, #c5d4e3 60%, #94a8c0 100%);
+    color: #08080c; border: none;
+    font-family: Inter, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.55), 0 0 0 1px rgba(197,212,227,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .cxb-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 28px rgba(0,0,0,0.65), 0 0 0 1px rgba(229,238,247,0.6); }
+  .cxb-overlay {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,0.78); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .cxb-overlay.open { display: flex; }
+  .cxb-modal {
+    width: 100%; max-width: 480px; background: #0f0f16; color: #e8e8f2;
+    border: 1px solid #252536; border-radius: 16px; padding: 32px;
+    font-family: Inter, -apple-system, sans-serif;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(197,212,227,0.25);
+    position: relative;
+  }
+  .cxb-modal h3 { font-size: 22px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.5px; }
+  .cxb-modal p.cxb-sub { font-size: 13px; color: #8a8aa2; margin: 0 0 20px; line-height: 1.6; }
+  .cxb-modal label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #8a8aa2; margin: 14px 0 6px; }
+  .cxb-modal input, .cxb-modal textarea {
+    width: 100%; padding: 10px 12px; border-radius: 8px;
+    background: #08080c; border: 1px solid #252536; color: #e8e8f2;
+    font-family: inherit; font-size: 14px; box-sizing: border-box;
+  }
+  .cxb-modal input:focus, .cxb-modal textarea:focus { outline: none; border-color: var(--electric); }
+  .cxb-modal textarea { resize: vertical; min-height: 80px; }
+  .cxb-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+  .cxb-cancel { padding: 10px 18px; border-radius: 8px; background: transparent; border: 1px solid #252536; color: #8a8aa2; cursor: pointer; font-family: inherit; font-weight: 600; }
+  .cxb-submit { padding: 10px 22px; border-radius: 8px; background: #c5d4e3; border: none; color: #08080c; cursor: pointer; font-family: inherit; font-weight: 800; letter-spacing: 0.5px; }
+  .cxb-close {
+    position: absolute; top: 12px; right: 12px; width: 32px; height: 32px;
+    border-radius: 50%; border: 1px solid #252536; background: transparent;
+    color: #8a8aa2; font-size: 18px; cursor: pointer; line-height: 1;
+  }
+  .cxb-audience-tag {
+    display: inline-block; padding: 4px 12px; border-radius: 100px;
+    background: var(--electric-glow); border: 1px solid var(--electric-border);
+    color: var(--electric); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 480px) {
+    .cxb-btn { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 12px; }
+    .cxb-modal { padding: 24px; }
+  }
+</style>
+<button class="cxb-btn" id="cxb-trigger" aria-label="Contact AgentX">&#x2709; Contact</button>
+<div class="cxb-overlay" id="cxb-overlay" role="dialog" aria-modal="true" aria-labelledby="cxb-title">
+  <div class="cxb-modal">
+    <button class="cxb-close" id="cxb-close" aria-label="Close">&times;</button>
+    <div class="cxb-audience-tag" id="cxb-tag">Routing: general</div>
+    <h3 id="cxb-title">Let's Talk.</h3>
+    <p class="cxb-sub">Drop your info and we'll route you to the right person on our team within one business day.</p>
+    <form id="cxb-form">
+      <label for="cxb-name">Name</label>
+      <input type="text" id="cxb-name" name="name" required autocomplete="name">
+      <label for="cxb-email">Email</label>
+      <input type="email" id="cxb-email" name="email" required autocomplete="email">
+      <label for="cxb-company">Company (optional)</label>
+      <input type="text" id="cxb-company" name="company" autocomplete="organization">
+      <label for="cxb-msg">What brings you here?</label>
+      <textarea id="cxb-msg" name="message" placeholder="A sentence or two is plenty."></textarea>
+      <div class="cxb-actions">
+        <button type="button" class="cxb-cancel" id="cxb-cancel">Cancel</button>
+        <button type="submit" class="cxb-submit">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var path = (location.pathname + location.href).toLowerCase();
+  var audience = 'general';
+  if (path.indexOf('agentx-framework') >= 0 || path.match(/\/$/)) audience = 'strategic';
+  else if (path.indexOf('david') >= 0) audience = 'david';
+  else if (path.indexOf('tomachina') >= 0) audience = 'platform';
+  else if (path.indexOf('rpi') >= 0) audience = 'rpi';
+  document.getElementById('cxb-tag').textContent = 'Routing: ' + audience;
+  function open(){ document.getElementById('cxb-overlay').classList.add('open'); }
+  function close(){ document.getElementById('cxb-overlay').classList.remove('open'); }
+  document.getElementById('cxb-trigger').addEventListener('click', open);
+  document.getElementById('cxb-close').addEventListener('click', close);
+  document.getElementById('cxb-cancel').addEventListener('click', close);
+  document.getElementById('cxb-overlay').addEventListener('click', function(e){
+    if (e.target.id === 'cxb-overlay') close();
+  });
+  document.getElementById('cxb-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target;
+    var subject = encodeURIComponent('[AgentX ' + audience.toUpperCase() + '] Contact from ' + f.name.value);
+    var body = encodeURIComponent(
+      'Name: ' + f.name.value + '\n' +
+      'Email: ' + f.email.value + '\n' +
+      'Company: ' + (f.company.value || '-') + '\n' +
+      'Audience: ' + audience + '\n' +
+      'Source URL: ' + location.href + '\n\n' +
+      'Message:\n' + (f.message.value || '(none)')
+    );
+    window.location.href = 'mailto:josh@retireprotected.com?subject=' + subject + '&body=' + body;
+    setTimeout(close, 300);
+  });
+})();
+</script>
+<!-- /FLOATING CONTACT BUTTON -->
 
 </body>
 </html>
