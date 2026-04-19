@@ -909,6 +909,18 @@
     h2 { font-size: 22px !important; }
     .cxb-btn { bottom: 16px !important; right: 16px !important; padding: 10px 18px !important; font-size: 11px !important; }
   }
+  /* ── UNIFIED SPACING SYSTEM (per JDM 2026-04-19) ── */
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--border); }
+  h2 { margin-bottom: 16px; }
+  .section-sub { margin-bottom: 48px; }
+  .hero { padding: 100px 40px 60px; }
+  .footer { padding: 56px 40px; }
+  @media (max-width: 768px) {
+    section { padding: 56px 0; }
+    .hero { padding: 60px 20px 40px; }
+    .footer { padding: 40px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -924,7 +936,7 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- HERO — Mission + #RunningOurOwnRACE is the main hero (per JDM)  -->
 <!-- ════════════════════════════════════════════════════════════════ -->
-<div class="hero" style="padding: 120px 40px 60px;">
+<div class="hero">
   <h1 style="font-size: 88px; font-weight: 900; letter-spacing: -4px; line-height: 0.95; margin-bottom: 24px;">Our <span class="accent">Mission</span></h1>
   <p style="font-size: 26px; font-weight: 400; color: var(--text); max-width: 840px; margin: 0 auto 32px; line-height: 1.5;">Tear the <strong style="color: var(--money);">Health</strong>, <strong style="color: var(--machine);">Wealth</strong>, and <strong style="color: var(--magic);">Legacy</strong> industry to the ground &mdash; and <strong class="tri" style="font-weight: 900;">R</strong>ebuild it <strong class="tri" style="font-weight: 900;">A</strong>round the <strong class="tri" style="font-weight: 900;">C</strong>lient <strong class="tri" style="font-weight: 900;">E</strong>xperience.</p>
   <div style="text-align: center; margin-bottom: 36px;">
@@ -1008,7 +1020,7 @@
 
     <div style="margin-top: 24px; padding: 28px 32px; background: var(--bg-card); border: 1px solid var(--electric-border); border-radius: 14px; border-left: 4px solid var(--electric);">
       <div style="font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--electric); margin-bottom: 8px;">The Headline</div>
-      <p style="font-size: 22px; color: var(--text); line-height: 1.5; font-weight: 700; margin: 0;">The entire revenue stack <em class="tri" style="font-style: normal;">(vs. the override stack)</em> &mdash; <strong class="tri">73% of the total transaction value</strong> <span style="color: var(--text-muted); font-weight: 500;">(STREET-level comp)</span> &mdash; <strong class="tri">is missing from wholesale acquisitions.</strong></p>
+      <p style="font-size: 22px; color: var(--text); line-height: 1.5; font-weight: 700; margin: 0;">The entire revenue stack <em style="font-style: normal; color: var(--text-muted);">(vs overrides)</em> &mdash; <strong class="tri">73% of the total transaction value</strong> <span style="color: var(--text-muted); font-weight: 500;">(STREET-level comp)</span> &mdash; <strong class="tri">is missing from wholesale acquisitions.</strong></p>
     </div>
 
     <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 6px;">
@@ -1123,7 +1135,7 @@
 <!-- THE ESOP -->
 <section>
   <div class="container">
-    <h2>The $4.8BB <span class="accent">ESOP</span></h2>
+    <h2>The <span class="tri">$4.8BB</span> <span class="accent">ESOP</span></h2>
     <p class="section-sub">The team that built it owns a piece of it. $1B+ valuation triggers ESOP launch in 2029. 30% employee ownership by 2031.</p>
   </div>
 </section>
@@ -1345,11 +1357,11 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section>
   <div class="container">
-    <h2>Who Is Agent<span class="accent">X</span>? What Is Agent<span class="accent">X</span>?!</h2>
+    <h2>Who Is <span class="agentx-wm">agent<span class="x-sup">X</span></span>? What Is <span class="agentx-wm">agent<span class="x-sup">X</span></span>?!</h2>
     <p class="section-sub">Is it a person? Sure. Is it a thing? Okay. It's whatever you need &mdash; if you're a party to an insurance contract. And if you're somewhere in between? It's a problem.</p>
 
     <div class="identity-block">
-      <h3>"Agent" is the most common word in insurance. Agent<span class="tri">X</span> just redefined it.</h3>
+      <h3>"Agent" is the most common word in insurance. <span class="agentx-wm">agent<span class="x-sup">X</span></span> just redefined it.</h3>
       <div class="identity-grid">
         <div class="identity-item">
           <div class="who">To the Client</div>
@@ -1387,12 +1399,12 @@
     <div class="doors">
       <div class="door a">
         <div class="door-label">Door A</div>
-        <h3>Join Us</h3>
+        <h3 class="tri">Join Us</h3>
         <p>Become an Associate by Merging. A New Retiree with your Executed Succession Plan. A Partner with a New Revenue Stream. Your clients. Your lifestyle. Wins for all. <strong style="color: var(--money);">#WeAreAllAgent<span class="tri">X</span></strong></p>
       </div>
       <div class="door b">
         <div class="door-label">Door B</div>
-        <h3>LIFO? FIFO? FAFO.</h3>
+        <h3>LIFO? FIFO? <strong class="tri">FAFO.</strong></h3>
         <p>Stand against The Money, The Machine, and The Mission &mdash; and better outcomes for you and your clients. SRSLY?</p>
       </div>
     </div>
@@ -1607,7 +1619,7 @@
         <div class="vs-item new">One system where all three are the same thing</div>
       </div>
       <p>
-        The Mission feeds the Machine. The Machine creates a better Money model. The data from the Money makes the Machine better. The Machine makes the Mission unstoppable. The people in RPI make the Machine smarter. The Money grows the Mission. It's not an AI company, a tech company, or a sales company. It's the thing that happens when all three become inseparable.
+        <strong style="color: var(--magic);">The Mission</strong> feeds <strong style="color: var(--machine);">the Machine</strong>. <strong style="color: var(--machine);">The Machine</strong> creates a better <strong style="color: var(--money);">Money</strong> model. The data from <strong style="color: var(--money);">the Money</strong> makes <strong style="color: var(--machine);">the Machine</strong> better. <strong style="color: var(--machine);">The Machine</strong> makes <strong style="color: var(--magic);">the Mission</strong> unstoppable. The people in RPI make <strong style="color: var(--machine);">the Machine</strong> smarter. <strong style="color: var(--money);">The Money</strong> grows <strong style="color: var(--magic);">the Mission</strong>. It's not an AI company, a tech company, or a sales company. It's the thing that happens when all three become inseparable.
       </p>
     </div>
   </div>
@@ -1748,8 +1760,8 @@ function switchTab(tab) {
       <input type="text" id="cxb-name" name="name" required autocomplete="name">
       <label for="cxb-email">Email</label>
       <input type="email" id="cxb-email" name="email" required autocomplete="email">
-      <label for="cxb-phone">Phone (optional)</label>
-      <input type="tel" id="cxb-phone" name="phone" autocomplete="tel" placeholder="(optional but speeds things up)">
+      <label for="cxb-phone">Phone</label>
+      <input type="tel" id="cxb-phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
       <label for="cxb-company">Company (optional)</label>
       <input type="text" id="cxb-company" name="company" autocomplete="organization">
       <label for="cxb-msg">What brings you here?</label>
@@ -1785,7 +1797,7 @@ function switchTab(tab) {
     var body = encodeURIComponent(
       'Name: ' + f.name.value + '\n' +
       'Email: ' + f.email.value + '\n' +
-      'Phone: ' + (f.phone.value || '-') + '\n' +
+      'Phone: ' + f.phone.value + '\n' +
       'Company: ' + (f.company.value || '-') + '\n' +
       'Audience: ' + audience + '\n' +
       'Source URL: ' + location.href + '\n\n' +

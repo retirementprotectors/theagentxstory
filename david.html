@@ -380,6 +380,18 @@
     h2 { font-size: 22px !important; }
     .cxb-btn { bottom: 16px !important; right: 16px !important; padding: 10px 18px !important; font-size: 11px !important; }
   }
+  /* ── UNIFIED SPACING SYSTEM (per JDM 2026-04-19) ── */
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--border); }
+  h2 { margin-bottom: 16px; }
+  .section-sub { margin-bottom: 48px; }
+  .hero { padding: 100px 40px 60px; }
+  .footer { padding: 56px 40px; }
+  @media (max-width: 768px) {
+    section { padding: 56px 0; }
+    .hero { padding: 60px 20px 40px; }
+    .footer { padding: 40px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -408,7 +420,7 @@
 <!-- ════════════════════════════════════════════════════════════════ -->
 <div id="tab-prospects" class="tab-content active">
 
-<section style="padding-bottom: 0;">
+<section>
   <div class="container">
     <h2>Three Paths In. <span class="accent">One Outcome.</span></h2>
     <p class="section-sub" style="margin-bottom: 0; font-size: 20px; color: var(--text); line-height: 1.75;">Every path leads to the same place: <strong style="color: var(--money);">inside The Machine.</strong> The only question is <em>how you get there.</em></p>
@@ -422,7 +434,7 @@
   <div class="sub-tab" onclick="switchSub('carrier')">Carrier (B2I)</div>
 </div>
 
-<section style="padding-top: 40px;">
+<section>
   <div class="container">
 
     <!-- AGENCY STORIES -->
@@ -726,8 +738,8 @@ function switchSub(sub) {
       <input type="text" id="cxb-name" name="name" required autocomplete="name">
       <label for="cxb-email">Email</label>
       <input type="email" id="cxb-email" name="email" required autocomplete="email">
-      <label for="cxb-phone">Phone (optional)</label>
-      <input type="tel" id="cxb-phone" name="phone" autocomplete="tel" placeholder="(optional but speeds things up)">
+      <label for="cxb-phone">Phone</label>
+      <input type="tel" id="cxb-phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
       <label for="cxb-company">Company (optional)</label>
       <input type="text" id="cxb-company" name="company" autocomplete="organization">
       <label for="cxb-msg">What brings you here?</label>
@@ -763,7 +775,7 @@ function switchSub(sub) {
     var body = encodeURIComponent(
       'Name: ' + f.name.value + '\n' +
       'Email: ' + f.email.value + '\n' +
-      'Phone: ' + (f.phone.value || '-') + '\n' +
+      'Phone: ' + f.phone.value + '\n' +
       'Company: ' + (f.company.value || '-') + '\n' +
       'Audience: ' + audience + '\n' +
       'Source URL: ' + location.href + '\n\n' +

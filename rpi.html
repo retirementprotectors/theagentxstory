@@ -339,6 +339,18 @@
     .cxb-btn { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 12px; }
     .cxb-modal { padding: 24px; }
   }
+  /* ── UNIFIED SPACING SYSTEM (per JDM 2026-04-19) ── */
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--border); }
+  h2 { margin-bottom: 16px; }
+  .section-sub { margin-bottom: 48px; }
+  .hero { padding: 100px 40px 60px; }
+  .footer { padding: 56px 40px; }
+  @media (max-width: 768px) {
+    section { padding: 56px 0; }
+    .hero { padding: 60px 20px 40px; }
+    .footer { padding: 40px 20px; }
+  }
 </style>
 <button class="cxb-btn" id="cxb-trigger" aria-label="Contact AgentX">&#x2709; Contact</button>
 <div class="cxb-overlay" id="cxb-overlay" role="dialog" aria-modal="true" aria-labelledby="cxb-title">
@@ -352,8 +364,8 @@
       <input type="text" id="cxb-name" name="name" required autocomplete="name">
       <label for="cxb-email">Email</label>
       <input type="email" id="cxb-email" name="email" required autocomplete="email">
-      <label for="cxb-phone">Phone (optional)</label>
-      <input type="tel" id="cxb-phone" name="phone" autocomplete="tel" placeholder="(optional but speeds things up)">
+      <label for="cxb-phone">Phone</label>
+      <input type="tel" id="cxb-phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
       <label for="cxb-company">Company (optional)</label>
       <input type="text" id="cxb-company" name="company" autocomplete="organization">
       <label for="cxb-msg">What brings you here?</label>
@@ -389,7 +401,7 @@
     var body = encodeURIComponent(
       'Name: ' + f.name.value + '\n' +
       'Email: ' + f.email.value + '\n' +
-      'Phone: ' + (f.phone.value || '-') + '\n' +
+      'Phone: ' + f.phone.value + '\n' +
       'Company: ' + (f.company.value || '-') + '\n' +
       'Audience: ' + audience + '\n' +
       'Source URL: ' + location.href + '\n\n' +
