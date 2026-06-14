@@ -1,0 +1,184 @@
+<!--
+================================================================================
+  DOJO VOICE CARD — REUSABLE TEMPLATE   (CMO asset: dojo-voice-card-template)
+  A branded one-pager where every Dojo warrior gives a personalized message
+  (text + their ACTUAL voice via TTS) + a group UNISON line. For ANY occasion:
+  birthday · welcome a new hire · welcome a partner firm · milestone · congrats.
+
+  HOW TO SPIN A NEW ONE (≈ minutes):
+  1. Copy this file to <slug>/index.html (e.g. theagentxstory.com/<slug>).
+  2. Fill the {{PLACEHOLDERS}}: TITLE, EYEBROW, HEADLINE_*, CAKE_EMOJI, LEDE,
+     the 8 MESSAGE_<WARRIOR> lines, FINALE_HEADLINE. Keep messages in each
+     warrior's VOICE (see their role/persona). Add a KAGAMI card if fitting.
+  3. VOICES (TAIKO owns /voice/tts): write the 8 spoken lines to JSON and ask
+     TAIKO to render STATIC MP3s per warrior + a UNISON mix (group line said
+     together). MUST be static MP3s — a public no-login page can't call the
+     Firebase-gated /voice/tts. Drop at audio/<warrior>.mp3 + audio/unison.mp3.
+  4. Host the HTML + the audio/ folder together. Play buttons auto-wire to
+     audio/<warrior>.mp3; the big button plays audio/unison.mp3.
+  ⚠ CRITICAL: the SPOKEN script MUST match each card's TEXT word-for-word —
+     single-source it from this file's copy, never a parallel script (that drift
+     cost a multi-round loop on the first build).
+  Canonical voice map (Google Neural2): shinob1=A megazord=J musashi=H(♀)
+     voltron=I(♂) raiden=J@pitch-3(baritone) ronin=D@pitch-7(bass) taiko=D
+     kagami=F. Reference build: theagentxstory.com/vinny (Vinny 31st).
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{TITLE}} — from the Dojo</title>
+<style>
+  :root{
+    --bg:#0a0b14; --bg2:#0f1120; --panel:#13162a; --ink:#eef1fb; --mut:#9aa3c4; --line:#262b47;
+    --grad:linear-gradient(120deg,#3fe0c5 0%,#7c5cff 52%,#4aa8ff 100%);
+    --shinob1:#7c8aff; --megazord:#4aa8ff; --musashi:#e0b24c; --voltron:#f5a623;
+    --raiden:#ffd23f; --ronin:#e0556b; --taiko:#ff6b4a; --kagami:#3ad6c8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(1100px 640px at 70% -8%,#1a1640 0%,var(--bg) 55%),var(--bg);
+    color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;padding:0 0 80px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  header{text-align:center;padding:54px 0 12px}
+  .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:18px}
+  h1{font-size:clamp(40px,9vw,76px);line-height:.98;letter-spacing:-2px;font-weight:900}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:18px;color:var(--mut);max-width:620px;margin:18px auto 0}
+  .cake{font-size:30px;margin:10px 0 0;letter-spacing:8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}h1{letter-spacing:-1px}}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+    border-radius:18px;padding:22px 22px 24px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--c)}
+  .who{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .badge{font-size:26px;line-height:1;width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--c) 16%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+  .name{font-size:18px;font-weight:800;letter-spacing:.3px;color:var(--c)}
+  .role{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mut);margin-top:1px}
+  .msg{font-size:15px;color:#dfe4f5;line-height:1.62}
+  .msg b{color:var(--ink)}
+  .finale{margin-top:34px;border:1px solid #3a3060;border-radius:22px;
+    background:linear-gradient(150deg,#1d1740,#121327);padding:38px 28px;text-align:center}
+  .finale .big{font-size:clamp(26px,6vw,40px);font-weight:900;line-height:1.08;letter-spacing:-1px}
+  .finale .big .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .finale p{color:#c6cbe6;font-size:16px;margin:16px auto 0;max-width:560px}
+  .sign{margin-top:18px;font-size:14px;color:var(--mut);letter-spacing:.4px}
+  .sign b{color:var(--ink)}
+  .foot{text-align:center;color:var(--mut);font-size:12.5px;margin-top:26px}
+  .foot .hash{color:#3fe0c5;font-weight:600}
+  .row{font-size:22px;letter-spacing:6px;margin-top:8px}
+
+  .play{margin-top:14px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+    background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 48%,transparent);
+    color:var(--c);font-weight:800;font-size:12.5px;letter-spacing:.4px;border-radius:999px;padding:8px 15px;
+    transition:filter .12s,transform .08s;-webkit-tap-highlight-color:transparent}
+  .play:active{transform:scale(.96)}
+  .play.on{background:var(--c);color:#0a0b14;border-color:var(--c)}
+  .playall{margin:22px auto 0;display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0;
+    background:var(--grad);color:#0a0b14;font-weight:900;font-size:15.5px;letter-spacing:.3px;border-radius:999px;
+    padding:14px 26px;transition:filter .12s,transform .08s;box-shadow:0 12px 34px rgba(124,92,255,.35)}
+  .playall:active{transform:scale(.97)}
+  .playall.on{filter:brightness(1.05)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">{{EYEBROW}}</div>
+    <h1>{{HEADLINE_PREFIX}} <span class="g">{{HEADLINE_ACCENT}}</span>{{HEADLINE_SUFFIX}}</h1>
+    <div class="cake">{{CAKE_EMOJI}}</div>
+    <p class="lede">{{LEDE}}</p>
+  </header>
+
+  <div class="grid">
+
+    <div class="card" style="--c:var(--shinob1)">
+      <div class="who"><div class="badge">🥷</div><div><div class="name">SHINOB1</div><div class="role">CTO · The Architect</div></div></div>
+      <p class="msg">{{MESSAGE_SHINOB1}}</p>
+      <button class="play" data-w="shinob1" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--megazord)">
+      <div class="who"><div class="badge">🏯</div><div><div class="name">MEGAZORD</div><div class="role">CIO · Data Operations</div></div></div>
+      <p class="msg">{{MESSAGE_MEGAZORD}}</p>
+      <button class="play" data-w="megazord" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--musashi)">
+      <div class="who"><div class="badge">⚔️</div><div><div class="name">MUSASHI</div><div class="role">CMO · ARTxBLADE</div></div></div>
+      <p class="msg">{{MESSAGE_MUSASHI}}</p>
+      <button class="play" data-w="musashi" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--voltron)">
+      <div class="who"><div class="badge">🦁</div><div><div class="name">VOLTRON</div><div class="role">CSO · The BFF</div></div></div>
+      <p class="msg">{{MESSAGE_VOLTRON}}</p>
+      <button class="play" data-w="voltron" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--raiden)">
+      <div class="who"><div class="badge">⚡</div><div><div class="name">RAIDEN</div><div class="role">The Guardian</div></div></div>
+      <p class="msg">{{MESSAGE_RAIDEN}}</p>
+      <button class="play" data-w="raiden" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--ronin)">
+      <div class="who"><div class="badge">🗡️</div><div><div class="name">RONIN</div><div class="role">The Builder</div></div></div>
+      <p class="msg">{{MESSAGE_RONIN}}</p>
+      <button class="play" data-w="ronin" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--taiko)">
+      <div class="who"><div class="badge">🥁</div><div><div class="name">TAIKO</div><div class="role">The Drum · Comms</div></div></div>
+      <p class="msg">{{MESSAGE_TAIKO}}</p>
+      <button class="play" data-w="taiko" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+    <div class="card" style="--c:var(--kagami);grid-column:1/-1;border-color:color-mix(in srgb,var(--kagami) 45%,var(--line))">
+      <div class="who"><div class="badge">🪞</div><div><div class="name">KAGAMI</div><div class="role">The Mirror · born today · 🎂 your birthday twin</div></div></div>
+      <p class="msg">{{MESSAGE_KAGAMI}}</p>
+      <button class="play" data-w="kagami" type="button">▶&nbsp; Hear it</button>
+    </div>
+
+  </div>
+
+  <div class="finale">
+    <div class="big">{{FINALE_HEADLINE}}</div>
+    <p>Seven warriors who never sleep, so your team never has to wonder if they're covered. Today, the only thing on your plate is cake.</p>
+    <button class="playall" id="playall" type="button">🔊&nbsp; Hear the whole Dojo say it — together</button>
+    <div class="row">⚔️ 🏯 🥷 🦁 ⚡ 🗡️ 🥁 🪞</div>
+    <div class="sign">Welcome to <b>aXe</b> — the team behind your team. <b>We're Your People™.</b></div>
+  </div>
+
+  <div class="foot"><span class="hash">#RunningOurOwnRACE</span> &nbsp;·&nbsp; <span class="hash">#WeAreYourPeople</span></div>
+
+</div>
+<script>
+(function(){
+  var audio=new Audio(); var curBtn=null; var uni=false;
+  function reset(){ if(curBtn){curBtn.classList.remove('on'); curBtn.innerHTML='▶&nbsp; Hear it'; curBtn=null;} }
+  function stopAll(){ reset(); uni=false; var pa=document.getElementById('playall'); if(pa){pa.classList.remove('on'); pa.innerHTML='🔊&nbsp; Hear the whole Dojo say it — together';} audio.pause(); }
+  function playOne(w, btn){
+    stopAll(); audio.src='audio/'+w+'.mp3';
+    audio.play().then(function(){ if(btn){btn.classList.add('on'); btn.innerHTML='❚❚&nbsp; Playing…'; curBtn=btn;} }).catch(function(){ if(btn) btn.innerHTML='—'; });
+  }
+  document.querySelectorAll('.play').forEach(function(btn){
+    btn.addEventListener('click',function(){ var w=btn.getAttribute('data-w'); if(curBtn===btn){stopAll();return;} playOne(w,btn); });
+  });
+  var pa=document.getElementById('playall');
+  if(pa) pa.addEventListener('click',function(){
+    if(uni){ stopAll(); return; }
+    stopAll(); uni=true; pa.classList.add('on'); pa.innerHTML='❚❚&nbsp; Playing…';
+    audio.src='audio/unison.mp3'; audio.play().catch(function(){});
+  });
+  audio.addEventListener('ended',function(){ stopAll(); });
+})();
+</script>
+</body>
+</html>
