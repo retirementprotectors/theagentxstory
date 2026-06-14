@@ -125,7 +125,7 @@
   <div class="finale">
     <div class="big">From the whole Dojo —<br>Happy <span class="g">31st Birthday</span>, Vinny! 🎂</div>
     <p>Seven warriors who never sleep, so your team never has to wonder if they're covered. Today, the only thing on your plate is cake.</p>
-    <button class="playall" id="playall" type="button">🔊&nbsp; Hear all 8 wish you happy birthday</button>
+    <button class="playall" id="playall" type="button">🔊&nbsp; Hear the whole Dojo say it — together</button>
     <div class="row">⚔️ 🏯 🥷 🦁 ⚡ 🗡️ 🥁 🪞</div>
     <div class="sign">Welcome to <b>aXe</b> — the team behind your team. <b>We're Your People™.</b></div>
   </div>
@@ -135,10 +135,9 @@
 </div>
 <script>
 (function(){
-  var ALL=['shinob1','megazord','musashi','voltron','raiden','ronin','taiko','kagami'];
-  var audio=new Audio(); var curBtn=null; var seq=null;
+  var audio=new Audio(); var curBtn=null; var uni=false;
   function reset(){ if(curBtn){curBtn.classList.remove('on'); curBtn.innerHTML='▶&nbsp; Hear it'; curBtn=null;} }
-  function stopAll(){ reset(); seq=null; var pa=document.getElementById('playall'); if(pa){pa.classList.remove('on'); pa.innerHTML='🔊&nbsp; Hear all 8 wish you happy birthday';} audio.pause(); }
+  function stopAll(){ reset(); uni=false; var pa=document.getElementById('playall'); if(pa){pa.classList.remove('on'); pa.innerHTML='🔊&nbsp; Hear the whole Dojo say it — together';} audio.pause(); }
   function playOne(w, btn){
     stopAll(); audio.src='audio/'+w+'.mp3';
     audio.play().then(function(){ if(btn){btn.classList.add('on'); btn.innerHTML='❚❚&nbsp; Playing…'; curBtn=btn;} }).catch(function(){ if(btn) btn.innerHTML='—'; });
@@ -148,14 +147,11 @@
   });
   var pa=document.getElementById('playall');
   if(pa) pa.addEventListener('click',function(){
-    if(seq!==null){ stopAll(); return; }
-    stopAll(); seq=0; pa.classList.add('on'); pa.innerHTML='❚❚&nbsp; Playing the whole Dojo…';
-    audio.src='audio/'+ALL[0]+'.mp3'; audio.play().catch(function(){});
+    if(uni){ stopAll(); return; }
+    stopAll(); uni=true; pa.classList.add('on'); pa.innerHTML='❚❚&nbsp; Playing…';
+    audio.src='audio/unison.mp3'; audio.play().catch(function(){});
   });
-  audio.addEventListener('ended',function(){
-    if(seq!==null){ seq++; if(seq<ALL.length){ audio.src='audio/'+ALL[seq]+'.mp3'; audio.play().catch(function(){}); } else { stopAll(); } }
-    else { reset(); }
-  });
+  audio.addEventListener('ended',function(){ stopAll(); });
 })();
 </script>
 </body>
