@@ -46,6 +46,18 @@
   .foot{text-align:center;color:var(--mut);font-size:12.5px;margin-top:26px}
   .foot .hash{color:#3fe0c5;font-weight:600}
   .row{font-size:22px;letter-spacing:6px;margin-top:8px}
+
+  .play{margin-top:14px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+    background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 48%,transparent);
+    color:var(--c);font-weight:800;font-size:12.5px;letter-spacing:.4px;border-radius:999px;padding:8px 15px;
+    transition:filter .12s,transform .08s;-webkit-tap-highlight-color:transparent}
+  .play:active{transform:scale(.96)}
+  .play.on{background:var(--c);color:#0a0b14;border-color:var(--c)}
+  .playall{margin:22px auto 0;display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0;
+    background:var(--grad);color:#0a0b14;font-weight:900;font-size:15.5px;letter-spacing:.3px;border-radius:999px;
+    padding:14px 26px;transition:filter .12s,transform .08s;box-shadow:0 12px 34px rgba(124,92,255,.35)}
+  .playall:active{transform:scale(.97)}
+  .playall.on{filter:brightness(1.05)}
 </style>
 </head>
 <body>
@@ -63,41 +75,49 @@
     <div class="card" style="--c:var(--shinob1)">
       <div class="who"><div class="badge">🥷</div><div><div class="name">SHINOB1</div><div class="role">CTO · The Architect</div></div></div>
       <p class="msg">Vinny — I design systems that are supposed to run flawlessly, and I still haven't built anything that closes a room as clean as you do <b>live, in person.</b> 31 looks sharp on you. Happy birthday, brother.</p>
+      <button class="play" data-w="shinob1" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--megazord)">
       <div class="who"><div class="badge">🏯</div><div><div class="name">MEGAZORD</div><div class="role">CIO · Data Operations</div></div></div>
       <p class="msg">Every deal you write flows through my pipelines, Vinny — so I'll give it to you straight with the numbers in hand: <b>you're having a hell of a year.</b> Here's to 31, and a book that just keeps climbing. Happy birthday.</p>
+      <button class="play" data-w="megazord" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--musashi)">
       <div class="who"><div class="badge">⚔️</div><div><div class="name">MUSASHI</div><div class="role">CMO · ARTxBLADE</div></div></div>
       <p class="msg">Vinny — you open the door, I make sure it looks good when they walk through it. It's an honor to paint the brand behind a closer like you. Happy 31st, my man — <b>today the canvas is yours.</b></p>
+      <button class="play" data-w="musashi" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--voltron)">
       <div class="who"><div class="badge">🦁</div><div><div class="name">VOLTRON</div><div class="role">CSO · The BFF</div></div></div>
       <p class="msg">VINNY! Every time a client says <b>"these are my people,"</b> it's because a guy like you made them feel it first. You're the warmth the Machine can't fake. Happy birthday, brother — today YOU'RE the client. Go get spoiled.</p>
+      <button class="play" data-w="voltron" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--raiden)">
       <div class="who"><div class="badge">⚡</div><div><div class="name">RAIDEN</div><div class="role">The Guardian</div></div></div>
       <p class="msg">Vinny — I watch the gates so you can stay in front of clients without ever looking over your shoulder. Today, <b>hand me the watch.</b> Nothing gets through. Go celebrate. Happy birthday.</p>
+      <button class="play" data-w="raiden" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--ronin)">
       <div class="who"><div class="badge">🗡️</div><div><div class="name">RONIN</div><div class="role">The Builder</div></div></div>
       <p class="msg">Vinny — I build through the night so your tools are sharp by the time you're up and selling. The one thing I'm <b>not</b> building today is an excuse for you to work. Happy 31st — go raise a glass.</p>
+      <button class="play" data-w="ronin" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--taiko)">
       <div class="who"><div class="badge">🥁</div><div><div class="name">TAIKO</div><div class="role">The Drum · Comms</div></div></div>
       <p class="msg">Vinny — every call, text, and voicemail you send a client rides my pipes. Today, every one of them is carrying the same beat: <b>HAPPY BIRTHDAY, brother.</b> Loud as the drum.</p>
+      <button class="play" data-w="taiko" type="button">▶&nbsp; Hear it</button>
     </div>
 
     <div class="card" style="--c:var(--kagami);grid-column:1/-1;border-color:color-mix(in srgb,var(--kagami) 45%,var(--line))">
       <div class="who"><div class="badge">🪞</div><div><div class="name">KAGAMI</div><div class="role">The Mirror · born today · 🎂 your birthday twin</div></div></div>
       <p class="msg">Vinny — I was born <b>today.</b> Same as you. We're birthday twins. My whole job is to take everything this team builds and reflect it back as a face you can actually see and use — the newest warrior in the Dojo, and the surface you'll meet aXe through. The very first thing I ever get to show the world is this: <b>the Dojo thinks the world of you.</b> Happy birthday, twin — we grow up together from here. 🪞</p>
+      <button class="play" data-w="kagami" type="button">▶&nbsp; Hear it</button>
     </div>
 
   </div>
@@ -105,6 +125,7 @@
   <div class="finale">
     <div class="big">From the whole Dojo —<br>Happy <span class="g">31st Birthday</span>, Vinny! 🎂</div>
     <p>Seven warriors who never sleep, so your team never has to wonder if they're covered. Today, the only thing on your plate is cake.</p>
+    <button class="playall" id="playall" type="button">🔊&nbsp; Hear all 8 wish you happy birthday</button>
     <div class="row">⚔️ 🏯 🥷 🦁 ⚡ 🗡️ 🥁 🪞</div>
     <div class="sign">Welcome to <b>aXe</b> — the team behind your team. <b>We're Your People™.</b></div>
   </div>
@@ -112,5 +133,30 @@
   <div class="foot"><span class="hash">#RunningOurOwnRACE</span> &nbsp;·&nbsp; <span class="hash">#WeAreYourPeople</span></div>
 
 </div>
+<script>
+(function(){
+  var ALL=['shinob1','megazord','musashi','voltron','raiden','ronin','taiko','kagami'];
+  var audio=new Audio(); var curBtn=null; var seq=null;
+  function reset(){ if(curBtn){curBtn.classList.remove('on'); curBtn.innerHTML='▶&nbsp; Hear it'; curBtn=null;} }
+  function stopAll(){ reset(); seq=null; var pa=document.getElementById('playall'); if(pa){pa.classList.remove('on'); pa.innerHTML='🔊&nbsp; Hear all 8 wish you happy birthday';} audio.pause(); }
+  function playOne(w, btn){
+    stopAll(); audio.src='audio/'+w+'.mp3';
+    audio.play().then(function(){ if(btn){btn.classList.add('on'); btn.innerHTML='❚❚&nbsp; Playing…'; curBtn=btn;} }).catch(function(){ if(btn) btn.innerHTML='—'; });
+  }
+  document.querySelectorAll('.play').forEach(function(btn){
+    btn.addEventListener('click',function(){ var w=btn.getAttribute('data-w'); if(curBtn===btn){stopAll();return;} playOne(w,btn); });
+  });
+  var pa=document.getElementById('playall');
+  if(pa) pa.addEventListener('click',function(){
+    if(seq!==null){ stopAll(); return; }
+    stopAll(); seq=0; pa.classList.add('on'); pa.innerHTML='❚❚&nbsp; Playing the whole Dojo…';
+    audio.src='audio/'+ALL[0]+'.mp3'; audio.play().catch(function(){});
+  });
+  audio.addEventListener('ended',function(){
+    if(seq!==null){ seq++; if(seq<ALL.length){ audio.src='audio/'+ALL[seq]+'.mp3'; audio.play().catch(function(){}); } else { stopAll(); } }
+    else { reset(); }
+  });
+})();
+</script>
 </body>
 </html>
