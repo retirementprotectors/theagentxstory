@@ -96,17 +96,17 @@
   .cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:44px;text-align:left}
   .party{
     border:1px solid var(--border);border-top-width:3px;border-radius:6px;background:var(--bg-card);
-    padding:24px 22px 20px;display:flex;flex-direction:column;
+    padding:28px 22px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;
   }
   .party.machine{border-top-color:var(--machine)}
   .party.rpi{border-top-color:var(--rpi)}
   .party.money{border-top-color:var(--money)}
-  .party-mark{height:46px;display:flex;align-items:center;margin-bottom:18px}
-  .party-mark img{max-height:46px;max-width:210px;width:auto;height:auto}
+  .party-mark{height:68px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .party-mark img{max-height:68px;max-width:min(100%,282px);width:auto;height:auto}
   /* sized to sit at the same optical weight as the two image marks beside it */
   .wordmark-david{
-    font-size:27px;font-weight:900;letter-spacing:-.03em;color:var(--money);line-height:1;
-    display:inline-block;padding-top:2px;
+    font-size:40px;font-weight:900;letter-spacing:-.03em;color:var(--money);line-height:1;
+    display:inline-block;
   }
   .party-role{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.01em}
   .party-who{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-top:6px}
@@ -234,11 +234,46 @@
   .foot-marks .dv{font-size:20px;font-weight:900;color:var(--money);letter-spacing:-.02em}
   .sig{margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--text-muted)}
 
-  @media (max-width:760px){
+  /* `screen and` is load-bearing: a Letter page is ~624 CSS px wide, so a bare
+     max-width:760px query also fires in print and stacked every table row as a card. */
+  @media screen and (max-width:760px){
     section{padding:52px 0}
+    .wrap{padding:0 18px}
     .tl{padding-left:34px}
     .tl-spine,.tl-fill{left:14px;width:2px}
     .tl-node{left:-26px;width:14px;height:14px}
+
+    /* the chart shrinks its own type to ~3px at phone width — swipe it instead */
+    .nums{grid-template-columns:1fr}
+    .arcscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .arcscroll svg{min-width:720px}
+    .arcbox{padding:10px 0 0}
+    .arc-cap{padding:12px 14px 14px}
+    .arcbox::after{
+      content:"swipe the chart →";display:block;
+      font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--text-dim);padding:0 14px 12px;
+    }
+
+    /* TABLES RAN OFF THE RIGHT EDGE ON A PHONE — stack every row as its own card */
+    table,tbody,tr,td{display:block;width:100%}
+    thead{display:none}
+    table{margin-top:20px}
+    tr{
+      border:1px solid var(--border);border-radius:6px;background:var(--bg-card);
+      padding:16px 18px;margin-bottom:12px;
+    }
+    td{border:none;padding:0;color:var(--text-muted)}
+    td + td{margin-top:12px}
+    td[data-label]::before{
+      content:attr(data-label);display:block;
+      font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--text-dim);margin-bottom:5px;
+    }
+    /* first cell is the row's title in both tables — its <b> is the title, the rest is detail */
+    td:first-child{font-size:14px;color:var(--text-muted);font-weight:400;margin-bottom:12px}
+    td:first-child b{display:block;font-size:16.5px;color:var(--text);font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+    td.n{white-space:normal}
   }
 
   /* ── PRINT / PDF ──────────────────────────────── */
@@ -268,9 +303,9 @@
     .hero-dek{margin-top:16pt;font-size:11pt}
     .cast{margin-top:20pt}
     .party{padding:14pt 14pt 12pt}
-    .party-mark{height:34px;margin-bottom:12pt}
-    .party-mark img{max-height:34px}
-    .wordmark-david{font-size:22px}
+    .party-mark{height:48px;margin-bottom:12pt}
+    .party-mark img{max-height:48px;max-width:200px}
+    .wordmark-david{font-size:30px}
     /* The Arc has to hold heading + chart + tiles on one page */
     .arcbox svg{max-height:72mm}
     .arcbox{margin-top:16pt}
@@ -379,7 +414,7 @@
     </p>
 
     <div class="arcbox">
-      <svg viewBox="0 0 1040 300" role="img" aria-label="Deal arc across six acts, Tuesday to the following Tuesday">
+      <div class="arcscroll"><svg viewBox="0 0 1040 300" role="img" aria-label="Deal arc across six acts, Tuesday to the following Tuesday">
         <defs>
           <linearGradient id="arcg" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%"   stop-color="#a78bfa" stop-opacity=".9"/>
@@ -401,7 +436,7 @@
           <line x1="920" y1="30" x2="920" y2="246"/>
           <line x1="40"  y1="246" x2="1000" y2="246"/>
         </g>
-        <g font-family="ui-monospace,Menlo,monospace" font-size="10.5" fill="#4a4a62" letter-spacing="1.3">
+        <g font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#9a9cb2" letter-spacing="1.3">
           <text x="70"  y="266" text-anchor="middle">TUE 08/11</text>
           <text x="240" y="266" text-anchor="middle">WED 08/12</text>
           <text x="410" y="266" text-anchor="middle">THU 08/13</text>
@@ -424,7 +459,7 @@
           <circle cx="920" cy="44"  r="7.5" fill="#4ade80" stroke="#86efac" stroke-width="2.5"/>
         </g>
 
-        <g font-family="'Inter',ui-sans-serif,sans-serif" fill="#e8e8f2" font-size="13" font-weight="700">
+        <g font-family="'Inter',ui-sans-serif,sans-serif" fill="#f2f2f8" font-size="14.5" font-weight="700">
           <text x="82"  y="224" text-anchor="start">I · The Promise</text>
           <text x="240" y="132" text-anchor="middle">II · The Keys</text>
           <text x="410" y="168" text-anchor="middle">III · The Wobble</text>
@@ -432,7 +467,7 @@
           <text x="672" y="72"  text-anchor="start">V · The Signature</text>
           <text x="920" y="28"  text-anchor="end">VI · The Wire</text>
         </g>
-        <g font-family="ui-monospace,Menlo,monospace" fill="#4a4a62" font-size="9.5">
+        <g font-family="ui-monospace,Menlo,monospace" fill="#9a9cb2" font-size="11">
           <text x="70"  y="240" text-anchor="start">NDA signed 8:23 AM</text>
           <text x="248" y="240" text-anchor="middle">portals opened</text>
           <text x="410" y="240" text-anchor="middle">a competitor books a flight</text>
@@ -440,7 +475,7 @@
           <text x="750" y="240" text-anchor="middle">counsel review</text>
           <text x="920" y="240" text-anchor="end">8:00 AM · wire</text>
         </g>
-      </svg>
+      </svg></div>
       <div class="arc-cap">
         Node positions mark <b>sequence and milestone</b>, not a measured quantity. Act VI is the
         <b>scheduled</b> close — every prior act is a completed record.
@@ -449,7 +484,7 @@
 
     <div class="nums">
       <div class="num"><div class="v g">$1.175M</div><div class="k">Total consideration — $470K at closing, $705K as a 120-day deferred payment</div></div>
-      <div class="num"><div class="v">1.25× <span style="font-size:15px;font-weight:700;color:var(--money)">YEAR 0</span></div><div class="k"><b>Up-front cash, in the seller’s tax year.</b> Structured over time we go to <b>3×</b> — Year 0 is the expensive money, and it is the money he wanted.</div></div>
+      <div class="num"><div class="v">1.25× <span style="font-size:15px;font-weight:700;color:var(--money);white-space:nowrap">YEAR 0</span></div><div class="k"><b>Up-front cash, in the seller’s tax year.</b> Structured over time we go to <b>3×</b> — Year 0 is the expensive money, and it is the money he wanted.</div></div>
       <div class="num"><div class="v">2,317</div><div class="k">Client records across carrier data, CRM data, call recordings and marketing pipeline sources — <b>welded end-to-end via UUID</b></div></div>
       <div class="num"><div class="v g">5</div><div class="k">Business days — NDA to Closing Wire</div></div>
     </div>
@@ -657,45 +692,45 @@
       <tbody>
         <tr>
           <td><b>Dental statements double-counted</b><br>Current and YTD totals both read across 54 statements</td>
-          <td class="n"><span class="dir down">▼ REMOVED</span></td>
-          <td class="n">−$118,000</td>
-          <td>Buyer. Self-caught in QA and reported unprompted, mid-negotiation.</td>
+          <td class="n" data-label="Direction"><span class="dir down">▼ REMOVED</span></td>
+          <td class="n" data-label="Magnitude">−$118,000</td>
+          <td data-label="Who it favoured">Buyer. Self-caught in QA and reported unprompted, mid-negotiation.</td>
         </tr>
         <tr>
           <td><b>Home health block reconciled</b><br>No book of business behind the portal; adjudicated on four criteria</td>
-          <td class="n"><span class="dir up">▲ ADDED</span></td>
-          <td class="n">89 → 324 policies</td>
-          <td>Seller. The uncertain range was handed back to him to grade, not rounded down.</td>
+          <td class="n" data-label="Direction"><span class="dir up">▲ ADDED</span></td>
+          <td class="n" data-label="Magnitude">89 → 324 policies</td>
+          <td data-label="Who it favoured">Seller. The uncertain range was handed back to him to grade, not rounded down.</td>
         </tr>
         <tr>
           <td><b>Final carrier sweep</b><br>An annuity carrier recovered on the last pass</td>
-          <td class="n"><span class="dir up">▲ ADDED</span></td>
-          <td class="n">+$20,000</td>
-          <td>Seller. Found <i>after</i> the number had already been quoted.</td>
+          <td class="n" data-label="Direction"><span class="dir up">▲ ADDED</span></td>
+          <td class="n" data-label="Magnitude">+$20,000</td>
+          <td data-label="Who it favoured">Seller. Found <i>after</i> the number had already been quoted.</td>
         </tr>
         <tr>
           <td><b>Annuity + life block extracted</b><br>77 annuities across roughly six carriers</td>
-          <td class="n"><span class="dir up">▲ ADDED</span></td>
-          <td class="n">+$50,000 in a day</td>
-          <td>Seller. “You’re up like $50k+ over yesterday.”</td>
+          <td class="n" data-label="Direction"><span class="dir up">▲ ADDED</span></td>
+          <td class="n" data-label="Magnitude">+$50,000 in a day</td>
+          <td data-label="Who it favoured">Seller. “You’re up like $50k+ over yesterday.”</td>
         </tr>
         <tr>
           <td><b>Unpaid earned commissions</b><br>Carriers paying on effective date, not approval date</td>
-          <td class="n"><span class="dir up">▲ ADDED</span></td>
-          <td class="n">≈$25,000</td>
-          <td>Seller. <b>The buyer took responsibility for having missed it</b> and moved it into the valuation.</td>
+          <td class="n" data-label="Direction"><span class="dir up">▲ ADDED</span></td>
+          <td class="n" data-label="Magnitude">≈$25,000</td>
+          <td data-label="Who it favoured">Seller. <b>The buyer took responsibility for having missed it</b> and moved it into the valuation.</td>
         </tr>
         <tr>
           <td><b>Future-effective commissions</b><br>Whether a carrier pays on approval or on first draft</td>
-          <td class="n"><span class="dir flat">◆ OPEN</span></td>
-          <td class="n">dollar-for-dollar</td>
-          <td>Seller. Raised <i>by the buyer</i>, against his own interest: “I’ll just add it as another Line Item.”</td>
+          <td class="n" data-label="Direction"><span class="dir flat">◆ OPEN</span></td>
+          <td class="n" data-label="Magnitude">dollar-for-dollar</td>
+          <td data-label="Who it favoured">Seller. Raised <i>by the buyer</i>, against his own interest: “I’ll just add it as another Line Item.”</td>
         </tr>
         <tr>
           <td><b>Valuation basis</b><br>Forward run rate rather than trailing twelve months</td>
-          <td class="n"><span class="dir up">▲ BASIS</span></td>
-          <td class="n">1.25×</td>
-          <td>Seller. “I’m going to get you the Higher of Run Rate / R12 / Average.”</td>
+          <td class="n" data-label="Direction"><span class="dir up">▲ BASIS</span></td>
+          <td class="n" data-label="Magnitude">1.25×</td>
+          <td data-label="Who it favoured">Seller. “I’m going to get you the Higher of Run Rate / R12 / Average.”</td>
         </tr>
       </tbody>
     </table>
