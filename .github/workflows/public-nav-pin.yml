@@ -1,0 +1,39 @@
+# KGM-AGX-NAV-PIN-001 — arm the public-nav pin.
+#
+# ⛔ WITHOUT THIS FILE THE CHECK IS DECORATION. A script that computes a correct verdict
+# and that nothing consumes is `instrument-must-discriminate`'s cannot-BIND: the code is
+# right, the run is green, and no one is stopped. The defect this closes reached the LIVE
+# PUBLIC SITE, so the verdict needs a consumer that refuses.
+#
+# It runs on every push and PR touching the site root, and it runs its own --selftest
+# FIRST: a pin that cannot go red would pass every change, and an unavailable instrument
+# is INCONCLUSIVE, never a pass.
+name: public-nav-pin
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'public-nav.pinned'
+      - 'scripts/check-public-nav.py'
+      - '.github/workflows/public-nav-pin.yml'
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'public-nav.pinned'
+      - 'scripts/check-public-nav.py'
+
+jobs:
+  public-nav-pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Prove the instrument can fail before believing that it passed.
+      - name: selftest — the pin must be able to go RED
+        run: python3 scripts/check-public-nav.py --selftest
+
+      - name: the public nav matches the pin
+        run: python3 scripts/check-public-nav.py

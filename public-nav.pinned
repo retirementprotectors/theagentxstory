@@ -1,0 +1,7 @@
+# KGM-AGX-NAV-PIN-001 — the public site's front-door nav.
+# Changing this file is a PUBLICATION DECISION. Land it in its own commit,
+# never inside a freshness or content sweep. See scripts/check-public-nav.py.
+david.html: ../index.html,david.html,tomachina.html,rpi.html
+index.html: index.html,david.html,tomachina.html,rpi.html
+rpi.html: index.html,david.html,tomachina.html,rpi.html
+tomachina.html: ../index.html,david.html,tomachina.html,rpi.html
