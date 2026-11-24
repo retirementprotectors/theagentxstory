@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medica in Iowa &amp; Nebraska</title>
+<style>
+/* agentX one-pager template. Tokens lifted verbatim from ~/inbox/agentx-insights.html (agentX · INSIGHTS). */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:block;src:url('../fonts/Inter-400.ttf') format('truetype');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:block;src:url('../fonts/Inter-500.ttf') format('truetype');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:block;src:url('../fonts/Inter-600.ttf') format('truetype');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:block;src:url('../fonts/Inter-700.ttf') format('truetype');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:block;src:url('../fonts/Inter-800.ttf') format('truetype');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:block;src:url('../fonts/Inter-900.ttf') format('truetype');}
+
+:root {
+  --bg:#08080c; --bg-card:#0f0f16; --bg-card2:#161620; --bg-accent:#121219;
+  --border:#252536; --border-strong:#2f2f44;
+  --text:#e8e8f2; --text-dim:#8a8aa2; --text-muted:#6a6a82;
+  --money:#4ade80; --machine:#a78bfa; --rpi:#3b82f6;
+  --gold:#d4a44c; --gold-bright:#f0c060; --gold-soft:rgba(212,164,76,0.12);
+  --red:#f87171;
+  --money-soft:rgba(74,222,128,0.10); --machine-soft:rgba(167,139,250,0.10); --rpi-soft:rgba(59,130,246,0.10);
+  --ax-grad:linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%);
+  --track:#1b1b27; --grid:#23232f;
+  /* chart series, fixed order (validated: money, rpi, gold, machine) */
+  --s1:var(--money); --s2:var(--rpi); --s3:var(--gold-bright); --s4:var(--machine);
+  --hdr-glow:radial-gradient(ellipse at 10% -30%, var(--money-soft) 0%, transparent 55%), radial-gradient(ellipse at 92% -30%, var(--machine-soft) 0%, transparent 55%);
+}
+@page { size: 8.5in 11in; margin: 0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:#2a2a33; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body { font-family:'Inter',-apple-system,system-ui,sans-serif; color:var(--text); font-size:10px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+@media print { html, body { background:var(--bg); } }
+
+.page { width:8.5in; height:11in; overflow:hidden; background:var(--bg); position:relative; display:flex; flex-direction:column; padding:0.42in 0.45in 0.34in; margin:0 auto; }
+.page > * { flex-shrink:0; }
+.page + .page { break-before:page; }
+@media screen { .page { margin:24px auto; box-shadow:0 6px 30px rgba(0,0,0,.45); } }
+.spacer { flex:1 1 auto !important; min-height:0; }
+.hdr-glow { position:absolute; inset:0 0 auto 0; height:2.2in; background:var(--hdr-glow); pointer-events:none; }
+.page > .hdr-rule { position:absolute; left:0; right:0; top:0; height:4px; background:var(--ax-grad); }
+
+/* wordmark (exact .wm / .xsup from agentX INSIGHTS) */
+.wm { font-weight:900; letter-spacing:-.02em; white-space:nowrap; }
+.xsup { font-size:0.64em; vertical-align:0.42em; font-weight:900; line-height:0; background:var(--ax-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.grad { background:var(--ax-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+
+/* masthead: one slim band; identical geometry in every theme, so the fit check holds for both */
+.mast { --money:#4ade80; --machine:#a78bfa; --rpi:#3b82f6; --gold:#d4a44c;
+  --ax-grad:linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%);
+  position:relative; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  background:var(--mast-bg,var(--bg-card)); border:1px solid var(--mast-border,var(--border)); border-bottom:0; border-radius:8px 8px 0 0; padding:11px 16px 10px; margin-bottom:15px; color:#e8e8f2; }
+.mast::after { content:""; position:absolute; left:-1px; right:-1px; bottom:-3px; height:3px; background:var(--ax-grad); }
+.mast .lockup { margin:0; }
+.mast .lockup .div { color:#3a3a52; }
+.mast .meta { flex-direction:column; align-items:flex-end; gap:3px; text-align:right; color:#9a9ab2; }
+.meta { display:flex; justify-content:space-between; align-items:center; font-size:8px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); font-weight:700; position:relative; }
+.meta .by { color:var(--gold); }
+.lockup { font-size:25px; line-height:1.05; letter-spacing:-.03em; font-weight:900; margin:10px 0 12px; position:relative; }
+.lockup .div { color:var(--border-strong); font-weight:300; margin:0 9px; }
+.lockup .sub { background:var(--ax-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; letter-spacing:.02em; }
+h1.title { font-size:26px; font-weight:900; letter-spacing:-.025em; line-height:1.1; position:relative; }
+h1.title em { font-style:normal; background:var(--ax-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.kicker { font-size:11.5px; color:var(--text-dim); line-height:1.5; margin-top:7px; max-width:7.1in; position:relative; }
+.kicker strong { color:var(--text); font-weight:600; }
+.badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; position:relative; }
+.badge { padding:3px 10px; border-radius:99px; font-size:7.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+.badge.money { background:var(--money-soft); color:var(--money); border:1px solid var(--money); }
+.badge.machine { background:var(--machine-soft); color:var(--machine); border:1px solid var(--machine); }
+.badge.rpi { background:var(--rpi-soft); color:var(--rpi); border:1px solid var(--rpi); }
+.badge.gold { background:var(--gold-soft); color:var(--gold-bright); border:1px solid var(--gold); }
+
+.back-hdr { display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:12px; position:relative; }
+.back-hdr .wm { font-size:15px; }
+.back-hdr .t { font-size:13px; font-weight:800; letter-spacing:-.01em; }
+.back-hdr .t span { color:var(--text-muted); font-weight:600; }
+
+.blk { margin-top:12px; }
+.counters { display:grid; gap:9px; }
+.counters.n2 { grid-template-columns:repeat(2,1fr); } .counters.n3 { grid-template-columns:repeat(3,1fr); } .counters.n4 { grid-template-columns:repeat(4,1fr); } .counters.n5 { grid-template-columns:repeat(5,1fr); }
+.counter { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--money); border-radius:9px; padding:10px 11px; }
+.counter .num { font-size:22px; font-weight:900; color:var(--money); line-height:1; margin-bottom:5px; letter-spacing:-.02em; white-space:nowrap; }
+.counter .label { font-size:8.5px; color:var(--text-dim); font-weight:600; line-height:1.35; }
+.counter.rpi { border-left-color:var(--rpi); } .counter.rpi .num { color:var(--rpi); }
+.counter.machine { border-left-color:var(--machine); } .counter.machine .num { color:var(--machine); }
+.counter.gold { border-left-color:var(--gold); } .counter.gold .num { color:var(--gold-bright); }
+
+.callout { background:linear-gradient(135deg, var(--bg-card2) 0%, var(--bg-card) 100%); border:1px solid var(--border-strong); border-left:4px solid var(--money); border-radius:11px; padding:12px 16px; }
+.callout.machine { border-left-color:var(--machine); } .callout.gold { border-left-color:var(--gold); } .callout.rpi { border-left-color:var(--rpi); }
+.callout .eb { font-size:7.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:5px; }
+.callout .q { font-weight:800; font-size:14.5px; line-height:1.35; letter-spacing:-.01em; }
+.callout .q em { font-style:normal; background:var(--ax-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.callout .s { font-size:9.5px; color:var(--text-dim); margin-top:5px; }
+.callout .s strong { color:var(--text); }
+
+.card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:11px 14px 12px; }
+.card.money { border-left:3px solid var(--money); } .card.rpi { border-left:3px solid var(--rpi); } .card.machine { border-left:3px solid var(--machine); } .card.gold { border-left:3px solid var(--gold); }
+.card .eb { font-size:7.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:3px; }
+.card.money .eb { color:var(--money); } .card.rpi .eb { color:var(--rpi); } .card.machine .eb { color:var(--machine); }
+.card h3 { font-size:12.5px; font-weight:800; letter-spacing:-.01em; line-height:1.25; margin-bottom:2px; }
+.card .note { font-size:8px; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+.card p { font-size:9.5px; color:var(--text-dim); line-height:1.5; }
+.card p strong { color:var(--text); font-weight:600; }
+.row { display:grid; gap:10px; grid-template-columns:1fr 1fr; align-items:stretch; }
+.row.r-wide-left { grid-template-columns:1.55fr 1fr; } .row.r-wide-right { grid-template-columns:1fr 1.55fr; }
+.row > .blk { margin-top:0; }
+.cards { display:grid; gap:9px; grid-template-columns:repeat(3,1fr); }
+.cards.c2 { grid-template-columns:1fr 1fr; } .cards.c1 { grid-template-columns:1fr; }
+
+/* legend */
+.legend { display:flex; gap:12px; flex-wrap:wrap; font-size:8px; color:var(--text-dim); margin:5px 0 2px; }
+.legend i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:4px; vertical-align:-1px; }
+
+/* bars */
+.bars { margin-top:7px; position:relative; }
+.bar-row { display:grid; grid-template-columns:var(--lw,1.7in) 1fr; gap:8px; align-items:center; padding:3px 0; }
+.bar-row + .bar-row { border-top:1px solid var(--grid); }
+.bar-lab { font-size:9px; font-weight:600; line-height:1.25; color:var(--text); }
+.bar-lab small { display:block; font-size:7.5px; color:var(--text-muted); font-weight:500; }
+.bar-tracks { display:flex; flex-direction:column; gap:2px; }
+.bar-line { display:flex; align-items:center; gap:6px; position:relative; }
+.bar-area { flex:1; position:relative; height:11px; }
+.bar-fill { position:absolute; left:0; top:0; bottom:0; border-radius:0 4px 4px 0; }
+.bar-val { font-size:8.5px; font-weight:700; color:var(--text); white-space:nowrap; min-width:0.5in; text-align:left; font-variant-numeric:tabular-nums; }
+.bar-val small { color:var(--text-muted); font-weight:500; }
+.bar-ref { position:absolute; top:-2px; bottom:-2px; border-left:1.5px dashed var(--gold); }
+.bar-ref-lab { font-size:7.5px; color:var(--gold-bright); font-weight:700; white-space:nowrap; }
+
+/* range (dot-on-a-line, optional log axis) */
+.range { margin-top:6px; }
+.rg-row { display:grid; grid-template-columns:var(--lw,1.55in) 1fr 0.55in; gap:8px; align-items:center; padding:5px 0; }
+.rg-row + .rg-row { border-top:1px solid var(--grid); }
+.rg-area { position:relative; height:24px; }
+.rg-track { position:absolute; left:0; right:0; top:11px; height:2px; background:var(--track); }
+.rg-span { position:absolute; top:8px; height:8px; border-radius:4px; background:var(--rpi-soft); border:1px solid var(--rpi); }
+.rg-mid { position:absolute; top:6px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:var(--money); border:2px solid var(--bg-card); }
+.rg-lbl { position:absolute; top:-3px; font-size:7.5px; color:var(--text-dim); white-space:nowrap; transform:translateX(-50%); font-variant-numeric:tabular-nums; }
+.rg-lbl.b { top:17px; }
+.rg-lbl.mid { color:var(--text); font-weight:700; }
+.rg-tag { font-size:10px; font-weight:900; color:var(--gold-bright); text-align:right; white-space:nowrap; }
+.rg-tag small { display:block; font-size:7px; color:var(--text-muted); font-weight:600; }
+.rg-axis { position:relative; height:12px; margin-top:2px; }
+.rg-axis span { position:absolute; transform:translateX(-50%); font-size:7px; color:var(--text-muted); }
+
+/* table */
+table.t { width:100%; border-collapse:collapse; font-size:8.8px; margin-top:6px; }
+table.t th { text-align:left; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); font-weight:800; padding:5px 6px; background:var(--bg-card2); border-bottom:1px solid var(--border); }
+table.t td { padding:4.5px 6px; border-bottom:1px solid var(--grid); color:var(--text-dim); vertical-align:top; }
+table.t td strong { color:var(--text); }
+table.t tr:last-child td { border-bottom:none; }
+table.t .r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+table.t td.hl { color:var(--text); font-weight:700; }
+table.t.compact th { padding:3.5px 6px; } table.t.compact td { padding:2.5px 6px; }
+
+/* bullets */
+ul.shows { list-style:none; margin-top:5px; }
+ul.shows li { position:relative; padding-left:13px; font-size:9.5px; color:var(--text-dim); line-height:1.45; margin-bottom:5px; }
+ul.shows li::before { content:""; position:absolute; left:0; top:5px; width:6px; height:6px; border-radius:2px; background:var(--ax-grad); }
+ul.shows li strong { color:var(--text); font-weight:600; }
+
+/* live surface / QR */
+.live { display:flex; gap:11px; align-items:center; }
+.qr { background:#fff; border-radius:8px; padding:6px; flex:0 0 auto; line-height:0; }
+.qr svg { width:0.95in; height:0.95in; display:block; }
+.live .eb { font-size:7.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--money); font-weight:800; margin-bottom:3px; }
+.live .nm { font-size:11.5px; font-weight:800; line-height:1.25; }
+.live a { color:var(--rpi); text-decoration:none; font-size:8px; word-break:break-all; display:block; margin-top:4px; line-height:1.35; }
+.live .how { font-size:8px; color:var(--text-muted); margin-top:4px; line-height:1.35; }
+
+/* disclosure: filters, defaults, method and sources, at the bottom of the last page (above the footer) */
+.disc { margin-top:10px; border-top:1px solid var(--border); padding-top:7px; position:relative; }
+.disc .eb { font-size:7.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:4px; display:flex; justify-content:space-between; align-items:baseline; }
+.disc .eb span { letter-spacing:.04em; text-transform:none; color:var(--text-muted); font-weight:600; font-size:7px; }
+.disc .cols { column-count:2; column-gap:20px; }
+.disc .dr { break-inside:avoid; padding:0 0 3px; font-size:7.1px; line-height:1.38; color:var(--text-dim); }
+.disc .dl { display:inline; font-size:6.3px; letter-spacing:.1em; text-transform:uppercase; color:var(--text); font-weight:800; margin-right:5px; }
+.disc .dv { display:inline; }
+.disc .dv strong, .disc .dv b { color:var(--text); font-weight:600; }
+.foot { border-top:1px solid var(--border); padding-top:7px; display:flex; justify-content:space-between; gap:14px; align-items:flex-start; font-size:7.2px; color:var(--text-muted); line-height:1.45; margin-top:10px; }
+.foot .src { flex:1; }
+.foot .src b { color:var(--text-dim); font-weight:700; }
+.foot .rt { text-align:right; white-space:nowrap; }
+.foot .rt .wm { font-size:10px; color:var(--text); }
+</style>
+<style media="print">
+/* Print paper (default for PDFs; Ctrl+P on the screen page too): white paper, one slim dark masthead band,
+   light-grey tiles, thin rules, near-black text, accents dark enough for an office printer. Colors only:
+   no size, padding or border-width changes here, so the layout (and the fit check) is the same as the screen theme.
+   Palette from the Tuesday weekly brief (~/inbox/weekly-brief). */
+:root {
+  --bg:#ffffff; --bg-card:#ffffff; --bg-card2:#f6f6f9; --bg-accent:#f6f6f9;
+  --border:#dcdce4; --border-strong:#c8c8d4;
+  --text:#0b0b10; --text-dim:#3f3f4a; --text-muted:#62626f;
+  --money:#15803d; --machine:#5a52e0; --rpi:#1d4ed8;
+  --gold:#a16207; --gold-bright:#a16207; --gold-soft:#fdf6e7;
+  --red:#b91c1c;
+  --money-soft:#eef8f1; --machine-soft:#f1f0fd; --rpi-soft:#eef3fd;
+  --ax-grad:linear-gradient(135deg, var(--money) 0%, var(--machine) 50%, var(--rpi) 100%);
+  --track:#ececf1; --grid:#e6e6ec;
+  --s1:#16a34a; --s2:#2563eb; --s3:#d97706; --s4:#6d5ae6;
+  --mast-bg:#0b0b10; --mast-border:#0b0b10;
+}
+html, body { background:#fff; }
+.page { background:#fff; box-shadow:none; }
+.hdr-glow, .page > .hdr-rule { display:none; }
+.counter { background:#f6f6f9; }
+.callout { background:#f6f6f9; border-color:#dcdce4; }
+.card { background:#fff; }
+table.t th { background:#f3f3f7; color:#3f3f4a; border-bottom-color:#c8c8d4; }
+.rg-mid { border-color:#fff; }
+.badge { background:#fff; }
+.qr { border:1px solid #dcdce4; }
+.back-hdr { border-bottom-color:#0b0b10; }
+.foot, .disc { border-top-color:#c8c8d4; }
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #222;padding:10px 16px;font:600 14px Inter,system-ui,sans-serif" class="agx-back"><a href="/" style="color:#fff;text-decoration:none">&larr; theAgentXStory</a></div><style media="print">.agx-back{display:none}</style>
+<section class="page front"><div class="hdr-glow"></div><div class="hdr-rule"></div><div class="mast"><div class="lockup"><span class="wm">agent<span class="xsup">X</span></span><span class="div">|</span><span class="sub">INSIGHTS</span></div><div class="meta"><span class="by">CMS enrollment · November 2026</span><span>Prepared for Devoted Health · IA/NE</span></div></div><h1 class="title">Medica in <em>Iowa &amp; Nebraska</em></h1><p class="kicker">For 2027 Medica ends the three plans holding 97% of its MA members here, leaves Iowa MA, and raises its prices.</p><div class="blk"><div class="counters n4"><div class="counter rpi"><div class="num">12,459</div><div class="label">Medica members counted in IA/NE: MA 8,346 · cost 4,113; a floor</div></div><div class="counter machine"><div class="num">8,077</div><div class="label">MA members in plans terminated for 2027: 97% of the MA book</div></div><div class="counter gold"><div class="num">0</div><div class="label">Medica MA plans in Iowa for 2027; cost plans only, 13 counties</div></div><div class="counter money"><div class="num">$0 → $94</div><div class="label">cheapest Medica Rx plan in NE, 2026 → 2027; MOOP floor $3,800 → $7,150</div></div></div></div><div class="blk"><div class="callout machine"><div class="eb">The opening</div><div class="q">Medica&#x27;s members have to <em>choose again</em>.</div><div class="s">Preferred (5,364 in NE), Value (1,833) and Select (695) are terminated, not rolled into a successor plan. What Medica files instead: Essential $94 · MOOP $7,150, Select $169 · $7,150, and Salute (no Rx) $0 · $4,450, in 42 NE counties, down from 49: it leaves Omaha and Lincoln outright (Douglas, Sarpy, Lancaster and 5 more, incl. Butler next to Platte), about 1,556 members.</div></div></div><div class="blk"><div class="card "><div class="eb">The book</div><h3>Medica&#x27;s IA/NE plans: members, price, 2027 fate</h3><table class="t compact"><tr><th>Plan</th><th>State</th><th class="r">Members</th><th class="r">2026 prem · MOOP</th><th>2027</th></tr><tr><td>Medica Advantage Preferred PPO</td><td>NE</td><td class="r hl">5,364</td><td class="r">$155 · $3,800</td><td><strong>Terminated</strong></td></tr><tr><td>Medica Advantage Value PPO</td><td>NE</td><td class="r hl">1,833</td><td class="r">$0 · $6,750</td><td><strong>Terminated</strong></td></tr><tr><td>Medica Advantage Select PPO</td><td>NE</td><td class="r hl">695</td><td class="r">$45 · $4,200</td><td><strong>Terminated</strong></td></tr><tr><td>Medica Advantage Solution PPO (no Rx)</td><td>NE</td><td class="r hl">269</td><td class="r">$0 · $6,750</td><td>Renews as Salute</td></tr><tr><td>Preferred · Value · Select PPO</td><td>IA</td><td class="r hl">185</td><td class="r">same</td><td><strong>Terminated</strong>; no IA MA</td></tr><tr><td>Prime Solution Premier (Cost)</td><td>NE · IA</td><td class="r hl">2,028 · 272</td><td class="r">$189 · $4,200</td><td>$216 · $4,450</td></tr><tr><td>Prime Solution Core (Cost)</td><td>NE · IA</td><td class="r hl">975 · 277</td><td class="r">$99 · $4,900</td><td>$114 · $5,900</td></tr><tr><td>Prime Solution Standard (Cost)</td><td>NE</td><td class="r hl">546</td><td class="r">— · $5,900</td><td>Renews, smaller area · $7,150</td></tr></table><div class="note">Members: Nov 2026, individual plans. Cost-plan price is its Part C premium.</div></div></div><div class="blk"><div class="row r-wide-left"><div class="blk"><div class="card rpi"><div class="eb">Under the hood</div><h3>What CMS pays Medica, and where it goes</h3><table class="t compact"><tr><th>Measure</th><th class="r">Value</th></tr><tr><td>Revenue per member per month, MA + D (2023)</td><td class="r">$1,147</td></tr><tr><td>Parts A/B claims · supplemental · Rx</td><td class="r">$912 · $41 · $113</td></tr><tr><td>Non-claims cost (brokers $19)</td><td class="r">$137</td></tr><tr><td>Medical loss ratio, adjusted</td><td class="r"><strong>93.3%</strong></td></tr><tr><td>CMS A/B pay · rebate, Preferred (2024)</td><td class="r">$1,023 · $153</td></tr></table><div class="note">MLR: contract H8889 (all states), 2023 filing. Payment: 2024, same plan IDs.</div></div></div><div class="blk"><div class="cards c1"><div class="card gold"><div class="eb">Stars</div><h3>MA 3.5 → 4.0</h3><p>Contract H8889, 2026 → 2027 ratings. Cost contract H2450: 3.5 → 3.0.</p></div><div class="card machine"><div class="eb">Read it this way</div><h3>93¢ of each $1 paid out</h3><p>Adjusted MLR 93.3% against CMS&#x27;s 85% floor: little room left in how these PPOs were priced.</p></div></div></div></div></div><div class="blk"><div class="row r-wide-left"><div class="blk"><div class="card money"><div class="eb">What it shows</div><ul class="shows"><li><strong>The Preferred buyer</strong> paid $155 for a $3,800 MOOP. Medica&#x27;s 2027 Select is $169 with a $7,150 MOOP.</li><li><strong>The Value buyer</strong> paid $0. The cheapest Medica plan with Rx in 2027 is Essential at $94 a month.</li><li><strong>Iowa</strong>: 185 MA members lose Medica MA outright; 564 cost members stay in 13 counties.</li></ul></div></div><div class="blk"><div class="card"><div class="live"><div class="qr"><svg viewBox="0 0 132 132"  class="segno"><g transform="scale(4)"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#08080c" d="M0 0.5h7m5 0h1m4 0h1m4 0h1m3 0h7m-33 1h1m5 0h1m1 0h2m1 0h1m1 0h2m3 0h1m2 0h2m3 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m2 0h1m1 0h3m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h5m2 0h1m1 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m3 0h1m4 0h1m1 0h1m1 0h5m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m4 0h3m2 0h1m1 0h1m3 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h2m1 0h2m1 0h1m4 0h1m2 0h1m1 0h1m-25 1h1m5 0h1m1 0h3m2 0h3m1 0h2m1 0h1m1 0h5m2 0h3m-32 1h2m3 0h1m2 0h1m5 0h2m2 0h2m2 0h2m4 0h4m-32 1h3m2 0h2m2 0h4m2 0h4m1 0h1m1 0h1m2 0h1m2 0h1m1 0h2m-32 1h3m1 0h2m4 0h1m1 0h1m1 0h1m4 0h2m1 0h1m1 0h1m2 0h4m-30 1h3m1 0h2m1 0h2m2 0h3m1 0h1m6 0h2m1 0h2m3 0h1m-24 1h2m3 0h2m1 0h6m1 0h1m2 0h2m1 0h4m-33 1h4m2 0h2m3 0h2m4 0h1m4 0h1m2 0h2m3 0h2m-32 1h1m1 0h2m3 0h1m1 0h2m3 0h2m2 0h3m1 0h1m2 0h1m1 0h4m1 0h1m-33 1h2m1 0h1m1 0h4m1 0h5m2 0h1m4 0h4m1 0h3m2 0h1m-28 1h1m1 0h6m1 0h1m1 0h5m1 0h2m1 0h2m2 0h2m1 0h1m-33 1h2m2 0h3m1 0h1m2 0h3m1 0h1m2 0h6m1 0h1m1 0h1m1 0h2m1 0h1m-30 1h2m2 0h1m2 0h7m3 0h1m1 0h1m2 0h1m2 0h5m-33 1h4m1 0h2m3 0h1m1 0h3m2 0h1m6 0h2m1 0h3m1 0h1m-32 1h6m2 0h3m1 0h1m1 0h1m1 0h1m1 0h2m2 0h3m2 0h2m1 0h1m-31 1h1m3 0h4m1 0h1m1 0h2m1 0h2m1 0h2m1 0h3m2 0h1m3 0h1m1 0h1m-32 1h1m2 0h1m1 0h1m2 0h1m1 0h2m1 0h2m5 0h1m3 0h1m2 0h2m1 0h2m-32 1h4m2 0h1m1 0h2m1 0h1m2 0h3m2 0h1m3 0h7m1 0h1m-24 1h1m1 0h3m2 0h1m2 0h5m1 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m2 0h1m3 0h4m1 0h1m1 0h5m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m3 0h2m1 0h1m5 0h2m2 0h2m3 0h5m-33 1h1m1 0h3m1 0h1m2 0h1m2 0h1m4 0h2m3 0h1m1 0h6m2 0h1m-33 1h1m1 0h3m1 0h1m4 0h1m1 0h1m3 0h5m2 0h2m1 0h3m1 0h2m-33 1h1m1 0h3m1 0h1m4 0h1m1 0h1m1 0h1m3 0h5m1 0h1m1 0h2m2 0h2m-33 1h1m5 0h1m2 0h2m3 0h3m2 0h2m6 0h4m-31 1h7m1 0h2m1 0h1m2 0h1m2 0h1m1 0h2m1 0h6m3 0h1"/></g></svg></div><div><div class="eb">Talk to us</div><div class="nm">RPI · Columbus, NE</div><a href="https://theagentxstory.com/Insights/medica-iowa-nebraska/">https://theagentxstory.com/Insights/medica-iowa-nebraska/</a><div class="how">Ask Josh for a live walkthrough of the data behind this page.</div></div></div></div></div></div></div><div class="spacer"></div><div class="foot"><div class="src"><b>Sources, filters and method:</b> see Disclosure on the back.</div><div class="rt"><span class="wm">agent<span class="xsup">X</span></span> &nbsp;|&nbsp; INSIGHTS<br>agentX Insights · 2026-11-24 · 1/2</div></div></section><section class="page back"><div class="hdr-rule"></div><div class="back-hdr"><span class="wm">agent<span class="xsup">X</span></span><span class="t">Where Medica&#x27;s members live <span>· Nebraska by county · Platte called out · November 2026</span></span></div><div class="blk"><div class="counters n4"><div class="counter machine"><div class="num">1,427</div><div class="label">Medica MA members in Platte: its largest county in IA/NE, 17% of the NE MA book</div></div><div class="counter gold"><div class="num">72%</div><div class="label">Medica&#x27;s share of counted Platte MA (1,427 of 1,977); 7 carriers file 22 plans there for 2027</div></div><div class="counter money"><div class="num">1,372</div><div class="label">Platte Medica members in plans terminated for 2027 (96% of them)</div></div><div class="counter rpi"><div class="num">2,801</div><div class="label">Medica members in Platte + 8 bordering counties: MA 2,606 · cost 195 (Colfax, Polk)</div></div></div></div><div class="blk"><div class="callout machine"><div class="eb">Near Columbus</div><div class="q">Medica&#x27;s single biggest county is <em>Platte</em>, and nearly all of it must choose again.</div><div class="s">Platte + 8 bordering counties: 2,606 Medica MA members, 2,491 in plans ending for 2027; 195 more on cost plans in Colfax and Polk. Columbus Community Hospital&#x27;s price file names Medica&#x27;s cost plan as its only Medicare payer.</div></div></div><div class="blk"><div class="card "><div class="eb">The MA book</div><h3>Medica&#x27;s 8 biggest Nebraska counties</h3><table class="t compact"><tr><th>County</th><th class="r">All MA</th><th class="r">Medica</th><th class="r">Share</th><th class="r">Ending &#x27;27</th><th class="r">MA penetration</th></tr><tr><td><strong>Platte</strong></td><td class="r"><strong>1,977</strong></td><td class="r hl"><strong>1,427</strong></td><td class="r"><strong>72.2%</strong></td><td class="r"><strong>1,372</strong></td><td class="r"><strong>28.2%</strong></td></tr><tr><td>Hall</td><td class="r">4,400</td><td class="r hl">865</td><td class="r">19.7%</td><td class="r">796</td><td class="r">38.8%</td></tr><tr><td>Buffalo</td><td class="r">2,979</td><td class="r hl">647</td><td class="r">21.7%</td><td class="r">626</td><td class="r">32.0%</td></tr><tr><td>Madison</td><td class="r">2,895</td><td class="r hl">640</td><td class="r">22.1%</td><td class="r">600</td><td class="r">37.9%</td></tr><tr><td>Douglas</td><td class="r">42,640</td><td class="r hl">519</td><td class="r">1.2%</td><td class="r">519</td><td class="r">44.9%</td></tr><tr><td>Lancaster</td><td class="r">19,456</td><td class="r hl">407</td><td class="r">2.1%</td><td class="r">407</td><td class="r">34.8%</td></tr><tr><td>Adams</td><td class="r">2,166</td><td class="r hl">371</td><td class="r">17.1%</td><td class="r">340</td><td class="r">31.3%</td></tr><tr><td>Knox</td><td class="r">720</td><td class="r hl">233</td><td class="r">32.4%</td><td class="r">222</td><td class="r">33.9%</td></tr></table><div class="note">Share = Medica ÷ all counted individual MA members in the county. Ending &#x27;27 = in Preferred, Value or Select.</div></div></div><div class="blk"><div class="row r-wide-left"><div class="blk"><div class="card "><div class="eb">Where Medica is the market</div><h3>Medica&#x27;s share of MA, by county</h3><div class="bars" style="--lw:0.9in"><div class="bar-row"><div class="bar-lab">Platte</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:90.25%;background:var(--s1)"></div></div><div class="bar-val">72.2% <small>1,427</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Holt</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:61.62%;background:var(--s1)"></div></div><div class="bar-val">49.3% <small>210</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Boone</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:57.88%;background:var(--s1)"></div></div><div class="bar-val">46.3% <small>196</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Kearney</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:44.75%;background:var(--s1)"></div></div><div class="bar-val">35.8% <small>117</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Cedar</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:42.50%;background:var(--s1)"></div></div><div class="bar-val">34.0% <small>217</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Knox</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:40.50%;background:var(--s1)"></div></div><div class="bar-val">32.4% <small>233</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Wayne</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:39.75%;background:var(--s1)"></div></div><div class="bar-val">31.8% <small>117</small></div></div></div></div><div class="bar-row"><div class="bar-lab">Stanton</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:36.88%;background:var(--s1)"></div></div><div class="bar-val">29.5% <small>92</small></div></div></div></div></div><div class="note">Counties with 300+ counted MA members.</div></div></div><div class="blk"><div class="card rpi"><div class="eb">The cost plans</div><h3>Medica cost members, by county</h3><div class="bars" style="--lw:0.9in"><div class="bar-row"><div class="bar-lab">Scotts Bluff</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:100.00%;background:var(--s2)"></div></div><div class="bar-val">1,416</div></div></div></div><div class="bar-row"><div class="bar-lab">Dawes</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:16.67%;background:var(--s2)"></div></div><div class="bar-val">236</div></div></div></div><div class="bar-row"><div class="bar-lab">Cheyenne</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:14.90%;background:var(--s2)"></div></div><div class="bar-val">211</div></div></div></div><div class="bar-row"><div class="bar-lab">Box Butte</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:13.70%;background:var(--s2)"></div></div><div class="bar-val">194</div></div></div></div><div class="bar-row"><div class="bar-lab">Saline</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:13.56%;background:var(--s2)"></div></div><div class="bar-val">192</div></div></div></div><div class="bar-row"><div class="bar-lab">Lyon, IA</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:12.36%;background:var(--s2)"></div></div><div class="bar-val">175</div></div></div></div><div class="bar-row"><div class="bar-lab">Fillmore</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:12.08%;background:var(--s2)"></div></div><div class="bar-val">171</div></div></div></div><div class="bar-row"><div class="bar-lab">Colfax</div><div class="bar-tracks"><div class="bar-line"><div class="bar-area"><div class="bar-fill" style="width:10.24%;background:var(--s2)"></div></div><div class="bar-val">145</div></div></div></div></div><div class="note">Sold in 25 NE + 13 IA counties; not Platte.</div></div></div></div></div><div class="spacer"></div><div class="disc"><div class="eb">Disclosure</div><div class="cols"><div class="dr"><div class="dl">Geography</div><div class="dv">Iowa and Nebraska. Page 2: Nebraska counties; Platte&#x27;s 8 bordering counties per Census 2024 adjacency.</div></div><div class="dr"><div class="dl">Period</div><div class="dv">Enrollment, penetration <strong>Nov 2026</strong>. Premium, MOOP, counties: 2026/2027 Landscape. Status: 2027 crosswalk. MLR 2023; CMS payment 2024.</div></div><div class="dr"><div class="dl">Medica</div><div class="dv">Parent organization Medica Holding Company: H8889 (MA PPO), H2450 (1876 Cost), H2458 (D-SNP, none counted here). Not Medical Associates (H1651) or Mercy (H5256).</div></div><div class="dr"><div class="dl">Plans</div><div class="dv">Individual plans only; group, PDP excluded. MA counts and shares exclude cost plans; cost shown separately.</div></div><div class="dr"><div class="dl">Suppression</div><div class="dv">CMS hides plan × county cells of <strong>10 or fewer</strong>: every count and share is a floor.</div></div><div class="dr"><div class="dl">Terminated</div><div class="dv">Crosswalk status Terminated/Non-renewed: members are not moved to a successor plan.</div></div><div class="dr"><div class="dl">Known gaps</div><div class="dv">One enrollment month loaded: no trend. MLR and payment are contract- or plan-wide (all states), not IA/NE only.</div></div><div class="dr"><div class="dl">Sources</div><div class="dv">BigQuery atlas_external: cms_enrollment_plan_county, cms_ma_penetration_county, cms_pbp_landscape_2026/2027, cms_pbp_plan_crosswalk_2027, cms_pbp_star_ratings_2026/2027, cms_mlr_contract (2023), cms_plan_payment (2024). Pull: build_medica.py.</div></div></div></div><div class="foot"><div class="src"><b>Sources, filters and method:</b> see Disclosure above.</div><div class="rt"><span class="wm">agent<span class="xsup">X</span></span> &nbsp;|&nbsp; INSIGHTS<br>agentX Insights · 2026-11-24 · 2/2</div></div></section>
+<script>
+// Gradient <em> runs: Chrome's PDF leaves a hairline box around background-clip:text on a tinted card,
+// so <em> runs are colored letter by letter along the same money -> machine -> rpi gradient (prints exactly).
+// Each letter is a color-mix() of the live --money/--machine/--rpi, so it follows the screen, print and masthead palettes.
+(function(){
+  document.querySelectorAll('.callout .q em, h1.title em, .lockup .sub').forEach(function(el){
+    var txt=el.textContent, n=Math.max(txt.length-1,1), h='';
+    for(var i=0;i<txt.length;i++){
+      var c=txt[i], t=i/n, a=t<.5?'--money':'--machine', b=t<.5?'--machine':'--rpi', u=Math.round((t<.5?t*2:(t-.5)*2)*100);
+      h+=c===' '?' ':'<span style="color:color-mix(in srgb, var('+b+') '+u+'%, var('+a+'))">'+c.replace('&','&amp;').replace('<','&lt;')+'</span>';
+    }
+    el.innerHTML=h; el.style.background='none'; el.style.webkitTextFillColor='currentColor'; el.style.color='inherit';
+  });
+})();
+// Balance: when a page has room left, open up the gaps between blocks (up to +32px each) so the
+// spare height reads as rhythm, not a hole above the footer. data-empty reports what is still left.
+function axBalance(){
+  var left=[];
+  document.querySelectorAll('.page').forEach(function(p,i){
+    var sp=p.querySelector(':scope > .spacer'); if(!sp) return;
+    var blks=p.querySelectorAll(':scope > .blk'), h=sp.getBoundingClientRect().height;
+    if(h>30 && blks.length>1){
+      var add=Math.min((h-18)/blks.length,32);
+      blks.forEach(function(b){ b.style.marginTop=(parseFloat(getComputedStyle(b).marginTop)+add)+'px'; });
+    }
+    var dc=p.querySelector(':scope > .disc');
+    left.push('page'+(i+1)+' '+Math.round(sp.getBoundingClientRect().height)+'px'+(dc?' (disclosure '+Math.round(dc.getBoundingClientRect().height)+'px)':''));
+  });
+  document.body.setAttribute('data-empty', left.join(', '));
+}
+// Fit check: render.py reads these flags (via --dump-dom) and refuses to call a page done if anything spills.
+function axFit(){
+  var out=[];
+  document.querySelectorAll('.page').forEach(function(p,i){
+    var d=p.scrollHeight-p.clientHeight; if(d>1) out.push('page'+(i+1)+' overflows by '+d+'px');
+    p.querySelectorAll('.bar-lab,.bar-val,.counter .num,table.t td,table.t th,.rg-tag,.live a').forEach(function(e){
+      if(e.scrollWidth>e.clientWidth+1) out.push('page'+(i+1)+' clipped: '+(e.textContent||'').trim().slice(0,40));
+    });
+    var pr=p.getBoundingClientRect();
+    p.querySelectorAll('.blk,.foot,.disc').forEach(function(e){var r=e.getBoundingClientRect(); if(r.right>pr.right-20) out.push('page'+(i+1)+' too wide: '+e.className);});
+  });
+  document.body.setAttribute('data-fit', out.length?out.join(' | '):'ok');
+}
+// Run after the webfonts are in: measuring with fallback metrics mis-sizes the spare height.
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){axBalance();axFit();});
+</script>
+</body>
+</html>
